@@ -1,0 +1,1095 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#f0a500">
+<title>세포호흡과 발효 · 학습 노트</title>
+<style>
+:root{
+  --bg:#faf9f7; --card:#ffffff; --ink:#1c1b19; --sub:#6b6862;
+  --line:#e6e2db; --accent:#e09000; --accent-soft:#fff6e2;
+  --gly:#1a9e8f; --pyr:#e8703a; --oxp:#7b5ec7; --fer:#3b7dd8;
+  --ok:#1f9254; --no:#d0453b;
+
+  --ac:#c47a00; --dk:#3a362e;
+  --ok-soft:#e6f4ea; --no-soft:#fdecea;
+  --f-green:#e8f4e4; --f-sun:#e8a200; --f-chl:#a9d18e; --f-mit:#fbd9a5;
+  --f-atp:#ffe14d; --f-heat:#d94a3d; --f-e:#ffd54a; --f-ox:#ffe0b3; --f-red:#cfe3fb;
+  --f-cyt:#fdf3e3; --f-co2:#6d6a63; --f-inv:#eaf3fb; --f-ret:#e4f3ee;
+  --f-ims:#fde3c8; --f-mem:#f5e6a8; --f-mat:#fdf0cf; --f-h:#c9302c;
+  --f-alc:#eaf1fb; --f-lac:#fbeaea; --f-pro:#e0d6f5; --f-car:#d9eeda; --f-fat:#fdf0bf;
+  --r:14px; --shadow:0 1px 3px rgba(0,0,0,.06),0 6px 18px rgba(0,0,0,.04);
+}
+@media (prefers-color-scheme:dark){
+  :root{ --bg:#16150f; --card:#211f18; --ink:#f0ede5; --sub:#a29d92;
+    --line:#332f26; --accent:#f5b024; --accent-soft:#2c2415; --shadow:none;
+    --ac:#f5b024; --dk:#e8e4da;
+    --ok-soft:#17301f; --no-soft:#331916;
+    --f-green:#1b2a1c; --f-chl:#3f6b34; --f-mit:#4a3416; --f-cyt:#241d10;
+    --f-atp:#8a7415; --f-e:#8a7415; --f-ox:#3d2c12; --f-red:#16273d;
+    --f-inv:#151f2b; --f-ret:#12251f; --f-ims:#3d2611; --f-mem:#3a3213; --f-mat:#2b2411;
+    --f-alc:#151f2b; --f-lac:#2b1615; --f-pro:#251c3a; --f-car:#16281a; --f-fat:#2e2810;
+    --f-co2:#8a8880; --f-sun:#f5b024; --f-heat:#e8564a; --f-h:#e8564a;
+  }
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0}
+body{
+  background:var(--bg); color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic","Noto Sans KR",sans-serif;
+  font-size:17px; line-height:1.75; letter-spacing:-.01em;
+  -webkit-text-size-adjust:100%;
+}
+
+/* ===== 헤더 ===== */
+header{
+  position:sticky; top:0; z-index:50; background:var(--card);
+  border-bottom:1px solid var(--line); padding:env(safe-area-inset-top) 0 0;
+}
+.hd{display:flex;align-items:center;gap:10px;padding:11px 16px 9px}
+.hd .ch{
+  background:var(--accent); color:#fff; font-weight:800; font-size:15px;
+  width:30px;height:30px;border-radius:9px;display:grid;place-items:center;flex:none;
+}
+.hd h1{font-size:16px;margin:0;font-weight:700;letter-spacing:-.02em}
+.hd .src{font-size:11px;color:var(--sub);margin-top:1px}
+nav{display:flex;overflow-x:auto;scrollbar-width:none;padding:0 8px 0;gap:2px}
+nav::-webkit-scrollbar{display:none}
+nav button{
+  flex:none;background:none;border:0;padding:9px 13px 11px;font:inherit;font-size:14px;
+  font-weight:600;color:var(--sub);border-bottom:2.5px solid transparent;cursor:pointer;
+}
+nav button.on{color:var(--accent);border-bottom-color:var(--accent)}
+
+/* 진행 바 */
+#bar{height:2px;background:var(--accent);width:0;transition:width .15s}
+
+main{padding:18px 16px 90px;max-width:760px;margin:0 auto}
+section{display:none}
+section.on{display:block;animation:fade .22s ease}
+@keyframes fade{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+
+/* ===== 읽기 ===== */
+.lead{
+  background:var(--accent-soft); border:1px solid var(--line); border-radius:var(--r);
+  padding:15px 16px; margin:0 0 22px; font-size:15.5px; line-height:1.7;
+}
+.lead b{color:var(--accent)}
+
+h2{
+  font-size:19px; margin:34px 0 4px; letter-spacing:-.03em; line-height:1.4;
+  scroll-margin-top:100px;
+}
+h2 .n{
+  display:inline-block; font-size:12px; font-weight:800; color:#fff;
+  background:var(--ink); border-radius:5px; padding:2px 7px; margin-right:7px;
+  vertical-align:2px; letter-spacing:0;
+}
+h2.gly .n{background:var(--gly)} h2.pyr .n{background:var(--pyr)}
+h2.oxp .n{background:var(--oxp)} h2.fer .n{background:var(--fer)}
+.sub{color:var(--sub);font-size:13.5px;margin:0 0 16px;font-weight:500}
+h3{font-size:16px;margin:24px 0 8px;letter-spacing:-.02em}
+p{margin:0 0 13px}
+.t{color:var(--accent);font-weight:700}
+em{font-style:normal;background:linear-gradient(transparent 58%,var(--accent-soft) 58%);font-weight:600}
+
+/* 그림 */
+figure{margin:18px 0;background:var(--card);border:1px solid var(--line);
+  border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow)}
+figure svg{width:100%;height:auto;display:block;cursor:zoom-in;background:var(--card);padding:8px 6px}
+.s-ti{font:700 9.5px -apple-system,"Malgun Gothic",sans-serif;fill:var(--dk)}
+.s-sm{font:500 8.5px -apple-system,"Malgun Gothic",sans-serif;fill:var(--dk)}
+.s-lb{font:600 9px -apple-system,"Malgun Gothic",sans-serif;fill:var(--sub)}
+.s-tot{font:800 12px -apple-system,"Malgun Gothic",sans-serif}
+figcaption{padding:9px 13px 11px;font-size:12.5px;color:var(--sub);line-height:1.55;
+  border-top:1px solid var(--line)}
+figcaption b{color:var(--ink);font-size:12.5px}
+.tapz{font-size:11px;color:var(--accent);font-weight:600}
+
+/* 요점 박스 */
+.key{
+  border-left:3px solid var(--accent); background:var(--card); border-radius:0 var(--r) var(--r) 0;
+  padding:13px 15px; margin:16px 0; font-size:15.5px; box-shadow:var(--shadow);
+}
+.key b{color:var(--accent)}
+.key ul{margin:6px 0 0;padding-left:18px}
+.key li{margin:4px 0}
+
+/* 표 */
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:16px 0;
+  border:1px solid var(--line);border-radius:var(--r);background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:14px;min-width:420px}
+th,td{padding:9px 11px;text-align:left;border-bottom:1px solid var(--line)}
+th{background:var(--accent-soft);font-weight:700;font-size:13px;white-space:nowrap}
+td:first-child{font-weight:600;white-space:nowrap}
+tr:last-child td{border-bottom:0}
+
+/* ===== 핵심정리 ===== */
+.flow{display:flex;flex-direction:column;gap:9px;margin:16px 0}
+.st{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--gly);
+  border-radius:10px;padding:12px 14px;box-shadow:var(--shadow)}
+.st.p{border-left-color:var(--pyr)} .st.o{border-left-color:var(--oxp)} .st.f{border-left-color:var(--fer)}
+.st h4{margin:0 0 3px;font-size:15px}
+.st .io{font-size:13px;color:var(--sub);line-height:1.6}
+.st .io b{color:var(--ink)}
+.arw{text-align:center;color:var(--sub);font-size:13px;margin:-4px 0}
+.tot{background:var(--accent);color:#fff;border-radius:12px;padding:14px;text-align:center;
+  font-weight:700;font-size:16px;margin-top:6px}
+.tot small{display:block;font-weight:500;font-size:12px;opacity:.9;margin-top:3px}
+
+/* ===== 퀴즈 ===== */
+.q{background:var(--card);border:1px solid var(--line);border-radius:var(--r);
+  padding:16px;margin:0 0 14px;box-shadow:var(--shadow)}
+.qn{font-size:11px;font-weight:800;color:var(--accent);letter-spacing:.06em;margin-bottom:5px}
+.qt{font-weight:600;margin-bottom:11px;line-height:1.65}
+.opt{display:block;width:100%;text-align:left;background:var(--bg);border:1.5px solid var(--line);
+  border-radius:9px;padding:11px 13px;margin:6px 0;font:inherit;font-size:15px;cursor:pointer;
+  color:var(--ink);transition:.12s;line-height:1.5}
+.opt:active{transform:scale(.99)}
+.opt.ok{border-color:var(--ok);background:color-mix(in srgb,var(--ok) 12%,transparent);font-weight:600}
+.opt.no{border-color:var(--no);background:color-mix(in srgb,var(--no) 10%,transparent)}
+.opt:disabled{cursor:default}
+.exp{display:none;margin-top:10px;padding:11px 13px;background:var(--accent-soft);
+  border-radius:9px;font-size:14px;line-height:1.65}
+.exp.show{display:block}
+.exp b{color:var(--accent)}
+.score{position:sticky;bottom:14px;background:var(--ink);color:var(--bg);border-radius:99px;
+  padding:11px 18px;text-align:center;font-weight:700;font-size:14px;box-shadow:0 6px 20px rgba(0,0,0,.25);
+  margin-top:18px}
+
+/* ===== 용어카드 ===== */
+.deck{display:grid;gap:10px}
+.fc{background:var(--card);border:1px solid var(--line);border-radius:var(--r);
+  padding:15px 16px;cursor:pointer;box-shadow:var(--shadow);transition:.12s}
+.fc:active{transform:scale(.995)}
+.fc .w{font-weight:700;font-size:16px;display:flex;justify-content:space-between;align-items:center;gap:8px}
+.fc .w span{font-size:11px;color:var(--sub);font-weight:600;flex:none}
+.fc .en{font-size:12px;color:var(--sub);margin-top:2px;font-weight:500}
+.fc .d{display:none;margin-top:9px;padding-top:9px;border-top:1px dashed var(--line);
+  font-size:14.5px;line-height:1.65;color:var(--ink)}
+.fc.open .d{display:block}
+.fc.open{border-color:var(--accent)}
+
+/* 라이트박스 */
+#lb{position:fixed;inset:0;background:var(--bg);z-index:200;display:none;
+  place-items:center;touch-action:none;padding:20px}
+#lb.on{display:grid}
+#lbi{width:100%;transform-origin:center center;will-change:transform}
+#lbi svg{width:100%;height:auto;max-height:88vh}
+#lbx{position:fixed;top:calc(env(safe-area-inset-top) + 10px);right:12px;z-index:201;
+  background:var(--card);color:var(--ink);border:1px solid var(--line);width:40px;height:40px;border-radius:50%;
+  font-size:22px;cursor:pointer;backdrop-filter:blur(6px)}
+#lbh{position:fixed;bottom:calc(env(safe-area-inset-bottom) + 16px);left:50%;transform:translateX(-50%);
+  color:var(--sub);font-size:12px;z-index:201;pointer-events:none;
+  padding:5px 12px;border-radius:99px}
+
+footer{text-align:center;font-size:11.5px;color:var(--sub);padding:26px 16px 30px;line-height:1.7}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="hd">
+    <div class="ch">호흡</div>
+    <div>
+      <h1>세포호흡과 발효</h1>
+      <div class="src">해당과정부터 화학삼투까지 · 폰으로 읽는 학습 노트</div>
+    </div>
+  </div>
+  <nav>
+    <button class="on" data-s="read">읽기</button>
+    <button data-s="map">한눈에</button>
+    <button data-s="quiz">퀴즈</button>
+    <button data-s="voca">용어</button>
+  </nav>
+  <div id="bar"></div>
+</header>
+
+<main>
+
+<!-- ============ 읽기 ============ -->
+<section id="read" class="on">
+
+  <div class="lead">
+    <b>생명은 일이다.</b> 세포는 물질을 나르고, 움직이고, 분자를 조립한다. 그 모든 일에는 에너지가 든다.
+    이 노트의 질문은 하나다 — <b>세포는 음식에 갇힌 에너지를 어떻게 ATP로 바꾸는가?</b>
+  </div>
+
+  <p>침팬지가 잎을 뜯어 먹는다. 그 잎의 에너지는 원래 햇빛이었다. 광합성이 빛에너지를 유기물에 가두었고,
+  침팬지는 그 유기물을 먹어 자기 몸의 연료로 쓴다. 생태계에서 <em>에너지는 흘러 지나가고(빛 → 열), 물질은 돌고 돈다</em>.</p>
+
+  <figure><svg id="d-cycle" viewBox="0 0 340 250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="생태계 에너지 흐름과 물질 순환">
+  <defs><marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+    <path d="M0,0 L10,5 L0,10 z" fill="var(--dk)"/></marker></defs>
+  <rect x="8" y="34" width="324" height="182" rx="10" fill="var(--f-green)" stroke="var(--line)"/>
+  <text x="18" y="50" class="s-lb">생태계</text>
+  <!-- 빛 -->
+  <text x="170" y="16" class="s-ti" text-anchor="middle" fill="var(--f-sun)">☀ 빛에너지</text>
+  <path d="M170,22 L170,58" stroke="var(--f-sun)" stroke-width="3.5" marker-end="url(#ah)"/>
+  <!-- 엽록체 -->
+  <ellipse cx="170" cy="76" rx="40" ry="19" fill="var(--f-chl)" stroke="var(--dk)" stroke-width="1.2"/>
+  <text x="170" y="74" class="s-ti" text-anchor="middle">엽록체</text>
+  <text x="170" y="86" class="s-sm" text-anchor="middle">광합성</text>
+  <!-- 순환 화살표 -->
+  <path d="M212,86 Q262,110 250,132" fill="none" stroke="var(--dk)" stroke-width="2" marker-end="url(#ah)"/>
+  <text x="272" y="112" class="s-sm" text-anchor="middle">유기물</text>
+  <text x="272" y="123" class="s-sm" text-anchor="middle">+ O₂</text>
+  <path d="M90,132 Q78,110 128,86" fill="none" stroke="var(--dk)" stroke-width="2" marker-end="url(#ah)"/>
+  <text x="66" y="112" class="s-sm" text-anchor="middle">CO₂</text>
+  <text x="66" y="123" class="s-sm" text-anchor="middle">+ H₂O</text>
+  <!-- 미토콘드리아 -->
+  <ellipse cx="170" cy="150" rx="42" ry="20" fill="var(--f-mit)" stroke="var(--dk)" stroke-width="1.2"/>
+  <path d="M144,150 q7,-9 13,0 q7,9 13,0 q7,-9 13,0" fill="none" stroke="var(--dk)" stroke-width="1.1" opacity=".55"/>
+  <text x="170" y="145" class="s-ti" text-anchor="middle">미토콘드리아</text>
+  <text x="170" y="166" class="s-sm" text-anchor="middle">세포호흡</text>
+  <path d="M212,150 Q252,150 250,134" fill="none" stroke="var(--dk)" stroke-width="2"/>
+  <path d="M128,150 Q88,150 90,134" fill="none" stroke="var(--dk)" stroke-width="2"/>
+  <!-- ATP -->
+  <path d="M170,170 L170,188" stroke="var(--dk)" stroke-width="2.5" marker-end="url(#ah)"/>
+  <rect x="140" y="190" width="60" height="20" rx="10" fill="var(--f-atp)" stroke="var(--dk)" stroke-width="1.2"/>
+  <text x="170" y="204" class="s-ti" text-anchor="middle">ATP</text>
+  <text x="240" y="204" class="s-sm">세포의 일</text>
+  <!-- 열 -->
+  <path d="M170,216 L170,236" stroke="var(--f-heat)" stroke-width="3.5" marker-end="url(#ah)"/>
+  <text x="182" y="234" class="s-sm" fill="var(--f-heat)">열에너지로 방출</text>
+</svg>
+    <figcaption><b>도해 1</b> 에너지는 빛으로 들어와 열로 빠져나가는 <b>일방통행</b>이지만, 탄소·산소 같은 원소는 엽록체와 미토콘드리아 사이를 <b>순환</b>한다. 광합성과 세포호흡은 서로의 원료를 대준다. <span class="tapz">탭하면 확대</span></figcaption>
+  </figure>
+
+  <!-- 9.1 -->
+  <h2><span class="n">1</span>에너지는 어디서 나오는가</h2>
+  <p class="sub">분자를 부수면 왜 에너지가 나올까?</p>
+
+  <h3>호흡이라는 단어부터 정리하자</h3>
+  <p><span class="t">이화반응경로</span>는 복잡한 분자를 부수어 갇힌 에너지를 꺼내는 길이다. 대표가 둘 있다.
+  <span class="t">발효</span>는 산소 없이 당을 부분적으로만 분해하고, <span class="t">산소호흡</span>은 산소를 반응물로 함께 써서
+  훨씬 효율적으로 분해한다. 산소 대신 다른 물질을 최종 전자수용체로 쓰는 <span class="t">무산소호흡</span>도 있다.</p>
+  <p>엄밀히 말하면 <em>세포호흡 = 산소호흡 + 무산소호흡</em>이지만, 관행적으로 세포호흡을 산소호흡의 동의어로 쓴다.
+  전체 요약식은 이렇다.</p>
+
+  <div class="key">
+    <b>C₆H₁₂O₆ + 6 O₂ → 6 CO₂ + 6 H₂O + 에너지(ATP + 열)</b>
+    <ul>
+      <li>ΔG = <b>−686 kcal/mol</b> — 음수, 즉 자발적인 발열반응</li>
+      <li>원리는 가솔린 연소와 같다. 다만 세포는 <b>한 번에 태우지 않는다.</b></li>
+    </ul>
+  </div>
+
+  <h3>산화와 환원: 전자가 이사하면 에너지가 나온다</h3>
+  <p>답은 <span class="t">전자</span>에 있다. 전자를 잃는 쪽이 <span class="t">산화</span>, 얻는 쪽이 <span class="t">환원</span>이고
+  둘은 항상 함께 일어난다. 전자를 주는 쪽이 환원제, 받는 쪽이 산화제다.</p>
+  <p>왜 이게 에너지를 낼까? 전자가 <em>전기음성도가 낮은 원자에서 높은 원자 쪽으로 옮겨가면 위치에너지를 잃기</em> 때문이다.
+  잃어버린 그만큼이 밖으로 나온다. 메탄이 탈 때 전자는 탄소에서 멀어져 산소 쪽으로 다가간다. 그래서 열이 난다.</p>
+
+  <figure><svg id="d-redox" viewBox="0 0 340 190" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="산화환원과 에너지">
+  <defs><marker id="ah2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+    <path d="M0,0 L10,5 L0,10 z" fill="var(--dk)"/></marker></defs>
+  <line x1="30" y1="20" x2="30" y2="160" stroke="var(--dk)" stroke-width="1.5" marker-start="url(#ah2)"/>
+  <text x="24" y="14" class="s-sm" text-anchor="middle">위치</text>
+  <text x="24" y="24" class="s-sm" text-anchor="middle">에너지</text>
+  <!-- 언덕 위 -->
+  <circle cx="90" cy="48" r="13" fill="var(--f-e)" stroke="var(--dk)" stroke-width="1.2"/>
+  <text x="90" y="53" class="s-ti" text-anchor="middle">e⁻</text>
+  <text x="90" y="30" class="s-sm" text-anchor="middle">전기음성도 낮은 원자</text>
+  <text x="90" y="80" class="s-lb" text-anchor="middle">“언덕 위”</text>
+  <!-- 화살표 -->
+  <path d="M112,56 Q170,80 226,116" fill="none" stroke="var(--dk)" stroke-width="2.5" marker-end="url(#ah2)" stroke-dasharray="0"/>
+  <text x="172" y="82" class="s-ti" text-anchor="middle" fill="var(--ac)">에너지 방출 ↓</text>
+  <!-- 언덕 아래 -->
+  <circle cx="248" cy="126" r="13" fill="var(--f-e)" stroke="var(--dk)" stroke-width="1.2"/>
+  <text x="248" y="131" class="s-ti" text-anchor="middle">e⁻</text>
+  <text x="248" y="152" class="s-sm" text-anchor="middle">전기음성도 높은 원자(O₂)</text>
+  <text x="248" y="164" class="s-lb" text-anchor="middle">“언덕 아래”</text>
+  <!-- 라벨 -->
+  <rect x="60" y="90" width="66" height="19" rx="9" fill="var(--f-ox)" stroke="var(--dk)" stroke-width="1"/>
+  <text x="93" y="103" class="s-ti" text-anchor="middle">산화 = 잃음</text>
+  <rect x="212" y="86" width="72" height="19" rx="9" fill="var(--f-red)" stroke="var(--dk)" stroke-width="1"/>
+  <text x="248" y="99" class="s-ti" text-anchor="middle">환원 = 얻음</text>
+</svg>
+    <figcaption><b>도해 2</b> 전자가 "언덕 위"에서 "언덕 아래"로 떨어지는 만큼 에너지가 나온다. 산소는 전기음성도가 매우 커서 가장 강한 산화제 중 하나다. <span class="tapz">탭하면 확대</span></figcaption>
+  </figure>
+
+  <p>포도당 산화도 똑같다. 포도당은 산화되고(전자를 잃고), 산소는 환원된다(전자를 얻는다).
+  수소가 풍부한 분자가 좋은 연료인 이유가 여기 있다 — 수소의 전자들은 <b>"언덕 위"</b>에 있고, 산소로 떨어질 준비가 되어 있다.</p>
+
+  <h3>NAD⁺: 전자를 실어 나르는 택시</h3>
+  <p>그런데 세포는 포도당의 수소를 산소에 <em>직접 넘기지 않는다.</em> 그러면 한 번에 폭발해버린다.
+  대신 <span class="t">탈수소효소</span>가 기질에서 수소 2개(전자 2개 + 양성자 2개)를 떼어,
+  전자 2개와 양성자 1개만 <span class="t">NAD⁺</span>에 넘긴다. 남은 양성자 1개는 용액으로 H⁺가 되어 나간다.</p>
+
+  <div class="key">
+    NAD⁺ + 2e⁻ + H⁺ → <b>NADH</b> &nbsp;— 산화형 NAD⁺ ⇄ 환원형 NADH를 오가며 재사용된다.<br>
+    NADH 한 분자 = <b>ATP를 만들 수 있는 저장된 에너지 한 뭉치</b>
+  </div>
+
+  <h3>전자전달사슬: 계단으로 내려보내기</h3>
+  <p>NADH에 실린 전자는 여전히 에너지가 높다. 이 전자를 산소로 곧장 던지면 −53 kcal/mol이 한꺼번에 터진다.
+  세포의 해법은 <span class="t">전자전달사슬</span> — 전자를 여러 운반체에 차례로 넘기며 <em>조금씩</em> 떨어뜨리는 것이다.
+  각 단계에서 나온 소량의 에너지를 ATP 합성에 쓸 수 있는 형태로 챙긴다.</p>
+
+  <h3>전체 지도: 세 단계</h3>
+  <figure><svg id="d-overview" viewBox="0 0 340 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="세포호흡 3단계 개요">
+  <defs><marker id="ah3" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse">
+    <path d="M0,0 L10,5 L0,10 z" fill="var(--dk)"/></marker></defs>
+  <!-- 세포질 -->
+  <rect x="6" y="6" width="328" height="288" rx="12" fill="var(--f-cyt)" stroke="var(--line)"/>
+  <text x="16" y="22" class="s-lb">세포질</text>
+  <!-- 미토콘드리아 -->
+  <rect x="96" y="60" width="232" height="200" rx="26" fill="var(--f-mit)" stroke="var(--dk)" stroke-width="1.2" opacity=".85"/>
+  <text x="316" y="80" class="s-lb" text-anchor="end">미토콘드리아</text>
+  <!-- ① 해당과정 -->
+  <rect x="18" y="96" width="66" height="52" rx="8" fill="var(--gly)" stroke="var(--dk)" stroke-width="1.2"/>
+  <text x="51" y="114" class="s-ti" text-anchor="middle" fill="#fff">① 해당</text>
+  <text x="51" y="126" class="s-ti" text-anchor="middle" fill="#fff">과정</text>
+  <text x="51" y="140" class="s-sm" text-anchor="middle" fill="#fff">포도당→피루브산</text>
+  <path d="M84,122 L108,122" stroke="var(--dk)" stroke-width="2" marker-end="url(#ah3)"/>
+  <!-- ② 피루브산 산화 -->
+  <rect x="110" y="98" width="58" height="48" rx="8" fill="var(--pyr)" stroke="var(--dk)" stroke-width="1.2"/>
+  <text x="139" y="116" class="s-ti" text-anchor="middle" fill="#fff">② 피루브산</text>
+  <text x="139" y="128" class="s-ti" text-anchor="middle" fill="#fff">산화</text>
+  <text x="139" y="140" class="s-sm" text-anchor="middle" fill="#fff">→아세틸CoA</text>
+  <path d="M168,122 L188,122" stroke="var(--dk)" stroke-width="2" marker-end="url(#ah3)"/>
+  <!-- 시트르산 회로 -->
+  <circle cx="216" cy="122" r="26" fill="var(--pyr)" stroke="var(--dk)" stroke-width="1.2"/>
+  <text x="216" y="119" class="s-ti" text-anchor="middle" fill="#fff">시트르산</text>
+  <text x="216" y="131" class="s-ti" text-anchor="middle" fill="#fff">회로</text>
+  <path d="M242,122 L266,122" stroke="var(--dk)" stroke-width="2" marker-end="url(#ah3)"/>
+  <text x="254" y="114" class="s-sm" text-anchor="middle">NADH</text>
+  <text x="254" y="104" class="s-sm" text-anchor="middle">FADH₂</text>
+  <!-- ③ 산화적 인산화 -->
+  <rect x="268" y="94" width="54" height="56" rx="8" fill="var(--oxp)" stroke="var(--dk)" stroke-width="1.2"/>
+  <text x="295" y="112" class="s-ti" text-anchor="middle" fill="#fff">③ 산화적</text>
+  <text x="295" y="124" class="s-ti" text-anchor="middle" fill="#fff">인산화</text>
+  <text x="295" y="138" class="s-sm" text-anchor="middle" fill="#fff">내막</text>
+  <!-- ATP 산출 -->
+  <path d="M51,148 L51,182" stroke="var(--dk)" stroke-width="2" marker-end="url(#ah3)"/>
+  <rect x="24" y="184" width="54" height="22" rx="11" fill="var(--f-atp)" stroke="var(--dk)"/>
+  <text x="51" y="199" class="s-ti" text-anchor="middle">2 ATP</text>
+  <path d="M216,148 L216,182" stroke="var(--dk)" stroke-width="2" marker-end="url(#ah3)"/>
+  <rect x="189" y="184" width="54" height="22" rx="11" fill="var(--f-atp)" stroke="var(--dk)"/>
+  <text x="216" y="199" class="s-ti" text-anchor="middle">2 ATP</text>
+  <path d="M295,150 L295,182" stroke="var(--dk)" stroke-width="2" marker-end="url(#ah3)"/>
+  <rect x="258" y="184" width="70" height="22" rx="11" fill="var(--f-atp)" stroke="var(--dk)"/>
+  <text x="293" y="199" class="s-ti" text-anchor="middle">약 26~28</text>
+  <!-- 방식 라벨 -->
+  <text x="51" y="220" class="s-sm" text-anchor="middle">기질수준</text>
+  <text x="216" y="220" class="s-sm" text-anchor="middle">기질수준</text>
+  <text x="293" y="220" class="s-sm" text-anchor="middle">산화적 인산화</text>
+  <!-- 합계 -->
+  <rect x="72" y="238" width="196" height="32" rx="16" fill="var(--ac)"/>
+  <text x="170" y="259" class="s-tot" text-anchor="middle" fill="#fff">합계 약 30 또는 32 ATP</text>
+</svg>
+    <figcaption><b>도해 3</b> 세포호흡의 뼈대. 이 그림 하나가 전체 구조다. 색을 기억해 두면 뒤가 쉬워진다 — <span style="color:var(--gly);font-weight:700">청록=해당과정</span>, <span style="color:var(--pyr);font-weight:700">주황=회로</span>, <span style="color:var(--oxp);font-weight:700">보라=산화적 인산화</span>. <span class="tapz">탭하면 확대</span></figcaption>
+  </figure>
+  <div class="key">
+    <b>① 해당과정</b>(청록) — 세포질 · 포도당 → 피루브산<br>
+    <b>② 피루브산 산화 + 시트르산 회로</b>(주황) — 미토콘드리아 기질 · 완전히 CO₂까지<br>
+    <b>③ 산화적 인산화</b>(보라) — 미토콘드리아 내막 · 전자전달 + 화학삼투 → <b>ATP의 약 90%</b>
+  </div>
+  <p>ATP를 만드는 방식은 두 가지뿐이다. <span class="t">기질수준 인산화</span>는 효소가 기질의 인산기를 ADP에 직접 꽂아주는 방식이고(①②에서 소량),
+  <span class="t">산화적 인산화</span>는 전자전달이 만든 힘으로 만드는 방식이다(③에서 대부분).</p>
+
+  <!-- 9.2 -->
+  <h2 class="gly"><span class="n">2</span>해당과정: 포도당을 반으로 쪼갠다</h2>
+  <p class="sub">세포질 · 산소 불필요 · 포도당 1분자당 ATP 2 + NADH 2</p>
+
+  <p>해당(glycolysis)은 "당을 쪼갠다"는 뜻이다. 6탄당 포도당이 3탄당 두 조각으로 쪼개지고,
+  재배열되어 <span class="t">피루브산</span> 2분자가 된다. 10단계 전체가 <em>세포질</em>에서 일어나고 <em>산소가 필요 없다.</em></p>
+
+  <figure><svg id="d-glyco" viewBox="0 0 340 250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="해당과정 수지">
+  <defs><marker id="ah4" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+    <path d="M0,0 L10,5 L0,10 z" fill="var(--dk)"/></marker></defs>
+  <!-- 투자기 -->
+  <rect x="8" y="8" width="324" height="98" rx="10" fill="var(--f-inv)" stroke="var(--line)"/>
+  <text x="18" y="26" class="s-ti" fill="var(--dk)">에너지 투자기 (1~5단계)</text>
+  <rect x="24" y="40" width="60" height="26" rx="6" fill="var(--card)" stroke="var(--dk)"/>
+  <text x="54" y="57" class="s-ti" text-anchor="middle">포도당</text>
+  <path d="M86,53 L142,53" stroke="var(--dk)" stroke-width="2" marker-end="url(#ah4)"/>
+  <rect x="98" y="72" width="34" height="18" rx="9" fill="var(--no-soft)" stroke="var(--no)"/>
+  <text x="115" y="85" class="s-sm" text-anchor="middle" fill="var(--no)">−2 ATP</text>
+  <path d="M115,71 L115,58" stroke="var(--no)" stroke-width="1.5" marker-end="url(#ah4)"/>
+  <rect x="144" y="36" width="82" height="34" rx="6" fill="var(--card)" stroke="var(--dk)"/>
+  <text x="185" y="50" class="s-ti" text-anchor="middle">과당 1,6-인산</text>
+  <text x="185" y="62" class="s-sm" text-anchor="middle">(6탄당)</text>
+  <path d="M228,53 L262,53" stroke="var(--dk)" stroke-width="2" marker-end="url(#ah4)"/>
+  <text x="245" y="46" class="s-sm" text-anchor="middle">쪼갬</text>
+  <rect x="264" y="36" width="56" height="34" rx="6" fill="var(--card)" stroke="var(--dk)"/>
+  <text x="292" y="50" class="s-ti" text-anchor="middle">3탄당 ×2</text>
+  <text x="292" y="62" class="s-sm" text-anchor="middle">(삼탄당)</text>
+  <!-- 회수기 -->
+  <rect x="8" y="114" width="324" height="94" rx="10" fill="var(--f-ret)" stroke="var(--line)"/>
+  <text x="18" y="132" class="s-ti" fill="var(--dk)">에너지 회수기 (6~10단계)</text>
+  <rect x="24" y="146" width="56" height="26" rx="6" fill="var(--card)" stroke="var(--dk)"/>
+  <text x="52" y="163" class="s-ti" text-anchor="middle">3탄당 ×2</text>
+  <path d="M82,159 L262,159" stroke="var(--dk)" stroke-width="2" marker-end="url(#ah4)"/>
+  <rect x="100" y="178" width="40" height="18" rx="9" fill="var(--ok-soft)" stroke="var(--ok)"/>
+  <text x="120" y="191" class="s-sm" text-anchor="middle" fill="var(--ok)">+2 NADH</text>
+  <path d="M120,177 L120,164" stroke="var(--ok)" stroke-width="1.5" marker-end="url(#ah4)"/>
+  <rect x="176" y="178" width="40" height="18" rx="9" fill="var(--ok-soft)" stroke="var(--ok)"/>
+  <text x="196" y="191" class="s-sm" text-anchor="middle" fill="var(--ok)">+4 ATP</text>
+  <path d="M196,177 L196,164" stroke="var(--ok)" stroke-width="1.5" marker-end="url(#ah4)"/>
+  <text x="196" y="146" class="s-sm" text-anchor="middle">7·10단계</text>
+  <rect x="264" y="146" width="56" height="26" rx="6" fill="var(--gly)" stroke="var(--dk)"/>
+  <text x="292" y="163" class="s-ti" text-anchor="middle" fill="#fff">2 피루브산</text>
+  <!-- 합계 -->
+  <rect x="8" y="216" width="324" height="28" rx="14" fill="var(--gly)"/>
+  <text x="170" y="235" class="s-tot" text-anchor="middle" fill="#fff">순이익 = 4 − 2 = ATP 2 + NADH 2 · CO₂ 없음</text>
+</svg>
+    <figcaption><b>도해 4</b> 해당과정의 수지 계산. 앞에서 2개를 투자하고 뒤에서 4개를 회수한다. 10단계를 다 외울 필요는 없지만, ATP가 나오는 <b>7·10단계</b>와 조절 밸브인 <b>3단계</b>는 기억해 두자. <span class="tapz">탭하면 확대</span></figcaption>
+  </figure>
+
+  <div class="key">
+    <b>투자기</b> — ATP <b>2개를 쓴다</b>(1·3단계). 당을 반응성 있게 만들고 세포 밖으로 못 나가게 붙잡는다.<br>
+    <b>회수기</b> — ATP <b>4개를 번다</b>(7·10단계, 기질수준 인산화) + <b>NADH 2개</b>(6단계)<br>
+    <b>순이익 = 4 − 2 = ATP 2 + NADH 2</b>
+  </div>
+  <p>주의할 점 하나. 해당과정에서는 <em>CO₂가 전혀 나오지 않는다.</em> 포도당의 탄소 6개가 그대로 피루브산 2×3개에 남아 있기 때문이다.
+  또 해당과정은 산소가 있든 없든 <em>항상 ATP 2개를 만든다.</em></p>
+
+  <!-- 9.3 -->
+  <h2 class="pyr"><span class="n">3</span>미토콘드리아로: 피루브산 산화와 시트르산 회로</h2>
+  <p class="sub">미토콘드리아 기질 · 포도당의 탄소가 전부 CO₂가 되는 곳</p>
+
+  <p>해당과정이 꺼낸 에너지는 포도당이 가진 것의 <em>1/4도 안 된다.</em> 나머지는 아직 피루브산 안에 있다.
+  산소가 있으면 피루브산은 능동수송으로 미토콘드리아에 들어가 마저 산화된다.</p>
+
+  <h3>연결 고리: 아세틸 CoA</h3>
+  <p>피루브산 탈수소효소 복합체가 세 가지 일을 한꺼번에 한다. ① 카르복실기를 떼어 <b>CO₂로 방출</b>(호흡에서 CO₂가 나오는 첫 순간),
+  ② 남은 2탄소 조각을 산화시켜 <b>NADH</b> 생성, ③ 조효소 A를 붙여 <span class="t">아세틸 CoA</span> 완성.</p>
+
+  
+
+  <h3>시트르산 회로 (= TCA 회로 = 크렙스 회로)</h3>
+  <p>아세틸기(2탄소)가 옥살로아세트산(4탄소)에 붙어 <span class="t">시트르산</span>(6탄소)이 된다. 이어 8단계를 돌며
+  CO₂ 2개를 뱉고, 마지막에 옥살로아세트산이 <em>재생</em>되므로 "회로"가 된다.</p>
+
+  <figure><svg id="d-tca" viewBox="0 0 340 290" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="시트르산 회로">
+  <defs><marker id="ah5" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+    <path d="M0,0 L10,5 L0,10 z" fill="var(--dk)"/></marker></defs>
+  <!-- 아세틸 CoA 유입 -->
+  <rect x="128" y="6" width="84" height="24" rx="6" fill="var(--pyr)" stroke="var(--dk)"/>
+  <text x="170" y="22" class="s-ti" text-anchor="middle" fill="#fff">아세틸 CoA (2C)</text>
+  <path d="M170,32 L170,52" stroke="var(--dk)" stroke-width="2" marker-end="url(#ah5)"/>
+  <!-- 원 -->
+  <circle cx="170" cy="158" r="76" fill="none" stroke="var(--pyr)" stroke-width="20" opacity=".18"/>
+  <circle cx="170" cy="158" r="76" fill="none" stroke="var(--pyr)" stroke-width="1.5" stroke-dasharray="4 4" opacity=".5"/>
+  <text x="170" y="152" class="s-ti" text-anchor="middle" fill="var(--pyr)">시트르산 회로</text>
+  <text x="170" y="166" class="s-sm" text-anchor="middle" fill="var(--pyr)">8단계</text>
+  <!-- 회전 화살표 -->
+  <path d="M212,104 A76,76 0 0,1 232,168" fill="none" stroke="var(--pyr)" stroke-width="2.5" marker-end="url(#ah5)"/>
+  <path d="M208,214 A76,76 0 0,1 130,216" fill="none" stroke="var(--pyr)" stroke-width="2.5" marker-end="url(#ah5)"/>
+  <path d="M96,150 A76,76 0 0,1 126,100" fill="none" stroke="var(--pyr)" stroke-width="2.5" marker-end="url(#ah5)"/>
+  <!-- 노드 -->
+  <rect x="132" y="66" width="76" height="20" rx="5" fill="var(--card)" stroke="var(--dk)"/>
+  <text x="170" y="80" class="s-ti" text-anchor="middle">시트르산 (6C)</text>
+  <rect x="242" y="140" width="84" height="20" rx="5" fill="var(--card)" stroke="var(--dk)"/>
+  <text x="284" y="154" class="s-ti" text-anchor="middle">α-케토글루타르산</text>
+  <rect x="130" y="230" width="80" height="20" rx="5" fill="var(--card)" stroke="var(--dk)"/>
+  <text x="170" y="244" class="s-ti" text-anchor="middle">숙신산 → 말산</text>
+  <rect x="8" y="140" width="84" height="20" rx="5" fill="var(--card)" stroke="var(--dk)"/>
+  <text x="50" y="154" class="s-ti" text-anchor="middle">옥살로아세트산</text>
+  <text x="50" y="172" class="s-sm" text-anchor="middle" fill="var(--ac)">재생 → 회로</text>
+  <!-- 산출: CO2 -->
+  <circle cx="286" cy="106" r="13" fill="var(--f-co2)" stroke="var(--dk)"/>
+  <text x="286" y="111" class="s-sm" text-anchor="middle" fill="#fff">CO₂</text>
+  <circle cx="286" cy="196" r="13" fill="var(--f-co2)" stroke="var(--dk)"/>
+  <text x="286" y="201" class="s-sm" text-anchor="middle" fill="#fff">CO₂</text>
+  <!-- 산출: NADH/FADH2/ATP -->
+  <rect x="228" y="252" width="46" height="19" rx="9" fill="var(--ok-soft)" stroke="var(--ok)"/>
+  <text x="251" y="265" class="s-sm" text-anchor="middle" fill="var(--ok)">3 NADH</text>
+  <rect x="278" y="252" width="50" height="19" rx="9" fill="var(--ok-soft)" stroke="var(--ok)"/>
+  <text x="303" y="265" class="s-sm" text-anchor="middle" fill="var(--ok)">1 FADH₂</text>
+  <rect x="178" y="252" width="46" height="19" rx="9" fill="var(--f-atp)" stroke="var(--dk)"/>
+  <text x="201" y="265" class="s-sm" text-anchor="middle">1 ATP</text>
+  <text x="12" y="266" class="s-sm">아세틸기 1개당 ↑</text>
+  <text x="12" y="280" class="s-sm" fill="var(--ac)">포도당 1개면 전부 ×2</text>
+</svg>
+    <figcaption><b>도해 5</b> 시트르산 회로. 들어온 2탄소만큼 CO₂ 2개가 나가고, 옥살로아세트산이 재생되어 다시 돈다. <b>숫자는 아세틸기 1개당이므로 포도당 기준으로는 ×2</b>를 해야 한다 — 놓치기 쉬운 함정이다. <span class="tapz">탭하면 확대</span></figcaption>
+  </figure>
+
+  <div class="key">
+    <b>아세틸기 1개당</b> → NADH <b>3</b>(3·4·8단계) + FADH₂ <b>1</b>(6단계) + ATP <b>1</b>(5단계, GTP 경유) + CO₂ <b>2</b><br>
+    <b>포도당 1개당</b>(×2) → NADH <b>6</b> + FADH₂ <b>2</b> + ATP <b>2</b> + CO₂ <b>4</b>
+  </div>
+  <p>여기서 중요한 사실. 시트르산 회로가 직접 만든 ATP는 포도당당 겨우 2개다.
+  <em>진짜 수확은 ATP가 아니라 NADH와 FADH₂라는 "전자 꾸러미"다.</em> 이제 이걸 현금화할 차례다.</p>
+
+  <!-- 9.4 -->
+  <h2 class="oxp"><span class="n">4</span>전자를 현금으로: 전자전달과 화학삼투</h2>
+  <p class="sub">미토콘드리아 내막 · ATP의 약 90%가 여기서 나온다</p>
+
+  <p>지금까지 번 ATP는 기질수준 인산화로 겨우 4개(해당 2 + 회로 2). 에너지의 대부분은 NADH와 FADH₂에 들어 있다.
+  이제 그 전자를 산소로 떨어뜨리며 ATP를 만든다.</p>
+
+  <h3>1단계 — 전자전달사슬이 H⁺를 퍼낸다</h3>
+  <p>내막에 박힌 복합체 I~IV가 전자를 이어받는다. NADH는 <b>복합체 I</b>로, FADH₂는 <b>복합체 II</b>로 들어간다.
+  전자는 유비퀴논(Q)과 사이토크롬 c를 거쳐 사슬 끝의 산소에 도달하고, 산소는 H⁺와 만나 <b>물</b>이 된다.</p>
+
+  <figure><svg id="d-etc" viewBox="0 0 340 230" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="전자전달사슬 자유에너지 하강">
+  <defs><marker id="ah6" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+    <path d="M0,0 L10,5 L0,10 z" fill="var(--dk)"/></marker></defs>
+  <line x1="34" y1="14" x2="34" y2="196" stroke="var(--dk)" stroke-width="1.5"/>
+  <line x1="34" y1="196" x2="330" y2="196" stroke="var(--dk)" stroke-width="1.5"/>
+  <text x="8" y="60" class="s-sm" transform="rotate(-90 14,90)">자유에너지 →</text>
+  <!-- 계단 -->
+  <rect x="44" y="30" width="52" height="26" rx="5" fill="var(--oxp)" stroke="var(--dk)"/>
+  <text x="70" y="47" class="s-ti" text-anchor="middle" fill="#fff">복합체 I</text>
+  <rect x="112" y="76" width="46" height="24" rx="5" fill="var(--oxp)" stroke="var(--dk)" opacity=".8"/>
+  <text x="135" y="92" class="s-ti" text-anchor="middle" fill="#fff">II</text>
+  <rect x="168" y="102" width="52" height="24" rx="5" fill="var(--oxp)" stroke="var(--dk)"/>
+  <text x="194" y="118" class="s-ti" text-anchor="middle" fill="#fff">III</text>
+  <rect x="238" y="142" width="52" height="24" rx="5" fill="var(--oxp)" stroke="var(--dk)"/>
+  <text x="264" y="158" class="s-ti" text-anchor="middle" fill="#fff">IV</text>
+  <!-- NADH / FADH2 진입 -->
+  <rect x="40" y="6" width="52" height="19" rx="9" fill="var(--ok-soft)" stroke="var(--ok)"/>
+  <text x="66" y="19" class="s-sm" text-anchor="middle" fill="var(--ok)">NADH</text>
+  <path d="M66,26 L66,29" stroke="var(--ok)" stroke-width="1.5" marker-end="url(#ah6)"/>
+  <rect x="106" y="52" width="58" height="19" rx="9" fill="var(--ok-soft)" stroke="var(--ok)"/>
+  <text x="135" y="65" class="s-sm" text-anchor="middle" fill="var(--ok)">FADH₂</text>
+  <path d="M135,72 L135,75" stroke="var(--ok)" stroke-width="1.5" marker-end="url(#ah6)"/>
+  <!-- 전자 경로 -->
+  <path d="M96,44 L112,80" stroke="var(--f-e)" stroke-width="2.5" fill="none"/>
+  <path d="M158,88 L168,108" stroke="var(--f-e)" stroke-width="2.5" fill="none"/>
+  <path d="M220,116 L238,148" stroke="var(--f-e)" stroke-width="2.5" fill="none"/>
+  <path d="M290,158 L306,178" stroke="var(--f-e)" stroke-width="2.5" fill="none" marker-end="url(#ah6)"/>
+  <!-- H+ 퍼내기 -->
+  <path d="M70,28 L70,12" stroke="var(--f-h)" stroke-width="2" marker-end="url(#ah6)" opacity="0"/>
+  <text x="70" y="70" class="s-sm" text-anchor="middle" fill="var(--f-h)">H⁺ ↑</text>
+  <text x="194" y="142" class="s-sm" text-anchor="middle" fill="var(--f-h)">H⁺ ↑</text>
+  <text x="264" y="182" class="s-sm" text-anchor="middle" fill="var(--f-h)">H⁺ ↑</text>
+  <!-- 산소 -->
+  <circle cx="312" cy="184" r="12" fill="var(--no)" stroke="var(--dk)"/>
+  <text x="312" y="189" class="s-sm" text-anchor="middle" fill="#fff">O₂</text>
+  <text x="312" y="212" class="s-ti" text-anchor="middle">→ H₂O</text>
+  <text x="130" y="212" class="s-sm" fill="var(--ac)">FADH₂는 더 아래에서 합류 → H⁺를 덜 퍼냄 → ATP 적음</text>
+</svg>
+    <figcaption><b>도해 6</b> 전자가 사슬을 따라 계단식으로 내려간다. <b>FADH₂가 더 아래에서 합류하는 것</b>이 보인다 — 그래서 퍼낼 수 있는 H⁺가 적고, 결국 ATP를 덜 만든다. <span class="tapz">탭하면 확대</span></figcaption>
+  </figure>
+  <p><em>전자전달사슬은 ATP를 직접 만들지 않는다.</em> 하는 일은 딱 하나 — 전자가 내려가며 내놓는 에너지로
+  H⁺를 기질에서 막사이공간으로 <b>퍼내는 것</b>이다. 그 결과 막을 사이에 두고 H⁺ 농도차, 즉
+  <span class="t">수소이온의 이동력(proton-motive force)</span>이 쌓인다.</p>
+
+  <h3>2단계 — 화학삼투가 그 힘으로 ATP를 만든다</h3>
+  <p><span class="t">ATP 합성효소</span>는 H⁺가 지나갈 수 있는 유일한 통로다. 농도차를 따라 H⁺가 되돌아 흐르면
+  회전자가 돌고, 그 회전이 촉매자리를 활성화해 ADP + Pᵢ에서 ATP가 만들어진다.
+  <em>물레방아를 돌리는 시냇물</em>과 같다 — 자연에서 가장 작은 회전 모터다.</p>
+
+  
+
+  <figure><svg id="d-chemi" viewBox="0 0 340 240" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="화학삼투">
+  <defs><marker id="ah7" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+    <path d="M0,0 L10,5 L0,10 z" fill="var(--dk)"/></marker></defs>
+  <!-- 막사이공간 -->
+  <rect x="6" y="6" width="328" height="66" rx="8" fill="var(--f-ims)" stroke="var(--line)"/>
+  <text x="16" y="22" class="s-lb">막사이공간 · H⁺ 높음</text>
+  <g fill="var(--f-h)">
+    <circle cx="60" cy="44" r="5"/><circle cx="92" cy="34" r="5"/><circle cx="126" cy="48" r="5"/>
+    <circle cx="160" cy="36" r="5"/><circle cx="196" cy="46" r="5"/><circle cx="232" cy="34" r="5"/>
+    <circle cx="266" cy="48" r="5"/><circle cx="300" cy="38" r="5"/>
+  </g>
+  <!-- 막 -->
+  <rect x="6" y="72" width="328" height="40" fill="var(--f-mem)"/>
+  <text x="14" y="96" class="s-lb">내막</text>
+  <!-- 복합체 -->
+  <rect x="56" y="66" width="32" height="52" rx="5" fill="var(--oxp)" stroke="var(--dk)"/>
+  <text x="72" y="96" class="s-ti" text-anchor="middle" fill="#fff">I</text>
+  <rect x="118" y="66" width="30" height="52" rx="5" fill="var(--oxp)" stroke="var(--dk)"/>
+  <text x="133" y="96" class="s-ti" text-anchor="middle" fill="#fff">III</text>
+  <rect x="178" y="66" width="30" height="52" rx="5" fill="var(--oxp)" stroke="var(--dk)"/>
+  <text x="193" y="96" class="s-ti" text-anchor="middle" fill="#fff">IV</text>
+  <!-- H+ 퍼내기 화살표 -->
+  <path d="M72,66 L72,44" stroke="var(--f-h)" stroke-width="2.5" marker-end="url(#ah7)"/>
+  <path d="M133,66 L133,44" stroke="var(--f-h)" stroke-width="2.5" marker-end="url(#ah7)"/>
+  <path d="M193,66 L193,44" stroke="var(--f-h)" stroke-width="2.5" marker-end="url(#ah7)"/>
+  <!-- 전자 경로 -->
+  <path d="M88,100 Q103,108 118,100" fill="none" stroke="var(--f-e)" stroke-width="2.5" marker-end="url(#ah7)"/>
+  <path d="M148,100 Q163,108 178,100" fill="none" stroke="var(--f-e)" stroke-width="2.5" marker-end="url(#ah7)"/>
+  <text x="103" y="122" class="s-sm" text-anchor="middle" fill="var(--f-e)">e⁻</text>
+  <!-- ATP 합성효소 -->
+  <rect x="262" y="62" width="26" height="56" rx="4" fill="var(--ac)" stroke="var(--dk)"/>
+  <circle cx="275" cy="130" r="20" fill="var(--ac)" stroke="var(--dk)"/>
+  <text x="275" y="134" class="s-ti" text-anchor="middle" fill="#fff">ATP</text>
+  <text x="275" y="164" class="s-ti" text-anchor="middle">합성효소</text>
+  <!-- H+ 되돌아 흐름 -->
+  <path d="M275,44 L275,124" stroke="var(--f-h)" stroke-width="3.5" marker-end="url(#ah7)"/>
+  <text x="304" y="90" class="s-sm" fill="var(--f-h)">H⁺ 흐름</text>
+  <!-- 기질 -->
+  <rect x="6" y="112" width="328" height="122" rx="8" fill="var(--f-mat)" stroke="var(--line)"/>
+  <text x="16" y="130" class="s-lb">미토콘드리아 기질 · H⁺ 낮음</text>
+  <rect x="40" y="140" width="52" height="20" rx="9" fill="var(--ok-soft)" stroke="var(--ok)"/>
+  <text x="66" y="154" class="s-sm" text-anchor="middle" fill="var(--ok)">NADH</text>
+  <path d="M66,140 L70,120" stroke="var(--ok)" stroke-width="1.5" marker-end="url(#ah7)"/>
+  <text x="200" y="140" class="s-sm">2H⁺ + ½O₂ → H₂O</text>
+  <path d="M193,120 L197,134" stroke="var(--dk)" stroke-width="1.5" marker-end="url(#ah7)"/>
+  <rect x="222" y="176" width="100" height="22" rx="11" fill="var(--f-atp)" stroke="var(--dk)"/>
+  <text x="272" y="191" class="s-ti" text-anchor="middle">ADP + Pᵢ → ATP</text>
+  <path d="M275,152 L275,172" stroke="var(--dk)" stroke-width="2" marker-end="url(#ah7)"/>
+  <!-- 요약 -->
+  <text x="16" y="186" class="s-sm" fill="var(--ac)">① 전자전달 = H⁺ 기울기 제조</text>
+  <text x="16" y="200" class="s-sm" fill="var(--ac)">② 화학삼투 = 그 기울기로 ATP 제조</text>
+  <text x="16" y="222" class="s-sm">전자전달사슬은 ATP를 직접 만들지 않는다</text>
+</svg>
+    <figcaption><b>도해 7</b> 산화적 인산화의 전모. <b>①</b> 전자전달사슬이 H⁺를 위로 퍼내 기울기를 만들고, <b>②</b> 그 H⁺가 ATP 합성효소로 되돌아 흐르며 ATP를 만든다. 둘을 합친 것이 산화적 인산화다. <span class="tapz">탭하면 확대</span></figcaption>
+  </figure>
+
+  <div class="key">
+    <b>화학삼투</b> = 막을 사이에 둔 H⁺ 기울기의 에너지로 일을 하는 <b>에너지-짝물림 기작</b>.<br>
+    엽록체도, 원핵생물의 세포막도 같은 원리를 쓴다. 미첼(Peter Mitchell)이 제안해 <b>1978년 노벨상</b>.
+  </div>
+
+  <h3>계산: 포도당 1개로 ATP 몇 개?</h3>
+  
+  <div class="tw">
+  <table>
+    <tr><th>단계</th><th>기질수준 인산화</th><th>전자 꾸러미</th></tr>
+    <tr><td>해당과정</td><td>ATP 2</td><td>NADH 2 (세포질)</td></tr>
+    <tr><td>피루브산 산화</td><td>—</td><td>NADH 2</td></tr>
+    <tr><td>시트르산 회로</td><td>ATP 2</td><td>NADH 6 + FADH₂ 2</td></tr>
+    <tr><td>산화적 인산화</td><td>—</td><td>→ ATP 약 26~28</td></tr>
+    <tr><td><b>합계</b></td><td colspan="2"><b>약 30 또는 32 ATP</b></td></tr>
+  </table>
+  </div>
+  <p><b>왜 "약"이고, 왜 30 <u>또는</u> 32인가?</b> 시험에 잘 나오는 지점이다. 이유가 셋이다.</p>
+  <div class="key">
+    <ul>
+      <li><b>비율이 정수가 아니다.</b> NADH 1개 ≈ ATP <b>2.5</b>개, FADH₂ 1개 ≈ ATP <b>1.5</b>개. 인산화와 산화환원이 직접 연결된 게 아니기 때문.</li>
+      <li><b>왕복기구가 다르다.</b> 세포질 NADH는 내막을 못 통과해 셔틀을 타야 한다. 뇌세포처럼 FAD로 건네면 1.5개, 간·심장처럼 NAD⁺로 건네면 2.5개 → <b>여기서 30 vs 32가 갈린다.</b></li>
+      <li><b>H⁺ 이동력을 다른 일에도 쓴다.</b> 예컨대 피루브산을 미토콘드리아로 들여오는 데도 쓰인다.</li>
+    </ul>
+  </div>
+  <p>효율은? 32 × 7.3 ÷ 686 ≈ <b>34%</b>. 나머지는 열로 나가고, 그 열의 일부가 체온 37 ℃를 유지한다.
+  가장 좋은 자동차 엔진도 25% 정도이니 세포호흡은 놀랄 만큼 효율적이다.</p>
+  <p>재미있는 예외도 있다. 동면 동물의 <b>갈색 지방</b>은 내막에 <span class="t">비짝물림 단백질</span>이 있어
+  H⁺가 ATP 합성 없이 그냥 새게 한다. 그 결과 ATP 대신 <em>열만 생산한다.</em></p>
+
+  <!-- 9.5 -->
+  <h2 class="fer"><span class="n">5</span>산소가 없을 때: 발효와 무산소호흡</h2>
+  <p class="sub">산소가 없으면 전자전달사슬이 멈춘다 — 그럼 어떻게?</p>
+
+  <p>산소는 사슬 맨 끝에서 전자를 잡아당기는 존재다. 산소가 없으면 사슬이 정체되고 산화적 인산화가 멈춘다.
+  산소 없이 ATP를 만드는 길은 둘이다.</p>
+  <div class="key">
+    <b>무산소호흡</b> — 전자전달사슬을 <b>쓴다</b>. 다만 최종 전자수용체가 산소가 아니다.
+    (예: 황-환원 박테리아는 SO₄²⁻를 써서 부산물로 H₂S를 낸다 — 갯벌의 썩은 계란 냄새)<br>
+    <b>발효</b> — 전자전달사슬을 <b>아예 안 쓴다</b>. 해당과정만으로 버틴다.
+  </div>
+
+  <h3>발효의 진짜 목적은 ATP가 아니다</h3>
+  <p>여기가 핵심이다. 발효가 만드는 ATP는 해당과정의 2개가 전부다. 그런데 해당과정이 계속 돌려면
+  6단계에서 전자를 받아줄 <span class="t">NAD⁺가 계속 공급</span>되어야 한다. NADH가 쌓이기만 하면 NAD⁺가 고갈되어 해당과정이 멈춰버린다.</p>
+  <div class="key">
+    <b>발효 = NAD⁺를 재생하는 장치.</b> NADH의 전자를 피루브산(또는 그 유도체)에 떠넘겨 NAD⁺로 되돌린다.
+    그래야 해당과정이 계속 ATP 2개를 벌 수 있다.
+  </div>
+
+  <figure><svg id="d-ferm" viewBox="0 0 340 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="알코올발효와 젖산발효">
+  <defs><marker id="ah8" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+    <path d="M0,0 L10,5 L0,10 z" fill="var(--dk)"/></marker></defs>
+  <!-- 공통 해당과정 -->
+  <rect x="16" y="10" width="60" height="26" rx="6" fill="var(--card)" stroke="var(--dk)"/>
+  <text x="46" y="27" class="s-ti" text-anchor="middle">포도당</text>
+  <path d="M78,23 L134,23" stroke="var(--gly)" stroke-width="8" marker-end="url(#ah8)"/>
+  <text x="106" y="16" class="s-sm" text-anchor="middle" fill="var(--gly)">해당과정</text>
+  <rect x="140" y="10" width="70" height="26" rx="6" fill="var(--gly)" stroke="var(--dk)"/>
+  <text x="175" y="27" class="s-ti" text-anchor="middle" fill="#fff">2 피루브산</text>
+  <rect x="228" y="12" width="52" height="22" rx="11" fill="var(--f-atp)" stroke="var(--dk)"/>
+  <text x="254" y="27" class="s-ti" text-anchor="middle">2 ATP</text>
+  <text x="300" y="27" class="s-sm">전부</text>
+  <!-- NAD 순환 -->
+  <path d="M120,50 Q175,74 230,50" fill="none" stroke="var(--ok)" stroke-width="2" marker-end="url(#ah8)"/>
+  <rect x="86" y="44" width="46" height="19" rx="9" fill="var(--ok-soft)" stroke="var(--ok)"/>
+  <text x="109" y="57" class="s-sm" text-anchor="middle" fill="var(--ok)">2 NAD⁺</text>
+  <rect x="222" y="44" width="46" height="19" rx="9" fill="var(--ok-soft)" stroke="var(--ok)"/>
+  <text x="245" y="57" class="s-sm" text-anchor="middle" fill="var(--ok)">2 NADH</text>
+  <text x="175" y="82" class="s-ti" text-anchor="middle" fill="var(--ac)">발효의 목적 = NAD⁺ 재생</text>
+  <!-- 갈래 -->
+  <path d="M150,92 L92,116" stroke="var(--dk)" stroke-width="2" marker-end="url(#ah8)"/>
+  <path d="M200,92 L256,116" stroke="var(--dk)" stroke-width="2" marker-end="url(#ah8)"/>
+  <!-- (a) 알코올발효 -->
+  <rect x="8" y="120" width="152" height="130" rx="10" fill="var(--f-alc)" stroke="var(--line)"/>
+  <text x="84" y="138" class="s-ti" text-anchor="middle">(a) 알코올발효</text>
+  <rect x="26" y="148" width="116" height="22" rx="5" fill="var(--card)" stroke="var(--dk)"/>
+  <text x="84" y="163" class="s-sm" text-anchor="middle">아세트알데하이드</text>
+  <path d="M84,170 L84,190" stroke="var(--dk)" stroke-width="2" marker-end="url(#ah8)"/>
+  <circle cx="126" cy="180" r="12" fill="var(--f-co2)" stroke="var(--dk)"/>
+  <text x="126" y="185" class="s-sm" text-anchor="middle" fill="#fff">CO₂</text>
+  <path d="M96,176 L114,180" stroke="var(--dk)" stroke-width="1.5" marker-end="url(#ah8)"/>
+  <rect x="40" y="192" width="88" height="24" rx="6" fill="var(--fer)" stroke="var(--dk)"/>
+  <text x="84" y="208" class="s-ti" text-anchor="middle" fill="#fff">2 에탄올</text>
+  <text x="84" y="234" class="s-sm" text-anchor="middle">효모 · 맥주 · 빵</text>
+  <text x="84" y="246" class="s-sm" text-anchor="middle" fill="var(--ac)">CO₂ 나옴 → 빵이 부푼다</text>
+  <!-- (b) 젖산발효 -->
+  <rect x="180" y="120" width="152" height="130" rx="10" fill="var(--f-lac)" stroke="var(--line)"/>
+  <text x="256" y="138" class="s-ti" text-anchor="middle">(b) 젖산발효</text>
+  <text x="256" y="166" class="s-sm" text-anchor="middle">중간 단계 없이</text>
+  <path d="M256,172 L256,192" stroke="var(--dk)" stroke-width="2" marker-end="url(#ah8)"/>
+  <rect x="212" y="192" width="88" height="24" rx="6" fill="var(--fer)" stroke="var(--dk)"/>
+  <text x="256" y="208" class="s-ti" text-anchor="middle" fill="#fff">2 젖산</text>
+  <text x="256" y="234" class="s-sm" text-anchor="middle">근육 · 요구르트 · 치즈</text>
+  <text x="256" y="246" class="s-sm" text-anchor="middle" fill="var(--ac)">CO₂ 안 나옴</text>
+</svg>
+    <figcaption><b>도해 8</b> 두 발효의 갈림. 둘 다 NAD⁺를 재생하고 ATP 2개를 벌지만, <b>알코올발효만 CO₂를 방출한다</b>(빵이 부푸는 이유). 젖산발효는 피루브산이 곧바로 젖산이 되므로 CO₂가 없다. <span class="tapz">탭하면 확대</span></figcaption>
+  </figure>
+  <p><b>알코올발효</b>는 효모가 하고, 맥주·포도주·빵을 만든다(빵이 부푸는 건 이때 나온 CO₂ 기포다).
+  <b>젖산발효</b>는 치즈·요구르트를 만들고, 산소가 부족한 인간 근육세포에서도 일어난다.</p>
+  <p>근육통 이야기는 업데이트가 필요하다. 예전엔 젖산이 근육피로의 원인이라 봤지만,
+  <em>최근 연구는 K⁺ 농도 증가가 피로·통증의 원인이고 젖산은 오히려 근육 활동을 촉진한다고 본다.</em>
+  쌓인 젖산은 혈액을 타고 간으로 가서 피루브산으로 되돌아간다.</p>
+
+  <h3>세 경로 비교</h3>
+  <div class="tw">
+  <table>
+    <tr><th></th><th>발효</th><th>무산소호흡</th><th>산소호흡</th></tr>
+    <tr><td>해당과정</td><td>○</td><td>○</td><td>○</td></tr>
+    <tr><td>전자전달사슬</td><td><b>✕</b></td><td>○</td><td>○</td></tr>
+    <tr><td>최종 전자수용체</td><td>피루브산·아세트알데하이드</td><td>SO₄²⁻ 등</td><td><b>O₂</b></td></tr>
+    <tr><td>포도당당 ATP</td><td>2</td><td>중간</td><td><b>약 32</b></td></tr>
+  </table>
+  </div>
+  <p>셋 다 해당과정으로 시작하고, 거기서 ATP 2개를 번다. <em>결정적 차이는 NADH를 NAD⁺로 되돌리는 방법</em>이다.
+  산소호흡이 발효보다 포도당당 <b>16배 이상</b> ATP를 만든다.</p>
+
+  <h3>누가 무엇을 하는가</h3>
+  <p><span class="t">절대 혐기성 생물</span>은 발효나 무산소호흡만 하며, 산소가 있으면 오히려 죽는다.
+  <span class="t">조건부 혐기성 생물</span>(효모, 인간 근육세포)은 상황에 따라 갈아탄다.
+  이때 <b>피루브산이 분기점</b>이다 — 산소가 있으면 아세틸 CoA로, 없으면 발효로.</p>
+
+  <figure><svg id="d-fork" viewBox="0 0 340 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="피루브산 분기점">
+  <defs><marker id="ah9" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse">
+    <path d="M0,0 L10,5 L0,10 z" fill="var(--dk)"/></marker></defs>
+  <rect x="6" y="6" width="328" height="188" rx="10" fill="var(--f-cyt)" stroke="var(--line)"/>
+  <text x="16" y="22" class="s-lb">세포질</text>
+  <rect x="140" y="12" width="60" height="24" rx="6" fill="var(--card)" stroke="var(--dk)"/>
+  <text x="170" y="28" class="s-ti" text-anchor="middle">포도당</text>
+  <path d="M170,38 L170,58" stroke="var(--gly)" stroke-width="6" marker-end="url(#ah9)"/>
+  <text x="208" y="52" class="s-sm" fill="var(--gly)">해당과정</text>
+  <rect x="132" y="60" width="76" height="26" rx="6" fill="var(--gly)" stroke="var(--dk)"/>
+  <text x="170" y="77" class="s-ti" text-anchor="middle" fill="#fff">피루브산</text>
+  <text x="170" y="100" class="s-ti" text-anchor="middle" fill="var(--ac)">갈림길</text>
+  <!-- 왼쪽: 발효 -->
+  <path d="M140,88 L74,124" stroke="var(--dk)" stroke-width="2.5" marker-end="url(#ah9)"/>
+  <text x="82" y="110" class="s-ti" text-anchor="end" fill="var(--fer)">O₂ 없음</text>
+  <rect x="18" y="128" width="98" height="42" rx="8" fill="var(--fer)" stroke="var(--dk)"/>
+  <text x="67" y="146" class="s-ti" text-anchor="middle" fill="#fff">발효</text>
+  <text x="67" y="160" class="s-sm" text-anchor="middle" fill="#fff">에탄올 · 젖산</text>
+  <text x="67" y="184" class="s-sm" text-anchor="middle">ATP 2</text>
+  <!-- 오른쪽: 호흡 -->
+  <path d="M200,88 L262,120" stroke="var(--dk)" stroke-width="2.5" marker-end="url(#ah9)"/>
+  <text x="258" y="110" class="s-ti" fill="var(--pyr)">O₂ 있음</text>
+  <ellipse cx="262" cy="150" rx="66" ry="36" fill="var(--f-mit)" stroke="var(--dk)"/>
+  <text x="262" y="138" class="s-sm" text-anchor="middle">미토콘드리아</text>
+  <rect x="222" y="144" width="80" height="20" rx="5" fill="var(--pyr)" stroke="var(--dk)"/>
+  <text x="262" y="158" class="s-ti" text-anchor="middle" fill="#fff">아세틸 CoA</text>
+  <text x="262" y="180" class="s-sm" text-anchor="middle">→ 회로 → 약 32 ATP</text>
+</svg>
+    <figcaption><b>도해 9</b> <b>피루브산이 갈림길</b>이다. 해당과정은 발효와 호흡에 공통이고, 그 다음 방향을 산소의 유무가 결정한다. <span class="tapz">탭하면 확대</span></figcaption>
+  </figure>
+
+  <div class="key">
+    <b>해당과정의 진화적 의미</b> — 가장 오래된 세균 화석은 35억 년 전, 그런데 대기에 산소가 쌓이기 시작한 건 27억 년 전이다.
+    즉 초기 원핵생물은 <b>산소 없이 해당과정만으로</b> 살았다. 해당과정이 세포질에서 일어나고 막성 소기관을 전혀 요구하지 않는다는 사실도
+    이것이 <b>태고의 유산</b>임을 말해준다.
+  </div>
+
+  <!-- 9.6 -->
+  <h2><span class="n">6</span>물질대사의 교차로</h2>
+  <p class="sub">포도당만 먹고 사는 게 아니다 — 그리고 세포는 낭비하지 않는다</p>
+
+  <p>지금까지 포도당만 따라왔지만, 우리가 먹는 건 탄수화물·지방·단백질이다. 이들 모두 세포호흡의 연료가 된다.</p>
+
+  <figure><svg id="d-funnel" viewBox="0 0 340 230" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="이화작용 깔때기">
+  <defs><marker id="ah10" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+    <path d="M0,0 L10,5 L0,10 z" fill="var(--dk)"/></marker></defs>
+  <!-- 3대 영양소 -->
+  <rect x="12" y="8" width="88" height="26" rx="6" fill="var(--f-pro)" stroke="var(--dk)"/>
+  <text x="56" y="25" class="s-ti" text-anchor="middle">단백질</text>
+  <rect x="126" y="8" width="88" height="26" rx="6" fill="var(--f-car)" stroke="var(--dk)"/>
+  <text x="170" y="25" class="s-ti" text-anchor="middle">탄수화물</text>
+  <rect x="240" y="8" width="88" height="26" rx="6" fill="var(--f-fat)" stroke="var(--dk)"/>
+  <text x="284" y="25" class="s-ti" text-anchor="middle">지방</text>
+  <!-- 중간체 -->
+  <text x="56" y="52" class="s-sm" text-anchor="middle">아미노산</text>
+  <text x="170" y="52" class="s-sm" text-anchor="middle">포도당</text>
+  <text x="284" y="52" class="s-sm" text-anchor="middle">글리세롤 · 지방산</text>
+  <path d="M56,36 L56,44" stroke="var(--dk)" stroke-width="1.5"/>
+  <path d="M170,36 L170,44" stroke="var(--dk)" stroke-width="1.5"/>
+  <path d="M284,36 L284,44" stroke="var(--dk)" stroke-width="1.5"/>
+  <!-- 탈아미노 / 베타산화 -->
+  <text x="56" y="70" class="s-sm" text-anchor="middle" fill="var(--ac)">탈아미노반응</text>
+  <text x="284" y="70" class="s-sm" text-anchor="middle" fill="var(--ac)">베타 산화</text>
+  <!-- 해당과정으로 -->
+  <path d="M56,74 Q56,92 130,92" fill="none" stroke="var(--dk)" stroke-width="2" marker-end="url(#ah10)"/>
+  <path d="M170,58 L170,86" stroke="var(--dk)" stroke-width="2" marker-end="url(#ah10)"/>
+  <path d="M270,74 Q250,92 212,92" fill="none" stroke="var(--dk)" stroke-width="2" marker-end="url(#ah10)"/>
+  <rect x="130" y="88" width="82" height="26" rx="6" fill="var(--gly)" stroke="var(--dk)"/>
+  <text x="171" y="105" class="s-ti" text-anchor="middle" fill="#fff">해당과정</text>
+  <!-- 아세틸 CoA로 -->
+  <path d="M171,116 L171,136" stroke="var(--dk)" stroke-width="2" marker-end="url(#ah10)"/>
+  <path d="M298,74 Q320,120 216,142" fill="none" stroke="var(--dk)" stroke-width="2" marker-end="url(#ah10)"/>
+  <rect x="122" y="138" width="98" height="24" rx="6" fill="var(--pyr)" stroke="var(--dk)"/>
+  <text x="171" y="154" class="s-ti" text-anchor="middle" fill="#fff">아세틸 CoA</text>
+  <!-- 회로 -->
+  <path d="M171,164 L171,178" stroke="var(--dk)" stroke-width="2" marker-end="url(#ah10)"/>
+  <circle cx="171" cy="196" r="18" fill="var(--pyr)" stroke="var(--dk)"/>
+  <text x="171" y="193" class="s-sm" text-anchor="middle" fill="#fff">시트르산</text>
+  <text x="171" y="203" class="s-sm" text-anchor="middle" fill="#fff">회로</text>
+  <!-- 산화적 인산화 -->
+  <path d="M191,196 L232,196" stroke="var(--dk)" stroke-width="2" marker-end="url(#ah10)"/>
+  <rect x="234" y="184" width="94" height="24" rx="6" fill="var(--oxp)" stroke="var(--dk)"/>
+  <text x="281" y="200" class="s-ti" text-anchor="middle" fill="#fff">산화적 인산화</text>
+  <text x="12" y="200" class="s-sm">무엇을 먹든</text>
+  <text x="12" y="214" class="s-sm" fill="var(--ac)">결국 같은 깔때기로</text>
+</svg>
+    <figcaption><b>도해 10</b> 이화작용의 깔때기. 무엇을 먹든 결국 해당과정과 시트르산 회로라는 <b>같은 통로</b>로 흘러 들어간다. <span class="tapz">탭하면 확대</span></figcaption>
+  </figure>
+  <div class="key">
+    <ul>
+      <li><b>탄수화물</b> — 녹말·글리코겐 → 포도당 → 해당과정</li>
+      <li><b>단백질</b> — 아미노산에서 <span class="t">탈아미노반응</span>으로 아미노기를 떼고(→ 암모니아·요소로 배출) 중간산물로 합류</li>
+      <li><b>지방</b> — 글리세롤은 해당과정으로, 지방산은 <span class="t">베타 산화</span>로 2탄소씩 잘려 아세틸 CoA로. 지방 1 g은 탄수화물 1 g보다 <b>2배 이상</b> ATP를 낸다(그래서 살을 빼려면 운동해야 한다)</li>
+    </ul>
+  </div>
+
+  <p>길은 반대로도 간다. 해당과정과 시트르산 회로의 중간산물은 <span class="t">동화작용(생합성)</span>의 재료가 된다.
+  인간은 이 중간산물로 아미노산 약 20종 중 상당수를 만들고(못 만드는 게 필수 아미노산),
+  남아도는 열량은 다이하이드록시아세톤인산을 거쳐 <em>지방이 없는 음식을 먹어도 지방으로 저장된다.</em></p>
+
+  <div class="key">
+    <b>되먹임 조절</b> — 세포는 필요 이상을 만들지 않는다. 해당과정의 <b>인산과당인산화효소(3단계)</b>가 핵심 밸브다.
+    ATP가 많으면 억제, ADP·AMP가 많으면 활성화. 시트르산이 쌓여도 억제된다.
+    <b>공급과 수요가 물질대사의 경제를 조절한다.</b>
+  </div>
+
+</section>
+
+<!-- ============ 한눈에 ============ -->
+<section id="map">
+  <div class="lead"><b>포도당 1분자의 여정.</b> 숫자는 모두 <b>포도당 1개 기준</b>이다.</div>
+
+  <div class="flow">
+    <div class="st">
+      <h4>① 해당과정 <span style="font-size:12px;color:var(--sub);font-weight:500">· 세포질</span></h4>
+      <div class="io">포도당 → <b>2 피루브산</b><br>번 것: <b>ATP 2</b>(4 벌고 2 씀) + <b>NADH 2</b> · CO₂ 없음 · 산소 불필요</div>
+    </div>
+    <div class="arw">↓ 산소가 있으면 미토콘드리아로</div>
+    <div class="st p">
+      <h4>② 피루브산 산화 <span style="font-size:12px;color:var(--sub);font-weight:500">· 기질</span></h4>
+      <div class="io">2 피루브산 → <b>2 아세틸 CoA</b><br>번 것: <b>NADH 2</b> · <b>CO₂ 2</b> 방출(첫 CO₂)</div>
+    </div>
+    <div class="arw">↓</div>
+    <div class="st p">
+      <h4>③ 시트르산 회로 <span style="font-size:12px;color:var(--sub);font-weight:500">· 기질</span></h4>
+      <div class="io">아세틸 CoA + 옥살로아세트산 → 시트르산 → (8단계) → 옥살로아세트산 재생<br>
+      번 것: <b>ATP 2</b> + <b>NADH 6</b> + <b>FADH₂ 2</b> · <b>CO₂ 4</b> 방출</div>
+    </div>
+    <div class="arw">↓ NADH·FADH₂가 전자를 내막으로 배달</div>
+    <div class="st o">
+      <h4>④ 산화적 인산화 <span style="font-size:12px;color:var(--sub);font-weight:500">· 내막</span></h4>
+      <div class="io"><b>전자전달사슬</b>: 전자 하강 → H⁺를 막사이공간으로 퍼냄 → H⁺ 기울기<br>
+      <b>화학삼투</b>: H⁺가 ATP 합성효소로 되돌아 흐름 → 회전 → ATP<br>
+      번 것: <b>ATP 약 26~28</b> · 최종산물 <b>H₂O</b></div>
+    </div>
+    <div class="tot">약 30 또는 32 ATP
+      <small>NADH ≈ 2.5 ATP · FADH₂ ≈ 1.5 ATP · 셔틀 종류에 따라 30 vs 32 · 효율 약 34%</small>
+    </div>
+    <div class="arw" style="margin-top:14px">— 산소가 없다면 —</div>
+    <div class="st f">
+      <h4>발효 <span style="font-size:12px;color:var(--sub);font-weight:500">· 세포질</span></h4>
+      <div class="io">해당과정만 사용 → <b>ATP 2</b>가 전부<br>
+      존재 이유: NADH → <b>NAD⁺ 재생</b>(해당과정을 계속 돌리려고)<br>
+      알코올발효: →아세트알데하이드(CO₂ 방출)→ <b>에탄올</b> · 젖산발효: → <b>젖산</b>(CO₂ 없음)</div>
+    </div>
+  </div>
+
+  <h3 style="margin-top:26px">자주 틀리는 곳</h3>
+  <div class="key">
+    <ul>
+      <li>해당과정에서 <b>CO₂는 나오지 않는다</b>. 첫 CO₂는 피루브산 산화에서.</li>
+      <li>전자전달사슬은 <b>ATP를 직접 만들지 않는다</b>. H⁺를 퍼낼 뿐이다.</li>
+      <li>시트르산 회로가 직접 만든 ATP는 <b>포도당당 2개뿐</b>. 진짜 수확은 NADH·FADH₂.</li>
+      <li>FADH₂는 <b>복합체 II</b>로 들어가 늦게 합류 → ATP를 덜 만든다(1.5개).</li>
+      <li>발효의 목적은 ATP가 아니라 <b>NAD⁺ 재생</b>이다.</li>
+      <li>산소호흡·무산소호흡·발효 <b>모두 해당과정을 쓴다</b>. 차이는 그 다음.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ 퀴즈 ============ -->
+<section id="quiz">
+  <div class="lead">선택지를 누르면 바로 채점되고 해설이 열린다. <b>틀린 문제의 해설만 읽어도 이 단원의 함정은 거의 다 걸린다.</b></div>
+  <div id="qs"></div>
+  <div class="score" id="sc">0 / 12</div>
+</section>
+
+<!-- ============ 용어 ============ -->
+<section id="voca">
+  <div class="lead">카드를 <b>탭하면 뜻</b>이 열린다.</div>
+  <div class="deck" id="dk"></div>
+</section>
+
+</main>
+
+<div id="lb"><div id="lbi"></div></div>
+<button id="lbx" style="display:none">✕</button>
+<div id="lbh" style="display:none">두 손가락으로 확대 · 배경을 탭하면 닫힘</div>
+
+<footer>
+  세포호흡과 발효 · 학습 노트<br>
+  본문과 도해는 직접 작성·작도했습니다. 내용은 표준 생화학 교과 지식에 기반합니다.<br>
+  참고 문헌: Reece 외, <i>캠벨 생명과학</i> 9판 · Alberts 외, <i>Molecular Biology of the Cell</i>
+</footer>
+
+<script>
+/* ---- 탭 ---- */
+const secs=[...document.querySelectorAll('section')];
+document.querySelectorAll('nav button').forEach(b=>{
+  b.onclick=()=>{
+    document.querySelectorAll('nav button').forEach(x=>x.classList.remove('on'));
+    b.classList.add('on');
+    secs.forEach(s=>s.classList.toggle('on', s.id===b.dataset.s));
+    window.scrollTo({top:0});
+  };
+});
+
+/* ---- 진행 바 ---- */
+addEventListener('scroll',()=>{
+  const h=document.documentElement;
+  const p=h.scrollTop/(h.scrollHeight-h.clientHeight||1);
+  document.getElementById('bar').style.width=(p*100)+'%';
+},{passive:true});
+
+/* ---- 라이트박스 (핀치 줌) ---- */
+const lb=document.getElementById('lb'), lbi=document.getElementById('lbi'),
+      lbx=document.getElementById('lbx'), lbh=document.getElementById('lbh');
+let sc=1,tx=0,ty=0,st=1,sx=0,sy=0,pd=0,moved=false;
+function apply(){lbi.style.transform=`translate(${tx}px,${ty}px) scale(${sc})`;}
+function reset(){sc=1;tx=0;ty=0;apply();}
+document.querySelectorAll('figure svg').forEach(s=>{
+  s.addEventListener('click',()=>{
+    lbi.innerHTML=''; lbi.appendChild(s.cloneNode(true));
+    lb.classList.add('on'); reset();
+    lbx.style.display='block'; lbh.style.display='block';
+    document.body.style.overflow='hidden';
+  });
+});
+function close(){lb.classList.remove('on');lbx.style.display='none';lbh.style.display='none';
+  document.body.style.overflow='';lbi.innerHTML='';}
+lbx.onclick=close;
+lb.addEventListener('click',e=>{ if(!moved && e.target===lb) close(); });
+function dist(t){const a=t[0],b=t[1];return Math.hypot(a.clientX-b.clientX,a.clientY-b.clientY);}
+lb.addEventListener('touchstart',e=>{
+  moved=false;
+  if(e.touches.length===2){pd=dist(e.touches);st=sc;}
+  else if(e.touches.length===1){sx=e.touches[0].clientX-tx;sy=e.touches[0].clientY-ty;}
+},{passive:true});
+lb.addEventListener('touchmove',e=>{
+  moved=true;
+  if(e.touches.length===2){
+    e.preventDefault();
+    sc=Math.min(6,Math.max(1,st*dist(e.touches)/pd)); apply();
+  }else if(e.touches.length===1&&sc>1){
+    e.preventDefault();
+    tx=e.touches[0].clientX-sx; ty=e.touches[0].clientY-sy; apply();
+  }
+},{passive:false});
+lb.addEventListener('dblclick',()=>{ sc=sc>1?1:2.6; tx=0;ty=0; apply(); });
+addEventListener('keydown',e=>{if(e.key==='Escape')close();});
+
+/* ---- 퀴즈 ---- */
+const QS=[
+ {q:"해당과정에서 방출되는 CO₂는 포도당 1분자당 몇 개인가?",
+  o:["0개","2개","4개","6개"],a:0,
+  e:"<b>0개.</b> 포도당의 탄소 6개는 전부 피루브산 2분자(3×2)에 그대로 남는다. 호흡에서 CO₂가 처음 나오는 곳은 <b>피루브산 산화</b> 단계이고, 나머지는 시트르산 회로에서 나온다."},
+ {q:"해당과정의 순 ATP 생성량과 그 계산은?",
+  o:["ATP 2 = 4 생성 − 2 소모","ATP 4 = 4 생성, 소모 없음","ATP 2 = 2 생성, 소모 없음","ATP 6 = 4 생성 + NADH 2"],a:0,
+  e:"<b>투자기</b>에 ATP 2개를 쓰고(1·3단계), <b>회수기</b>에 4개를 번다(7·10단계, 기질수준 인산화). 순이익 2개. 여기에 NADH 2개가 별도로 생긴다."},
+ {q:"전자전달사슬이 하는 일을 가장 정확히 말한 것은?",
+  o:["ADP를 인산화해 ATP를 직접 만든다","전자를 단계적으로 떨어뜨리며 H⁺를 막 밖으로 퍼낸다","포도당을 피루브산으로 분해한다","NAD⁺를 NADH로 환원시킨다"],a:1,
+  e:"함정 문제다. <b>전자전달사슬은 ATP를 직접 만들지 않는다.</b> 전자가 내려가며 내놓는 에너지로 H⁺를 막사이공간에 퍼내 <b>기울기(수소이온의 이동력)</b>를 만들 뿐이다. ATP는 그 기울기를 쓰는 <b>ATP 합성효소</b>가 만든다."},
+ {q:"발효의 존재 이유로 가장 알맞은 것은?",
+  o:["산소 없이 많은 ATP를 만들려고","NADH를 NAD⁺로 재생해 해당과정을 계속 돌리려고","피루브산을 미토콘드리아로 보내려고","전자전달사슬을 활성화하려고"],a:1,
+  e:"<b>NAD⁺ 재생이 목적이다.</b> 발효가 만드는 ATP는 해당과정의 2개가 전부다. NADH가 쌓이면 NAD⁺가 고갈되어 해당과정 6단계가 멈춘다. 그래서 NADH의 전자를 피루브산(또는 유도체)에 떠넘겨 NAD⁺로 되돌린다."},
+ {q:"NADH 1개와 FADH₂ 1개가 만드는 ATP 수가 다른 이유는?",
+  o:["FADH₂가 전자를 2개가 아닌 1개만 주기 때문","FADH₂가 복합체 II로 들어가 사슬의 더 아래에서 합류하기 때문","FADH₂는 세포질에 있어 셔틀이 필요하기 때문","FADH₂는 산화적 인산화에 참여하지 않기 때문"],a:1,
+  e:"둘 다 전자를 <b>2개씩</b> 준다. 차이는 진입 지점이다. NADH는 복합체 I로, FADH₂는 <b>복합체 II</b>로 들어간다. FADH₂가 더 낮은 에너지 준위에서 합류하므로 퍼낼 수 있는 H⁺가 적다 → 약 1.5 ATP(NADH는 약 2.5)."},
+ {q:"포도당 1분자당 ATP가 '30 또는 32'로 갈리는 직접적인 이유는?",
+  o:["세포마다 미토콘드리아 수가 달라서","세포질 NADH를 미토콘드리아로 넘기는 왕복기구(셔틀)의 종류가 달라서","시트르산 회로가 도는 횟수가 달라서","산소 농도가 달라서"],a:1,
+  e:"미토콘드리아 내막은 NADH에 <b>비투과성</b>이라 세포질 NADH는 셔틀을 타야 한다. 뇌세포처럼 <b>FAD</b>로 건네면 1.5 ATP, 간·심장처럼 <b>NAD⁺</b>로 건네면 2.5 ATP. 세포질 NADH가 2개이므로 차이가 2 ATP → 30 vs 32."},
+ {q:"시트르산 회로가 포도당 1분자당 <u>직접</u> 만드는 ATP는?",
+  o:["2개","4개","6개","약 26개"],a:0,
+  e:"<b>2개뿐이다.</b> 아세틸기 1개당 5단계에서 GTP를 거쳐 ATP 1개, 아세틸 CoA가 2개이므로 ×2 = 2개. 회로의 진짜 수확은 ATP가 아니라 <b>NADH 6 + FADH₂ 2</b>라는 전자 꾸러미다."},
+ {q:"조건부 혐기성 생물에서 산소 유무에 따라 운명이 갈리는 분기점 물질은?",
+  o:["포도당","피루브산","아세틸 CoA","옥살로아세트산"],a:1,
+  e:"<b>피루브산</b>이다. 해당과정은 발효와 세포호흡에 공통이고, 그 최종생성물인 피루브산이 갈림길에 선다. 산소가 있으면 아세틸 CoA로 가서 시트르산 회로로, 없으면 발효로 간다."},
+ {q:"화학삼투(chemiosmosis)를 옳게 설명한 것은?",
+  o:["물이 반투막을 통과해 이동하는 현상","막을 사이에 둔 H⁺ 기울기의 에너지로 일을 하는 에너지-짝물림 기작","전자가 NAD⁺에서 산소로 이동하는 반응","ATP가 ADP로 가수분해되는 반응"],a:1,
+  e:"물수송의 삼투와 이름만 비슷할 뿐, 여기서 삼투는 <b>막을 관통하는 H⁺의 흐름</b>을 뜻한다(그리스어 osmos='밀다'). 미토콘드리아·엽록체·원핵생물의 세포막이 모두 이 원리를 쓴다. 미첼이 제안해 1978년 노벨상."},
+ {q:"알코올발효와 젖산발효의 차이로 옳은 것은?",
+  o:["알코올발효만 CO₂를 방출한다","젖산발효만 NAD⁺를 재생한다","젖산발효만 ATP를 만든다","알코올발효만 산소를 사용한다"],a:0,
+  e:"<b>알코올발효</b>는 피루브산 → 아세트알데하이드로 갈 때 <b>CO₂를 방출</b>하고(빵이 부푸는 이유), 이어 에탄올이 된다. <b>젖산발효</b>는 피루브산이 NADH에 의해 <b>바로</b> 환원되어 젖산이 되므로 CO₂가 안 나온다. NAD⁺ 재생과 ATP 2개는 둘 다 같다."},
+ {q:"동면 동물의 갈색 지방에서 비짝물림 단백질이 하는 일은?",
+  o:["ATP 합성 효율을 높인다","H⁺가 ATP 합성 없이 새게 해서 열을 낸다","전자전달사슬을 차단한다","시트르산 회로를 가속한다"],a:1,
+  e:"내막의 채널 단백질이 H⁺를 ATP 합성효소를 <b>거치지 않고</b> 되돌아가게 한다. 그러면 전자전달은 계속되지만 ATP는 안 생기고 <b>에너지가 열로만 나온다.</b> 겨울을 나는 적응이다."},
+ {q:"해당과정이 생명의 아주 이른 시기에 진화했다는 근거로 가장 적절한 것은?",
+  o:["해당과정이 가장 많은 ATP를 만들기 때문","세포질에서 일어나며 막성 소기관을 요구하지 않고, 산소가 없어도 되기 때문","해당과정에만 효소가 필요하기 때문","해당과정이 미토콘드리아에서 일어나기 때문"],a:1,
+  e:"세균 화석은 35억 년 전인데 대기 산소는 27억 년 전에야 쌓이기 시작했다. 초기 원핵생물은 <b>산소 없이</b> 살았고, 해당과정은 산소도 <b>막성 소기관도 필요 없다</b>(막성 소기관은 원핵세포 등장 10억 년 뒤에야 진화). 그래서 태고의 유산으로 본다."},
+];
+const qs=document.getElementById('qs'); let done=0, right=0;
+QS.forEach((Q,i)=>{
+  const d=document.createElement('div'); d.className='q';
+  d.innerHTML=`<div class="qn">Q${i+1}</div><div class="qt">${Q.q}</div>`;
+  const ex=document.createElement('div'); ex.className='exp'; ex.innerHTML=Q.e;
+  Q.o.forEach((t,j)=>{
+    const b=document.createElement('button'); b.className='opt'; b.textContent=t;
+    b.onclick=()=>{
+      [...d.querySelectorAll('.opt')].forEach(x=>x.disabled=true);
+      d.querySelectorAll('.opt')[Q.a].classList.add('ok');
+      if(j!==Q.a) b.classList.add('no'); else right++;
+      ex.classList.add('show'); done++;
+      document.getElementById('sc').textContent=`${right} / ${QS.length}  (푼 문제 ${done})`;
+    };
+    d.appendChild(b);
+  });
+  d.appendChild(ex); qs.appendChild(d);
+});
+document.getElementById('sc').textContent=`0 / ${QS.length}`;
+
+/* ---- 용어 ---- */
+const V=[
+ ["이화반응경로","catabolic pathway","복잡한 분자를 부수어 저장된 에너지를 방출하는 물질대사경로. 발효와 세포호흡이 대표."],
+ ["산소호흡","aerobic respiration","산소를 반응물로 함께 소모하는 가장 효율적인 이화반응경로. 포도당당 약 32 ATP."],
+ ["무산소호흡","anaerobic respiration","전자전달사슬은 쓰되 최종 전자수용체로 산소가 아닌 물질(예: SO₄²⁻)을 쓰는 호흡."],
+ ["산화 / 환원","oxidation / reduction","전자를 잃는 것이 산화, 얻는 것이 환원. 항상 짝으로 일어난다(산화환원반응)."],
+ ["환원제 / 산화제","reducing / oxidizing agent","전자를 주는 쪽이 환원제, 받는 쪽이 산화제. 호흡에서 포도당=환원제, 산소=산화제."],
+ ["NAD⁺ / NADH","nicotinamide adenine dinucleotide","전자를 실어 나르는 조효소. 탈수소효소가 전자 2개+양성자 1개를 NAD⁺에 넘겨 NADH로 환원시킨다."],
+ ["탈수소효소","dehydrogenase","기질에서 수소 한 쌍(전자 2 + 양성자 2)을 떼어내 기질을 산화시키는 효소."],
+ ["전자전달사슬","electron transport chain","미토콘드리아 내막(원핵생물은 원형질막)의 복합체 I~IV. 전자를 계단식으로 떨어뜨리며 H⁺를 퍼낸다. ATP를 직접 만들지는 않는다."],
+ ["해당과정","glycolysis","세포질에서 포도당 → 피루브산 2분자. 10단계. 순 ATP 2 + NADH 2. 산소 불필요, CO₂ 없음."],
+ ["피루브산","pyruvate","해당과정의 최종생성물이자 이화작용의 분기점. 산소가 있으면 아세틸 CoA로, 없으면 발효로."],
+ ["아세틸 CoA","acetyl CoA","해당과정과 시트르산 회로를 잇는 2탄소 운반 분자. 지방산의 베타 산화도 여기로 합류한다."],
+ ["시트르산 회로","citric acid cycle","= TCA 회로 = 크렙스 회로. 기질에서 8단계. 아세틸기 1개당 NADH 3 + FADH₂ 1 + ATP 1 + CO₂ 2."],
+ ["기질수준 인산화","substrate-level phosphorylation","효소가 기질의 인산기를 ADP에 직접 전달해 ATP를 만드는 방식. 해당과정 7·10단계, 회로 5단계."],
+ ["산화적 인산화","oxidative phosphorylation","전자전달 + 화학삼투로 ATP를 만드는 방식. 호흡 ATP의 약 90%를 담당."],
+ ["화학삼투","chemiosmosis","막을 사이에 둔 H⁺ 기울기의 에너지로 일을 하는 에너지-짝물림 기작. 미첼이 제안, 1978년 노벨상."],
+ ["수소이온의 이동력","proton-motive force","전자전달이 만든 H⁺ 농도 기울기가 일을 할 수 있는 능력. ATP 합성·물질수송·편모 회전에 쓰인다."],
+ ["ATP 합성효소","ATP synthase","H⁺가 지나가는 유일한 통로이자 분자 회전 모터. H⁺ 흐름 → 회전자 회전 → ADP + Pᵢ → ATP."],
+ ["발효","fermentation","전자전달사슬 없이 해당과정만으로 ATP 2개를 얻는 경로. 본질은 NAD⁺ 재생 장치."],
+ ["알코올발효 / 젖산발효","alcohol / lactic acid fermentation","전자를 아세트알데하이드에 넘겨 에탄올(CO₂ 방출) / 피루브산에 바로 넘겨 젖산(CO₂ 없음)."],
+ ["절대 혐기성 생물","obligate anaerobe","발효나 무산소호흡만 하며 산소가 있으면 죽는 생물."],
+ ["조건부 혐기성 생물","facultative anaerobe","산소 유무에 따라 호흡과 발효를 갈아타는 생물. 효모, 인간 근육세포."],
+ ["비짝물림 단백질","uncoupling protein","H⁺가 ATP 합성 없이 되돌아가게 하는 내막 채널. 갈색 지방에서 열을 만든다."],
+ ["베타 산화","beta oxidation","지방산을 2탄소씩 잘라 아세틸 CoA로 만드는 경로. 지방 1 g이 탄수화물 1 g보다 2배 이상 ATP를 내는 이유."],
+ ["탈아미노반응","deamination","아미노산에서 아미노기를 떼는 반응. 질소는 암모니아·요소로 배출된다."],
+ ["인산과당인산화효소","phosphofructokinase","해당과정 3단계의 조절 밸브. ATP·시트르산이 많으면 억제, ADP·AMP가 많으면 활성화(되먹임 조절)."],
+];
+const dk=document.getElementById('dk');
+V.forEach(([w,en,d],i)=>{
+  const c=document.createElement('div'); c.className='fc';
+  c.innerHTML=`<div class="w">${w}<span>${i+1}/${V.length}</span></div><div class="en">${en}</div><div class="d">${d}</div>`;
+  c.onclick=()=>c.classList.toggle('open');
+  dk.appendChild(c);
+});
+</script>
+</body>
+</html>
