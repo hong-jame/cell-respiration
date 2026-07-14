@@ -4,6 +4,8 @@
 
 **바로 보기 →** https://hong-jame.github.io/cell-respiration/
 
+> 앞선 편: [효소와 물질대사](https://hong-jame.github.io/enzymes/) — 이 모든 단계를 굴리는 효소가 어떻게 작동하는지
+
 ## 구성
 
 | 탭 | 내용 |
