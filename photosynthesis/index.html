@@ -1,0 +1,1107 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#e09000">
+<meta name="description" content="광합성 — 빛에서 당까지, 폰으로 읽는 생명과학 학습 노트">
+<title>광합성 · 학습 노트</title>
+<style>
+:root{
+  --bg:#faf9f7; --card:#ffffff; --ink:#1c1b19; --sub:#6b6862;
+  --line:#e6e2db; --accent:#e09000; --accent-soft:#fff6e2;
+  --gly:#1a9e8f; --pyr:#e8703a; --oxp:#7b5ec7; --fer:#3b7dd8;
+  --ok:#1f9254; --no:#d0453b;
+
+  --ac:#c47a00; --dk:#3a362e;
+  --ok-soft:#e6f4ea; --no-soft:#fdecea;
+  --f-green:#e8f4e4; --f-sun:#e8a200; --f-chl:#a9d18e; --f-mit:#fbd9a5;
+  --f-atp:#ffe14d; --f-heat:#d94a3d; --f-e:#ffd54a; --f-ox:#ffe0b3; --f-red:#cfe3fb;
+  --f-cyt:#fdf3e3; --f-co2:#6d6a63; --f-inv:#eaf3fb; --f-ret:#e4f3ee;
+  --f-ims:#fde3c8; --f-mem:#f5e6a8; --f-mat:#fdf0cf; --f-h:#c9302c;
+  --f-alc:#eaf1fb; --f-lac:#fbeaea; --f-pro:#e0d6f5; --f-car:#d9eeda; --f-fat:#fdf0bf;
+
+  --f-exo:#e6f4ea; --f-endo:#fdecea; --f-p:#ffe14d; --f-rib:#a9d18e; --f-ade:#f5b96b;
+  --f-adp:#ffd9a0; --f-enz:#c9b8ee; --f-enz2:#b3a3d8; --f-sub1:#f08a5d; --f-sub2:#7bc86c;
+  --f-prod:#5b9bd5; --f-inh:#e05a4f; --f-int:#dbeafe;
+  --f-norm:#f2f7f3; --f-comp:#fdf2e9; --f-noncomp:#fbeef2;
+
+  --f-leaf:#8fce7a; --f-epi:#e8eef0; --f-meso:#a9d18e; --f-chlo:#d7ecc8; --f-thy:#4f9e3f;
+  --f-panel:#f2f0eb; --f-fromco2:#b5179e; --f-fromh2o:#0a84c4; --f-co2b:#5a5750;
+  --f-sugar:#9fd67f; --f-calvin:#1f6fb2; --f-rubisco:#8250c4; --f-ps:#a0459c;
+  --f-pig:#5ac35a; --f-accept:#cfc3ee; --f-carrier:#c9b8ee; --f-e2:#c58a00;
+  --f-mitp:#fdf0e0; --f-chlp:#eaf6e2; --f-high:#f6d3a8; --f-low:#fbf3e2;
+  --f-c4:#eef6e6; --f-bundle:#f7e3a8; --f-cam:#eef2fb; --f-night:#dfe6f5; --f-day:#fdf3d0;
+  --r:14px; --shadow:0 1px 3px rgba(0,0,0,.06),0 6px 18px rgba(0,0,0,.04);
+}
+@media (prefers-color-scheme:dark){
+  :root{ --bg:#16150f; --card:#211f18; --ink:#f0ede5; --sub:#a29d92;
+    --line:#332f26; --accent:#f5b024; --accent-soft:#2c2415; --shadow:none;
+    --ac:#f5b024; --dk:#e8e4da;
+    --ok-soft:#17301f; --no-soft:#331916;
+    --f-green:#1b2a1c; --f-chl:#3f6b34; --f-mit:#4a3416; --f-cyt:#241d10;
+    --f-atp:#8a7415; --f-e:#8a7415; --f-ox:#3d2c12; --f-red:#16273d;
+    --f-inv:#151f2b; --f-ret:#12251f; --f-ims:#3d2611; --f-mem:#3a3213; --f-mat:#2b2411;
+    --f-alc:#151f2b; --f-lac:#2b1615; --f-pro:#251c3a; --f-car:#16281a; --f-fat:#2e2810;
+    --f-co2:#8a8880;
+    --f-exo:#16281c; --f-endo:#2b1615; --f-p:#8a7415; --f-rib:#3f6b34; --f-ade:#6b4a1e;
+    --f-adp:#5c4218; --f-enz:#4a3d70; --f-enz2:#3a3059; --f-sub1:#7a3f28; --f-sub2:#3a6b32;
+    --f-prod:#2c4d70; --f-inh:#7a2f28; --f-int:#1c2a3d;
+    --f-norm:#1a201b; --f-comp:#2b2015; --f-noncomp:#2b171d;
+    --f-leaf:#3f6b34; --f-epi:#2a2f31; --f-meso:#3f6b34; --f-chlo:#1e2f1a; --f-thy:#57a344;
+    --f-panel:#262319; --f-fromco2:#e05ac8; --f-fromh2o:#3aaee8; --f-co2b:#8a8880;
+    --f-sugar:#3f6b34; --f-calvin:#3f92d6; --f-rubisco:#9a72e0; --f-ps:#c060ba;
+    --f-pig:#3f8f3f; --f-accept:#4a3d70; --f-carrier:#4a3d70; --f-e2:#f0b429;
+    --f-mitp:#2b2114; --f-chlp:#1a2716; --f-high:#4a3416; --f-low:#2b2411;
+    --f-c4:#1a2716; --f-bundle:#4a3d16; --f-cam:#171d2b; --f-night:#1b2136; --f-day:#2e2810;
+
+ --f-sun:#f5b024; --f-heat:#e8564a; --f-h:#e8564a;
+  }
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0}
+body{
+  background:var(--bg); color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic","Noto Sans KR",sans-serif;
+  font-size:17px; line-height:1.75; letter-spacing:-.01em;
+  -webkit-text-size-adjust:100%;
+}
+
+/* ===== 헤더 ===== */
+header{
+  position:sticky; top:0; z-index:50; background:var(--card);
+  border-bottom:1px solid var(--line); padding:env(safe-area-inset-top) 0 0;
+}
+.hd{display:flex;align-items:center;gap:10px;padding:11px 16px 9px}
+.hd .ch{
+  background:var(--accent); color:#fff; font-weight:800; font-size:15px;
+  width:30px;height:30px;border-radius:9px;display:grid;place-items:center;flex:none;
+}
+.hd h1{font-size:16px;margin:0;font-weight:700;letter-spacing:-.02em}
+.hd .src{font-size:11px;color:var(--sub);margin-top:1px}
+.home{margin-left:auto;flex:none;display:grid;place-items:center;width:34px;height:34px;
+  border-radius:9px;border:1px solid var(--line);background:var(--bg);color:var(--sub);
+  text-decoration:none;font-size:15px}
+.home:active{background:var(--accent-soft)}
+
+nav{display:flex;overflow-x:auto;scrollbar-width:none;padding:0 8px 0;gap:2px}
+nav::-webkit-scrollbar{display:none}
+nav button{
+  flex:none;background:none;border:0;padding:9px 13px 11px;font:inherit;font-size:14px;
+  font-weight:600;color:var(--sub);border-bottom:2.5px solid transparent;cursor:pointer;
+}
+nav button.on{color:var(--accent);border-bottom-color:var(--accent)}
+
+/* 진행 바 */
+#bar{height:2px;background:var(--accent);width:0;transition:width .15s}
+
+main{padding:18px 16px 90px;max-width:760px;margin:0 auto}
+section{display:none}
+section.on{display:block;animation:fade .22s ease}
+@keyframes fade{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+
+/* ===== 읽기 ===== */
+.lead{
+  background:var(--accent-soft); border:1px solid var(--line); border-radius:var(--r);
+  padding:15px 16px; margin:0 0 22px; font-size:15.5px; line-height:1.7;
+}
+.lead b{color:var(--accent)}
+
+h2{
+  font-size:19px; margin:34px 0 4px; letter-spacing:-.03em; line-height:1.4;
+  scroll-margin-top:100px;
+}
+h2 .n{
+  display:inline-block; font-size:12px; font-weight:800; color:#fff;
+  background:var(--ink); border-radius:5px; padding:2px 7px; margin-right:7px;
+  vertical-align:2px; letter-spacing:0;
+}
+h2.gly .n{background:var(--gly)} h2.pyr .n{background:var(--pyr)}
+h2.oxp .n{background:var(--oxp)} h2.fer .n{background:var(--fer)}
+.sub{color:var(--sub);font-size:13.5px;margin:0 0 16px;font-weight:500}
+h3{font-size:16px;margin:24px 0 8px;letter-spacing:-.02em}
+p{margin:0 0 13px}
+.t{color:var(--accent);font-weight:700}
+em{font-style:normal;background:linear-gradient(transparent 58%,var(--accent-soft) 58%);font-weight:600}
+
+/* 그림 */
+figure{margin:18px 0;background:var(--card);border:1px solid var(--line);
+  border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow)}
+figure svg{width:100%;height:auto;display:block;cursor:zoom-in;background:var(--card);padding:8px 6px}
+.s-ti{font:700 9.5px -apple-system,"Malgun Gothic",sans-serif;fill:var(--dk)}
+.s-sm{font:500 8.5px -apple-system,"Malgun Gothic",sans-serif;fill:var(--dk)}
+.s-lb{font:600 9px -apple-system,"Malgun Gothic",sans-serif;fill:var(--sub)}
+.s-tot{font:800 12px -apple-system,"Malgun Gothic",sans-serif}
+figcaption{padding:9px 13px 11px;font-size:12.5px;color:var(--sub);line-height:1.55;
+  border-top:1px solid var(--line)}
+figcaption b{color:var(--ink);font-size:12.5px}
+.tapz{font-size:11px;color:var(--accent);font-weight:600}
+
+/* 요점 박스 */
+.key{
+  border-left:3px solid var(--accent); background:var(--card); border-radius:0 var(--r) var(--r) 0;
+  padding:13px 15px; margin:16px 0; font-size:15.5px; box-shadow:var(--shadow);
+}
+.key b{color:var(--accent)}
+.key ul{margin:6px 0 0;padding-left:18px}
+.key li{margin:4px 0}
+
+/* 표 */
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:16px 0;
+  border:1px solid var(--line);border-radius:var(--r);background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:14px;min-width:420px}
+th,td{padding:9px 11px;text-align:left;border-bottom:1px solid var(--line)}
+th{background:var(--accent-soft);font-weight:700;font-size:13px;white-space:nowrap}
+td:first-child{font-weight:600;white-space:nowrap}
+tr:last-child td{border-bottom:0}
+
+/* ===== 핵심정리 ===== */
+.flow{display:flex;flex-direction:column;gap:9px;margin:16px 0}
+.st{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--gly);
+  border-radius:10px;padding:12px 14px;box-shadow:var(--shadow)}
+.st.p{border-left-color:var(--pyr)} .st.o{border-left-color:var(--oxp)} .st.f{border-left-color:var(--fer)}
+.st h4{margin:0 0 3px;font-size:15px}
+.st .io{font-size:13px;color:var(--sub);line-height:1.6}
+.st .io b{color:var(--ink)}
+.arw{text-align:center;color:var(--sub);font-size:13px;margin:-4px 0}
+.tot{background:var(--accent);color:#fff;border-radius:12px;padding:14px;text-align:center;
+  font-weight:700;font-size:16px;margin-top:6px}
+.tot small{display:block;font-weight:500;font-size:12px;opacity:.9;margin-top:3px}
+
+/* ===== 퀴즈 ===== */
+.q{background:var(--card);border:1px solid var(--line);border-radius:var(--r);
+  padding:16px;margin:0 0 14px;box-shadow:var(--shadow)}
+.qn{font-size:11px;font-weight:800;color:var(--accent);letter-spacing:.06em;margin-bottom:5px}
+.qt{font-weight:600;margin-bottom:11px;line-height:1.65}
+.opt{display:block;width:100%;text-align:left;background:var(--bg);border:1.5px solid var(--line);
+  border-radius:9px;padding:11px 13px;margin:6px 0;font:inherit;font-size:15px;cursor:pointer;
+  color:var(--ink);transition:.12s;line-height:1.5}
+.opt:active{transform:scale(.99)}
+.opt.ok{border-color:var(--ok);background:color-mix(in srgb,var(--ok) 12%,transparent);font-weight:600}
+.opt.no{border-color:var(--no);background:color-mix(in srgb,var(--no) 10%,transparent)}
+.opt:disabled{cursor:default}
+.exp{display:none;margin-top:10px;padding:11px 13px;background:var(--accent-soft);
+  border-radius:9px;font-size:14px;line-height:1.65}
+.exp.show{display:block}
+.exp b{color:var(--accent)}
+.score{position:sticky;bottom:14px;background:var(--ink);color:var(--bg);border-radius:99px;
+  padding:11px 18px;text-align:center;font-weight:700;font-size:14px;box-shadow:0 6px 20px rgba(0,0,0,.25);
+  margin-top:18px}
+
+/* ===== 용어카드 ===== */
+.deck{display:grid;gap:10px}
+.fc{background:var(--card);border:1px solid var(--line);border-radius:var(--r);
+  padding:15px 16px;cursor:pointer;box-shadow:var(--shadow);transition:.12s}
+.fc:active{transform:scale(.995)}
+.fc .w{font-weight:700;font-size:16px;display:flex;justify-content:space-between;align-items:center;gap:8px}
+.fc .w span{font-size:11px;color:var(--sub);font-weight:600;flex:none}
+.fc .en{font-size:12px;color:var(--sub);margin-top:2px;font-weight:500}
+.fc .d{display:none;margin-top:9px;padding-top:9px;border-top:1px dashed var(--line);
+  font-size:14.5px;line-height:1.65;color:var(--ink)}
+.fc.open .d{display:block}
+.fc.open{border-color:var(--accent)}
+
+/* 라이트박스 */
+#lb{position:fixed;inset:0;background:var(--bg);z-index:200;display:none;
+  place-items:center;touch-action:none;padding:20px}
+#lb.on{display:grid}
+#lbi{width:100%;transform-origin:center center;will-change:transform}
+#lbi svg{width:100%;height:auto;max-height:88vh}
+#lbx{position:fixed;top:calc(env(safe-area-inset-top) + 10px);right:12px;z-index:201;
+  background:var(--card);color:var(--ink);border:1px solid var(--line);width:40px;height:40px;border-radius:50%;
+  font-size:22px;cursor:pointer;backdrop-filter:blur(6px)}
+#lbh{position:fixed;bottom:calc(env(safe-area-inset-bottom) + 16px);left:50%;transform:translateX(-50%);
+  color:var(--sub);font-size:12px;z-index:201;pointer-events:none;
+  padding:5px 12px;border-radius:99px}
+
+footer{text-align:center;font-size:11.5px;color:var(--sub);padding:26px 16px 30px;line-height:1.7}
+</style>
+</head>
+<body>
+<header>
+  <div class="hd">
+    <div class="ch">광합</div>
+    <div>
+      <h1>광합성</h1>
+      <div class="src">빛에서 당까지 · 폰으로 읽는 학습 노트</div>
+    </div>
+    <a class="home" href="../" aria-label="목차로" title="목차로">☰</a>
+  </div>
+  <nav>
+    <button class="on" data-s="read">읽기</button>
+    <button data-s="map">한눈에</button>
+    <button data-s="quiz">퀴즈</button>
+    <button data-s="voca">용어</button>
+  </nav>
+  <div id="bar"></div>
+</header>
+<main>
+
+<section id="read" class="on">
+  <div class="lead">
+    <b>당신 몸의 탄소는 전부 공기에서 왔다.</b> 식물이 CO₂를 붙잡아 당으로 바꾸지 않았다면
+    지구에 유기물은 없다. 그런데 광합성이 만드는 산소는, 알고 보면 <b>CO₂가 아니라 물에서 나온다.</b>
+    이 노트는 빛이 어떻게 당이 되는지를 따라간다.
+  </div>
+
+  <p>지구의 거의 모든 에너지는 여기서 시작한다. 식물·조류·일부 세균은 <span class="t">광독립영양생물</span>이다 —
+  빛과 CO₂만으로 자기 양분을 만든다. 나머지는 전부 그들이 만든 것을 먹고 산다.</p>
+
+  <h2><span class="n">1</span>무대: 잎에서 엽록체까지</h2>
+  <p class="sub">구조를 알면 나머지가 쉬워진다</p>
+
+  <p>잎 표면 1 mm²당 엽록체가 <b>약 50만 개</b> 들어 있다. 대부분 잎 안쪽 <span class="t">엽육조직</span>에 있고,
+  전형적인 엽육세포 하나에 엽록체가 30~40개 있다. CO₂는 <span class="t">기공</span>으로 들어오고 O₂는 그리로 나간다.</p>
+
+  <figure><svg id="p-leaf" viewBox="0 0 340 250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="잎에서 엽록체까지">
+  <defs><marker id="pa1" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+    <path d="M0,0 L10,5 L0,10 z" fill="var(--dk)"/></marker></defs>
+  <!-- 잎 -->
+  <path d="M14,44 q34,-34 68,0 q-34,34 -68,0 z" fill="var(--f-leaf)" stroke="var(--dk)"/>
+  <path d="M14,44 L82,44" stroke="var(--dk)" stroke-width="1" opacity=".5"/>
+  <text x="48" y="20" class="s-ti" text-anchor="middle">잎</text>
+  <path d="M86,44 L112,44" stroke="var(--dk)" stroke-width="1.5" marker-end="url(#pa1)"/>
+  <!-- 잎 횡단면 -->
+  <rect x="116" y="18" width="208" height="60" rx="4" fill="var(--card)" stroke="var(--dk)"/>
+  <rect x="116" y="18" width="208" height="10" fill="var(--f-epi)"/>
+  <rect x="116" y="68" width="208" height="10" fill="var(--f-epi)"/>
+  <g fill="var(--f-meso)" stroke="var(--dk)" stroke-width=".7">
+    <ellipse cx="140" cy="40" rx="10" ry="7"/><ellipse cx="166" cy="40" rx="10" ry="7"/>
+    <ellipse cx="192" cy="40" rx="10" ry="7"/><ellipse cx="218" cy="40" rx="10" ry="7"/>
+    <ellipse cx="244" cy="40" rx="10" ry="7"/><ellipse cx="270" cy="40" rx="10" ry="7"/>
+    <ellipse cx="152" cy="58" rx="10" ry="7"/><ellipse cx="180" cy="58" rx="10" ry="7"/>
+    <ellipse cx="208" cy="58" rx="10" ry="7"/><ellipse cx="236" cy="58" rx="10" ry="7"/>
+  </g>
+  <text x="298" y="42" class="s-sm" text-anchor="middle">엽육</text>
+  <text x="298" y="53" class="s-sm" text-anchor="middle">조직</text>
+  <!-- 기공 -->
+  <path d="M176,78 l6,-6 M188,78 l-6,-6" stroke="var(--dk)" stroke-width="1.4"/>
+  <text x="150" y="92" class="s-sm" text-anchor="middle">기공</text>
+  <path d="M164,86 L176,80" stroke="var(--dk)" stroke-width=".8"/>
+  <text x="212" y="92" class="s-sm" fill="var(--gly)">CO₂ 들어옴</text>
+  <path d="M206,86 L196,80" stroke="var(--gly)" stroke-width="1.2" marker-end="url(#pa1)"/>
+  <text x="270" y="92" class="s-sm" fill="var(--no)">O₂ 나감</text>
+  <path d="M268,86 L258,80" stroke="var(--no)" stroke-width="1.2"/>
+  <!-- 엽록체 -->
+  <path d="M192,58 L120,110" stroke="var(--dk)" stroke-width="1" stroke-dasharray="3 2"/>
+  <ellipse cx="170" cy="170" rx="126" ry="56" fill="var(--f-chlo)" stroke="var(--dk)" stroke-width="1.3"/>
+  <ellipse cx="170" cy="170" rx="118" ry="49" fill="none" stroke="var(--dk)" stroke-width=".9"/>
+  <text x="52" y="120" class="s-ti">엽록체</text>
+  <text x="298" y="150" class="s-sm" text-anchor="end">외막·내막</text>
+  <!-- 그라나 (틸라코이드 더미) -->
+  <g stroke="var(--dk)" stroke-width=".7" fill="var(--f-thy)">
+    <g transform="translate(96,152)"><rect x="0" y="0" width="34" height="6" rx="3"/><rect x="0" y="8" width="34" height="6" rx="3"/><rect x="0" y="16" width="34" height="6" rx="3"/><rect x="0" y="24" width="34" height="6" rx="3"/></g>
+    <g transform="translate(152,144)"><rect x="0" y="0" width="34" height="6" rx="3"/><rect x="0" y="8" width="34" height="6" rx="3"/><rect x="0" y="16" width="34" height="6" rx="3"/><rect x="0" y="24" width="34" height="6" rx="3"/><rect x="0" y="32" width="34" height="6" rx="3"/></g>
+    <g transform="translate(210,154)"><rect x="0" y="0" width="34" height="6" rx="3"/><rect x="0" y="8" width="34" height="6" rx="3"/><rect x="0" y="16" width="34" height="6" rx="3"/><rect x="0" y="24" width="34" height="6" rx="3"/></g>
+  </g>
+  <!-- 연결 -->
+  <path d="M130,166 L152,160 M186,160 L210,166" stroke="var(--dk)" stroke-width="1.4" fill="none"/>
+  <text x="113" y="196" class="s-ti" text-anchor="middle">그라나</text>
+  <text x="169" y="132" class="s-ti" text-anchor="middle">틸라코이드</text>
+  <text x="264" y="180" class="s-ti" text-anchor="middle">스트로마</text>
+  <text x="264" y="192" class="s-sm" text-anchor="middle">(액체)</text>
+  <text x="170" y="238" class="s-sm" text-anchor="middle" fill="var(--ac)">빛반응은 틸라코이드막에서 · 캘빈 회로는 스트로마에서</text>
+</svg>
+    <figcaption><b>도해 1</b> 엽록체 안에는 액체인 <b>스트로마</b>, 그 안에 막주머니인 <b>틸라코이드</b>, 틸라코이드가 포개진 더미가 <b>그라나</b>다. 엽록소는 틸라코이드막에 박혀 있다. <span class="tapz">탭하면 확대</span></figcaption>
+  </figure>
+
+  <div class="key">
+    이 세 단어만 확실히 해두자.<br>
+    <b>스트로마</b> = 엽록체 내부의 액체 → <b>캘빈 회로</b>가 여기서<br>
+    <b>틸라코이드막</b> = 막주머니의 막 → <b>빛반응</b>이 여기서<br>
+    <b>틸라코이드 공간</b> = 주머니 내부 → 나중에 <b>H⁺가 쌓이는 곳</b>
+  </div>
+  <p>엽록체가 미토콘드리아를 닮았다고 느꼈다면 정확하다. 세포내공생설에 따르면 엽록체는
+  <em>진핵세포의 조상 안에 들어가 살던 광합성 세균</em>이었다.</p>
+
+  <h2 class="gly"><span class="n">2</span>무엇이 무엇으로 바뀌는가</h2>
+  <p class="sub">요약식 한 줄에 숨은 반전</p>
+
+  <div class="key">
+    <b>6 CO₂ + 12 H₂O + 빛에너지 → C₆H₁₂O₆ + 6 O₂ + 6 H₂O</b><br>
+    물이 양변에 다 있는 게 이상해 보이지만, <b>12개를 쓰고 6개를 새로 만들기</b> 때문이다. 순소비만 쓰면:<br>
+    <b>6 CO₂ + 6 H₂O + 빛 → C₆H₁₂O₆ + 6 O₂</b> — 세포호흡 요약식의 <b>정반대</b>다.
+  </div>
+
+  <h3>O₂는 어디서 나온 산소인가</h3>
+  <p>1930년대까지는 CO₂가 쪼개져(CO₂ → C + O₂) 산소가 나온다고 봤다. 반 닐(C. B. van Niel)이 이를 뒤집었다.
+  그는 물 대신 <b>H₂S를 쓰는 황세균</b>이 O₂ 대신 <b>황(S)</b>을 내놓는 걸 보고, 일반화했다.</p>
+  <div class="key">
+    황세균: CO₂ + 2 H₂<b>S</b> → [CH₂O] + H₂O + 2 <b>S</b><br>
+    식물: &nbsp;&nbsp;CO₂ + 2 H₂<b>O</b> → [CH₂O] + H₂O + <b>O₂</b><br>
+    일반: &nbsp;&nbsp;CO₂ + 2 H₂<b>X</b> → [CH₂O] + H₂O + 2 <b>X</b><br>
+    → <b>광합성 생물은 수소 공급원이 필요하고, 부산물은 그 공급원에서 나온다.</b>
+  </div>
+  <p>20년 뒤 <b>¹⁸O 동위원소</b>가 이를 증명했다. 물에 ¹⁸O를 표지하면 방출된 O₂가 표지됐고,
+  CO₂에 표지하면 O₂는 표지되지 않았다.</p>
+
+  <figure><svg id="p-atoms" viewBox="0 0 340 210" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="광합성에서 원자의 행방">
+  <defs><marker id="pa2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="4.5" markerHeight="4.5" orient="auto-start-reverse">
+    <path d="M0,0 L10,5 L0,10 z" fill="var(--f-fromco2)"/></marker>
+    <marker id="pa2b" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="4.5" markerHeight="4.5" orient="auto-start-reverse">
+    <path d="M0,0 L10,5 L0,10 z" fill="var(--f-fromh2o)"/></marker></defs>
+  <rect x="6" y="30" width="328" height="46" rx="8" fill="var(--f-panel)" stroke="var(--line)"/>
+  <text x="16" y="24" class="s-ti">반응물</text>
+  <rect x="86" y="42" width="56" height="24" rx="6" fill="var(--card)" stroke="var(--f-fromco2)" stroke-width="1.6"/>
+  <text x="114" y="58" class="s-ti" text-anchor="middle" fill="var(--f-fromco2)">6 CO₂</text>
+  <rect x="192" y="42" width="62" height="24" rx="6" fill="var(--card)" stroke="var(--f-fromh2o)" stroke-width="1.6"/>
+  <text x="223" y="58" class="s-ti" text-anchor="middle" fill="var(--f-fromh2o)">12 H₂O</text>
+  <!-- 화살표 -->
+  <path d="M108,68 L74,116" stroke="var(--f-fromco2)" stroke-width="2" marker-end="url(#pa2)"/>
+  <path d="M122,68 L150,116" stroke="var(--f-fromco2)" stroke-width="2" marker-end="url(#pa2)"/>
+  <path d="M212,68 L92,116" stroke="var(--f-fromh2o)" stroke-width="2" marker-end="url(#pa2b)"/>
+  <path d="M226,68 L166,116" stroke="var(--f-fromh2o)" stroke-width="2" marker-end="url(#pa2b)"/>
+  <path d="M240,68 L268,116" stroke="var(--f-fromh2o)" stroke-width="2.5" marker-end="url(#pa2b)"/>
+  <!-- 생성물 -->
+  <rect x="6" y="120" width="328" height="46" rx="8" fill="var(--f-panel)" stroke="var(--line)"/>
+  <text x="16" y="114" class="s-ti">생성물</text>
+  <rect x="46" y="132" width="76" height="24" rx="6" fill="var(--card)" stroke="var(--dk)"/>
+  <text x="84" y="148" class="s-ti" text-anchor="middle">C₆H₁₂O₆</text>
+  <rect x="140" y="132" width="56" height="24" rx="6" fill="var(--card)" stroke="var(--dk)"/>
+  <text x="168" y="148" class="s-ti" text-anchor="middle">6 H₂O</text>
+  <rect x="240" y="132" width="56" height="24" rx="6" fill="var(--card)" stroke="var(--f-fromh2o)" stroke-width="2"/>
+  <text x="268" y="148" class="s-ti" text-anchor="middle" fill="var(--f-fromh2o)">6 O₂</text>
+  <!-- 범례 -->
+  <rect x="16" y="176" width="10" height="10" rx="2" fill="var(--f-fromco2)"/>
+  <text x="32" y="185" class="s-sm">CO₂에서 온 원자</text>
+  <rect x="130" y="176" width="10" height="10" rx="2" fill="var(--f-fromh2o)"/>
+  <text x="146" y="185" class="s-sm">H₂O에서 온 원자</text>
+  <text x="170" y="202" class="s-ti" text-anchor="middle" fill="var(--ac)">방출되는 O₂는 CO₂가 아니라 전부 물에서 나온다</text>
+</svg>
+    <figcaption><b>도해 2</b> 원자의 행방. <b>물이 쪼개져 O₂가 되고</b>, 물의 수소가 CO₂에 붙어 당이 된다. 시험에 자주 나오는 지점이다. <span class="tapz">탭하면 확대</span></figcaption>
+  </figure>
+
+  <h3>산화환원으로 보면</h3>
+  <p>세포호흡에서는 전자가 <em>당에서 산소로</em> 떨어지며 에너지가 나왔다. 광합성은 그 반대다 —
+  전자가 <em>물에서 CO₂로</em> 올라간다. 위치에너지가 <b>올라가므로</b> 에너지를 넣어야 한다. 그 에너지가 빛이다.</p>
+  <div class="key">
+    <b>물은 산화되고(전자를 잃고), CO₂는 환원된다(전자를 얻어 당이 된다).</b><br>
+    광합성은 <b>흡열</b>이고, 세포호흡은 <b>발열</b>이다.
+  </div>
+
+  <h3>두 과정: 미리보기</h3>
+  <figure><svg id="p-overview" viewBox="0 0 340 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="광합성 개요">
+  <defs><marker id="pa3" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+    <path d="M0,0 L10,5 L0,10 z" fill="var(--dk)"/></marker></defs>
+  <ellipse cx="170" cy="140" rx="160" ry="100" fill="var(--f-chlo)" stroke="var(--dk)" stroke-width="1.2"/>
+  <text x="20" y="240" class="s-lb">엽록체</text>
+  <!-- 빛 -->
+  <text x="40" y="26" class="s-ti" fill="var(--f-sun)">☀ 빛</text>
+  <path d="M46,32 L74,74" stroke="var(--f-sun)" stroke-width="3" marker-end="url(#pa3)"/>
+  <!-- H2O 유입 -->
+  <circle cx="112" cy="26" r="14" fill="var(--f-fromh2o)" stroke="var(--dk)"/>
+  <text x="112" y="30" class="s-ti" text-anchor="middle" fill="#fff">H₂O</text>
+  <path d="M112,40 L112,80" stroke="var(--f-fromh2o)" stroke-width="3" marker-end="url(#pa3)"/>
+  <!-- 빛반응 (틸라코이드) -->
+  <g stroke="var(--dk)" stroke-width=".8" fill="var(--f-thy)">
+    <rect x="82" y="84" width="62" height="9" rx="4"/><rect x="82" y="96" width="62" height="9" rx="4"/>
+    <rect x="82" y="108" width="62" height="9" rx="4"/><rect x="82" y="120" width="62" height="9" rx="4"/>
+  </g>
+  <text x="113" y="142" class="s-ti" text-anchor="middle">빛반응</text>
+  <text x="113" y="154" class="s-sm" text-anchor="middle">틸라코이드막</text>
+  <!-- O2 배출 -->
+  <path d="M112,132 L112,200" stroke="var(--no)" stroke-width="3" marker-end="url(#pa3)"/>
+  <circle cx="112" cy="216" r="13" fill="var(--no)" stroke="var(--dk)"/>
+  <text x="112" y="220" class="s-ti" text-anchor="middle" fill="#fff">O₂</text>
+  <!-- CO2 유입 -->
+  <circle cx="242" cy="26" r="14" fill="var(--f-co2b)" stroke="var(--dk)"/>
+  <text x="242" y="30" class="s-ti" text-anchor="middle" fill="#fff">CO₂</text>
+  <path d="M242,40 L242,86" stroke="var(--dk)" stroke-width="3" marker-end="url(#pa3)"/>
+  <!-- 캘빈 회로 -->
+  <circle cx="242" cy="130" r="42" fill="none" stroke="var(--f-calvin)" stroke-width="16" opacity=".25"/>
+  <circle cx="242" cy="130" r="42" fill="none" stroke="var(--f-calvin)" stroke-width="1.5" stroke-dasharray="4 4"/>
+  <path d="M272,100 A42,42 0 0,1 272,160" fill="none" stroke="var(--f-calvin)" stroke-width="2.5" marker-end="url(#pa3)"/>
+  <path d="M212,160 A42,42 0 0,1 212,100" fill="none" stroke="var(--f-calvin)" stroke-width="2.5" marker-end="url(#pa3)"/>
+  <text x="242" y="128" class="s-ti" text-anchor="middle" fill="var(--f-calvin)">캘빈 회로</text>
+  <text x="242" y="140" class="s-sm" text-anchor="middle" fill="var(--f-calvin)">스트로마</text>
+  <!-- 당 배출 -->
+  <path d="M242,172 L242,200" stroke="var(--dk)" stroke-width="3" marker-end="url(#pa3)"/>
+  <rect x="212" y="204" width="60" height="24" rx="6" fill="var(--f-sugar)" stroke="var(--dk)"/>
+  <text x="242" y="220" class="s-ti" text-anchor="middle">당 (G3P)</text>
+  <!-- 두 과정 연결: ATP/NADPH -->
+  <path d="M148,108 L196,120" stroke="var(--ac)" stroke-width="2.5" marker-end="url(#pa3)"/>
+  <rect x="150" y="90" width="44" height="17" rx="8" fill="var(--f-atp)" stroke="var(--dk)"/>
+  <text x="172" y="102" class="s-sm" text-anchor="middle">ATP</text>
+  <rect x="148" y="122" width="48" height="17" rx="8" fill="var(--ok-soft)" stroke="var(--ok)"/>
+  <text x="172" y="134" class="s-sm" text-anchor="middle" fill="var(--ok)">NADPH</text>
+  <!-- 되돌아가는 화살표 -->
+  <path d="M198,150 Q170,172 146,140" fill="none" stroke="var(--sub)" stroke-width="1.8" marker-end="url(#pa3)"/>
+  <text x="172" y="172" class="s-sm" text-anchor="middle" fill="var(--sub)">ADP · NADP⁺</text>
+  <text x="170" y="252" class="s-sm" text-anchor="middle" fill="var(--ac)">빛반응이 ATP·NADPH를 대주고, 캘빈 회로가 그걸 써서 당을 만든다</text>
+</svg>
+    <figcaption><b>도해 3</b> 광합성의 뼈대. <b>빛반응</b>이 빛을 ATP·NADPH로 바꾸고, <b>캘빈 회로</b>가 그걸 써서 CO₂를 당으로 만든다. 당은 빛반응이 아니라 <b>캘빈 회로</b>가 만든다. <span class="tapz">탭하면 확대</span></figcaption>
+  </figure>
+  <div class="key">
+    <b>빛반응</b>(틸라코이드막) — 물을 쪼개 <b>O₂ 방출</b>, 빛에너지 → <b>ATP + NADPH</b><br>
+    <b>캘빈 회로</b>(스트로마) — CO₂를 유기물에 붙여(<b>탄소고정</b>) ATP·NADPH로 <b>당</b> 합성
+  </div>
+  <p>여기서 <span class="t">NADPH</span>가 등장한다. 세포호흡의 NAD⁺와 거의 같고, <em>인산기가 하나 더 있을 뿐</em>이다.
+  ATP를 빛으로 만드는 것을 <span class="t">광인산화</span>라 한다.</p>
+  <div class="key">
+    <b>"암반응"이라는 이름은 오해를 부른다.</b> 캘빈 회로의 어느 단계도 빛을 직접 쓰지 않는 건 맞지만,
+    <b>대부분의 식물에서 캘빈 회로는 낮에 돈다</b> — 빛반응이 ATP·NADPH를 대줘야만 돌 수 있기 때문이다.
+  </div>
+
+  <h2 class="oxp"><span class="n">3</span>빛을 붙잡는 장치</h2>
+  <p class="sub">왜 잎은 초록인가</p>
+
+  <p>빛은 전자기파이면서 <span class="t">광자</span>라는 입자처럼 행동한다. 에너지는 <em>파장에 반비례</em>한다 —
+  보라색 광자는 빨간색 광자보다 에너지가 약 2배다. 광합성을 굴리는 건 380~750 nm의 <span class="t">가시광선</span>이다.</p>
+
+  <figure><svg id="p-spectrum" viewBox="0 0 340 170" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="전자기 스펙트럼과 가시광선">
+  <defs>
+    <linearGradient id="vis" x1="0" x2="1">
+      <stop offset="0" stop-color="#8b00ff"/><stop offset="0.17" stop-color="#4b0ff0"/>
+      <stop offset="0.34" stop-color="#00b0f0"/><stop offset="0.5" stop-color="#00c000"/>
+      <stop offset="0.66" stop-color="#f0e000"/><stop offset="0.83" stop-color="#ff8000"/>
+      <stop offset="1" stop-color="#e00000"/>
+    </linearGradient>
+    <marker id="pa4" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+    <path d="M0,0 L10,5 L0,10 z" fill="var(--dk)"/></marker>
+  </defs>
+  <!-- 전체 스펙트럼 -->
+  <g stroke="var(--dk)" stroke-width=".8">
+    <rect x="10" y="16" width="44" height="20" fill="var(--f-panel)"/>
+    <rect x="54" y="16" width="40" height="20" fill="var(--f-panel)"/>
+    <rect x="94" y="16" width="36" height="20" fill="var(--f-panel)"/>
+    <rect x="130" y="16" width="44" height="20" fill="var(--f-panel)"/>
+    <rect x="174" y="16" width="76" height="20" fill="var(--f-panel)"/>
+    <rect x="250" y="16" width="42" height="20" fill="var(--f-panel)"/>
+    <rect x="292" y="16" width="38" height="20" fill="var(--f-panel)"/>
+  </g>
+  <g class="s-sm" text-anchor="middle">
+    <text x="32" y="30">감마선</text><text x="74" y="30">X선</text><text x="112" y="30">UV</text>
+    <text x="152" y="30">가시</text><text x="212" y="30">적외선</text><text x="271" y="30">마이크로</text><text x="311" y="30">라디오</text>
+  </g>
+  <!-- 확대 -->
+  <path d="M130,36 L40,62 M174,36 L306,62" stroke="var(--dk)" stroke-width=".8" stroke-dasharray="3 2"/>
+  <rect x="40" y="62" width="266" height="30" rx="3" fill="url(#vis)" stroke="var(--dk)"/>
+  <text x="173" y="82" class="s-ti" text-anchor="middle" fill="#fff" style="paint-order:stroke;stroke:rgba(0,0,0,.35);stroke-width:2.5px">가시광선</text>
+  <!-- 눈금 -->
+  <g class="s-sm" text-anchor="middle">
+    <text x="40" y="104">380</text><text x="107" y="104">450</text><text x="173" y="104">550</text>
+    <text x="240" y="104">650</text><text x="306" y="104">750 nm</text>
+  </g>
+  <!-- 화살표 -->
+  <path d="M44,116 L302,116" stroke="var(--dk)" stroke-width="1.4" marker-end="url(#pa4)"/>
+  <text x="40" y="120" class="s-sm" text-anchor="end">짧은</text>
+  <text x="173" y="112" class="s-sm" text-anchor="middle">파장 →</text>
+  <path d="M302,132 L44,132" stroke="var(--dk)" stroke-width="1.4" marker-end="url(#pa4)"/>
+  <text x="173" y="128" class="s-sm" text-anchor="middle">← 에너지</text>
+  <text x="170" y="152" class="s-sm" text-anchor="middle" fill="var(--ac)">파장이 짧을수록 광자 1개의 에너지가 크다 (보라 &gt; 빨강, 약 2배)</text>
+  <text x="170" y="165" class="s-sm" text-anchor="middle">엽록소는 <tspan font-weight="700">청자색·적색</tspan>을 흡수하고 <tspan font-weight="700">녹색은 반사</tspan>한다 → 잎이 초록으로 보인다</text>
+</svg>
+    <figcaption><b>도해 4</b> 색소는 특정 파장을 흡수하고 나머지를 반사한다. 우리가 보는 색은 <b>반사된 색</b>이다. <span class="tapz">탭하면 확대</span></figcaption>
+  </figure>
+
+  <div class="key">
+    <b>잎이 초록인 이유</b> — 엽록소가 청자색과 적색을 흡수하고 <b>녹색은 흡수하지 않고 반사·투과</b>하기 때문이다.
+    즉 녹색광은 광합성에 <b>가장 비효율적인</b> 빛이다.
+  </div>
+
+  <h3>광계 — 안테나와 반응중심</h3>
+  <p>색소 하나로는 아무것도 안 된다. 틸라코이드막에서 색소들은 <span class="t">광계</span>라는 단위로 조직된다.
+  수백 개의 색소가 모인 <span class="t">집광복합체</span>가 안테나 역할을 하고, 가운데 <span class="t">반응중심복합체</span>가 있다.</p>
+
+  <figure><svg id="p-psunit" viewBox="0 0 340 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="광계의 구조와 작동">
+  <defs><marker id="pa5" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+    <path d="M0,0 L10,5 L0,10 z" fill="var(--dk)"/></marker></defs>
+  <text x="10" y="16" class="s-lb">스트로마</text>
+  <!-- 막 -->
+  <rect x="6" y="60" width="328" height="46" fill="var(--f-mem)"/>
+  <text x="10" y="126" class="s-lb">틸라코이드 공간</text>
+  <!-- 광계 덩어리 -->
+  <rect x="58" y="46" width="224" height="74" rx="14" fill="var(--f-ps)" stroke="var(--dk)" stroke-width="1.2"/>
+  <text x="170" y="38" class="s-ti" text-anchor="middle">광계 = 집광복합체 + 반응중심복합체</text>
+  <!-- 색소 -->
+  <g fill="var(--f-pig)" stroke="var(--dk)" stroke-width=".7">
+    <circle cx="80" cy="64" r="7"/><circle cx="96" cy="82" r="7"/><circle cx="80" cy="100" r="7"/>
+    <circle cx="112" cy="64" r="7"/><circle cx="112" cy="100" r="7"/>
+    <circle cx="240" cy="64" r="7"/><circle cx="256" cy="82" r="7"/><circle cx="240" cy="100" r="7"/>
+    <circle cx="272" cy="64" r="7"/><circle cx="272" cy="100" r="7"/>
+  </g>
+  <text x="96" y="136" class="s-sm" text-anchor="middle">집광복합체 색소</text>
+  <text x="258" y="136" class="s-sm" text-anchor="middle">집광복합체 색소</text>
+  <!-- 광자 -->
+  <path d="M30,20 L52,52" stroke="var(--f-sun)" stroke-width="3" marker-end="url(#pa5)"/>
+  <text x="24" y="16" class="s-ti" fill="var(--f-sun)">광자</text>
+  <!-- 에너지 전달 -->
+  <path d="M86,70 Q96,76 92,80" fill="none" stroke="var(--dk)" stroke-width="1.4" marker-end="url(#pa5)"/>
+  <path d="M102,86 Q112,92 118,88" fill="none" stroke="var(--dk)" stroke-width="1.4" marker-end="url(#pa5)"/>
+  <path d="M126,84 L152,84" stroke="var(--dk)" stroke-width="1.4" marker-end="url(#pa5)"/>
+  <text x="130" y="72" class="s-sm" text-anchor="middle">에너지만 전달</text>
+  <!-- 반응중심 -->
+  <rect x="156" y="52" width="60" height="62" rx="8" fill="var(--card)" stroke="var(--dk)" stroke-width="1.3"/>
+  <circle cx="176" cy="96" r="7" fill="var(--f-pig)" stroke="var(--dk)"/>
+  <circle cx="190" cy="96" r="7" fill="var(--f-pig)" stroke="var(--dk)"/>
+  <text x="186" y="114" class="s-sm" text-anchor="middle">엽록소 a 쌍</text>
+  <rect x="164" y="58" width="44" height="16" rx="4" fill="var(--f-accept)" stroke="var(--dk)"/>
+  <text x="186" y="70" class="s-sm" text-anchor="middle">1차 전자수용체</text>
+  <path d="M186,90 L186,78" stroke="var(--f-e)" stroke-width="2.5" marker-end="url(#pa5)"/>
+  <text x="204" y="88" class="s-ti" fill="var(--f-e2)">e⁻</text>
+  <text x="186" y="46" class="s-sm" text-anchor="middle">반응중심복합체</text>
+  <!-- 설명 -->
+  <text x="170" y="158" class="s-sm" text-anchor="middle" fill="var(--ac)">집광복합체는 안테나 — 에너지만 릴레이로 넘긴다(전자가 아니라)</text>
+  <text x="170" y="172" class="s-sm" text-anchor="middle">에너지가 반응중심에 닿는 순간, 비로소 <tspan font-weight="700">전자가 1차 수용체로 넘어간다</tspan></text>
+  <text x="170" y="190" class="s-sm" text-anchor="middle" fill="var(--sub)">PS II의 반응중심 = P680(680 nm 흡수) · PS I = P700(700 nm 흡수)</text>
+</svg>
+    <figcaption><b>도해 5</b> 집광복합체는 <b>에너지만</b> 릴레이로 넘긴다(전자가 아니다). 그 에너지가 반응중심의 엽록소 a 쌍에 닿는 순간, <b>비로소 전자가 1차 수용체로 넘어간다</b> — 이것이 빛반응의 첫 단계다. <span class="tapz">탭하면 확대</span></figcaption>
+  </figure>
+
+  <div class="key">
+    분리한 엽록소 용액에 빛을 쬐면 <b>형광</b>이 난다 — 들뜬 전자가 받아줄 곳이 없어 그냥 떨어지기 때문이다.
+    온전한 엽록체에서는 <b>1차 전자수용체가 즉시 낚아채므로</b> 에너지가 빛이나 열로 새지 않는다.
+  </div>
+  <p>광계는 둘이다. <b>PS II</b>의 반응중심은 680 nm를 가장 잘 흡수해 <span class="t">P680</span>,
+  <b>PS I</b>은 700 nm라서 <span class="t">P700</span>이다. 둘 다 <em>같은 엽록소 a</em>인데,
+  결합한 단백질이 달라 흡수 특성이 미세하게 다르다.</p>
+  <div class="key">
+    발견된 순서로 이름이 붙어서 헷갈리는데, <b>작동 순서는 PS II → PS I</b>이다.
+  </div>
+
+  <h2 class="pyr"><span class="n">4</span>빛반응: 빛 → ATP + NADPH</h2>
+  <p class="sub">전자가 물에서 NADPH까지 올라가는 길</p>
+
+  <figure><svg id="p-zscheme" viewBox="0 0 340 240" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="선형 전자 흐름">
+  <defs><marker id="pa6" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+    <path d="M0,0 L10,5 L0,10 z" fill="var(--f-e2)"/></marker>
+    <marker id="pa6d" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+    <path d="M0,0 L10,5 L0,10 z" fill="var(--dk)"/></marker></defs>
+  <line x1="26" y1="12" x2="26" y2="204" stroke="var(--dk)" stroke-width="1.3"/>
+  <text x="14" y="100" class="s-sm" transform="rotate(-90 14,100)" text-anchor="middle">에너지 준위</text>
+  <!-- 물 -->
+  <rect x="34" y="168" width="46" height="20" rx="5" fill="var(--f-fromh2o)" stroke="var(--dk)"/>
+  <text x="57" y="182" class="s-ti" text-anchor="middle" fill="#fff">H₂O</text>
+  <text x="57" y="202" class="s-sm" text-anchor="middle">분해</text>
+  <text x="57" y="214" class="s-sm" text-anchor="middle" fill="var(--no)">→ ½O₂ + 2H⁺</text>
+  <!-- PS II -->
+  <rect x="88" y="150" width="48" height="26" rx="6" fill="var(--f-ps)" stroke="var(--dk)"/>
+  <text x="112" y="167" class="s-ti" text-anchor="middle">PS II</text>
+  <text x="112" y="188" class="s-sm" text-anchor="middle">P680</text>
+  <path d="M82,172 L86,168" stroke="var(--f-e2)" stroke-width="2" marker-end="url(#pa6)"/>
+  <!-- 빛 1 -->
+  <path d="M112,196 L112,180" stroke="var(--f-sun)" stroke-width="2.5" marker-end="url(#pa6d)"/>
+  <text x="112" y="228" class="s-ti" text-anchor="middle" fill="var(--f-sun)">☀ 빛</text>
+  <!-- PSII 들뜸 -->
+  <path d="M112,148 L112,44" stroke="var(--f-e2)" stroke-width="2.5" marker-end="url(#pa6)"/>
+  <rect x="90" y="26" width="46" height="16" rx="4" fill="var(--f-accept)" stroke="var(--dk)"/>
+  <text x="113" y="38" class="s-sm" text-anchor="middle">1차 수용체</text>
+  <!-- 전달사슬 1 -->
+  <path d="M136,38 Q160,44 168,62" fill="none" stroke="var(--f-e2)" stroke-width="2.5"/>
+  <circle cx="170" cy="70" r="9" fill="var(--f-carrier)" stroke="var(--dk)"/>
+  <text x="170" y="74" class="s-sm" text-anchor="middle">Pq</text>
+  <path d="M178,76 L192,84" stroke="var(--f-e2)" stroke-width="2.5"/>
+  <rect x="192" y="82" width="34" height="20" rx="4" fill="var(--f-carrier)" stroke="var(--dk)"/>
+  <text x="209" y="96" class="s-sm" text-anchor="middle">cyt</text>
+  <path d="M226,96 L240,102" stroke="var(--f-e2)" stroke-width="2.5"/>
+  <circle cx="248" cy="104" r="9" fill="var(--f-carrier)" stroke="var(--dk)"/>
+  <text x="248" y="108" class="s-sm" text-anchor="middle">Pc</text>
+  <!-- ATP -->
+  <path d="M209,104 L209,126" stroke="var(--ac)" stroke-width="2" marker-end="url(#pa6d)"/>
+  <rect x="186" y="128" width="46" height="19" rx="9" fill="var(--f-atp)" stroke="var(--dk)"/>
+  <text x="209" y="141" class="s-ti" text-anchor="middle">ATP</text>
+  <text x="209" y="158" class="s-sm" text-anchor="middle" fill="var(--ac)">광인산화</text>
+  <!-- PS I -->
+  <path d="M256,110 L266,124" stroke="var(--f-e2)" stroke-width="2.5"/>
+  <rect x="248" y="126" width="46" height="26" rx="6" fill="var(--f-ps)" stroke="var(--dk)"/>
+  <text x="271" y="143" class="s-ti" text-anchor="middle">PS I</text>
+  <text x="271" y="164" class="s-sm" text-anchor="middle">P700</text>
+  <path d="M271,196 L271,156" stroke="var(--f-sun)" stroke-width="2.5" marker-end="url(#pa6d)"/>
+  <text x="271" y="228" class="s-ti" text-anchor="middle" fill="var(--f-sun)">☀ 빛</text>
+  <!-- PSI 들뜸 -->
+  <path d="M271,124 L271,44" stroke="var(--f-e2)" stroke-width="2.5" marker-end="url(#pa6)"/>
+  <rect x="250" y="26" width="44" height="16" rx="4" fill="var(--f-accept)" stroke="var(--dk)"/>
+  <text x="272" y="38" class="s-sm" text-anchor="middle">1차 수용체</text>
+  <!-- Fd -> NADPH -->
+  <path d="M294,38 L308,52" stroke="var(--f-e2)" stroke-width="2.5"/>
+  <circle cx="314" cy="60" r="9" fill="var(--f-carrier)" stroke="var(--dk)"/>
+  <text x="314" y="64" class="s-sm" text-anchor="middle">Fd</text>
+  <path d="M314,70 L314,86" stroke="var(--f-e2)" stroke-width="2.5" marker-end="url(#pa6)"/>
+  <rect x="288" y="88" width="50" height="19" rx="9" fill="var(--ok-soft)" stroke="var(--ok)"/>
+  <text x="313" y="101" class="s-ti" text-anchor="middle" fill="var(--ok)">NADPH</text>
+  <text x="170" y="18" class="s-ti" text-anchor="middle" fill="var(--ac)">전자는 물 → NADPH로, 빛을 두 번 받아 두 번 올라간다</text>
+</svg>
+    <figcaption><b>도해 6</b> 선형 전자 흐름. 전자는 <b>빛을 두 번 받아 두 번 올라간다</b>. 중간에 내려가며 ATP를 만들고, 끝에서 NADPH가 된다. 모양 때문에 <b>Z 도식</b>이라 부른다. <span class="tapz">탭하면 확대</span></figcaption>
+  </figure>
+
+  <div class="key">
+    <b>① PS II</b> — 빛이 P680의 전자를 들뜨게 함 → 1차 수용체로<br>
+    <b>② 물 분해</b> — 잃은 전자를 채우려 물을 쪼갬 → <b>O₂ 방출 · H⁺는 틸라코이드 공간에</b><br>
+    <b>③ 전달사슬</b> — Pq → 사이토크롬 복합체 → Pc로 내려가며 <b>H⁺를 퍼냄 → ATP</b><br>
+    <b>④ PS I</b> — 빛이 P700의 전자를 다시 들뜨게 함<br>
+    <b>⑤ Fd → NADP⁺ 환원효소</b> → <b>NADPH</b> 완성
+  </div>
+
+  <p>몇 가지 짚어둘 것. <b>P680⁺는 알려진 가장 강력한 산화제 중 하나</b>다 — 그래야 물에서 전자를 뜯어올 수 있다.
+  그리고 <b>PS I 쪽 전달사슬(Fd 경로)은 H⁺를 퍼내지 않아 ATP를 만들지 않는다.</b></p>
+
+  <h3>화학삼투 — 호흡과 똑같고, 결정적으로 다르다</h3>
+  <p>H⁺를 퍼내 기울기를 만들고 ATP 합성효소로 되돌려 ATP를 만드는 원리는 <em>세포호흡과 판박이</em>다.
+  실제로 두 소기관의 ATP 합성효소는 거의 동일하다. 하지만 결정적 차이가 있다.</p>
+
+  <figure><svg id="p-compare" viewBox="0 0 340 250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="미토콘드리아와 엽록체의 화학삼투 비교">
+  <defs><marker id="pa7" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+    <path d="M0,0 L10,5 L0,10 z" fill="var(--f-h)"/></marker></defs>
+  <!-- 미토콘드리아 -->
+  <rect x="6" y="6" width="158" height="238" rx="10" fill="var(--f-mitp)" stroke="var(--line)"/>
+  <text x="85" y="24" class="s-ti" text-anchor="middle">미토콘드리아</text>
+  <text x="85" y="38" class="s-sm" text-anchor="middle" fill="var(--sub)">산화적 인산화</text>
+  <text x="16" y="58" class="s-lb">막사이공간 · H⁺ 높음</text>
+  <rect x="16" y="62" width="138" height="26" fill="var(--f-high)"/>
+  <rect x="16" y="88" width="138" height="16" fill="var(--f-mem)"/>
+  <rect x="16" y="104" width="138" height="88" fill="var(--f-low)"/>
+  <text x="20" y="120" class="s-lb">기질 · H⁺ 낮음</text>
+  <!-- ETC -->
+  <rect x="34" y="84" width="30" height="24" rx="4" fill="var(--oxp)" stroke="var(--dk)"/>
+  <text x="49" y="100" class="s-sm" text-anchor="middle" fill="#fff">ETC</text>
+  <path d="M49,84 L49,68" stroke="var(--f-h)" stroke-width="2.5" marker-end="url(#pa7)"/>
+  <text x="49" y="130" class="s-sm" text-anchor="middle">전자 출처:</text>
+  <text x="49" y="142" class="s-ti" text-anchor="middle" fill="var(--pyr)">음식(NADH)</text>
+  <!-- ATP synthase -->
+  <rect x="112" y="84" width="18" height="24" rx="3" fill="var(--ac)" stroke="var(--dk)"/>
+  <circle cx="121" cy="118" r="13" fill="var(--ac)" stroke="var(--dk)"/>
+  <text x="121" y="122" class="s-sm" text-anchor="middle" fill="#fff">ATP</text>
+  <path d="M121,68 L121,104" stroke="var(--f-h)" stroke-width="3" marker-end="url(#pa7)"/>
+  <text x="121" y="146" class="s-sm" text-anchor="middle">ATP → 기질</text>
+  <text x="85" y="176" class="s-sm" text-anchor="middle">전자가 <tspan font-weight="700">내려가며</tspan> 나온</text>
+  <text x="85" y="188" class="s-sm" text-anchor="middle">에너지로 H⁺를 퍼냄</text>
+  <text x="85" y="212" class="s-ti" text-anchor="middle" fill="var(--pyr)">음식 → ATP</text>
+  <text x="85" y="230" class="s-sm" text-anchor="middle">고에너지 전자를</text>
+  <text x="85" y="240" class="s-sm" text-anchor="middle">유기물에서 얻는다</text>
+  <!-- 엽록체 -->
+  <rect x="176" y="6" width="158" height="238" rx="10" fill="var(--f-chlp)" stroke="var(--line)"/>
+  <text x="255" y="24" class="s-ti" text-anchor="middle">엽록체</text>
+  <text x="255" y="38" class="s-sm" text-anchor="middle" fill="var(--sub)">광인산화</text>
+  <text x="186" y="58" class="s-lb">스트로마 · H⁺ 낮음</text>
+  <rect x="186" y="62" width="138" height="26" fill="var(--f-low)"/>
+  <rect x="186" y="88" width="138" height="16" fill="var(--f-mem)"/>
+  <rect x="186" y="104" width="138" height="88" fill="var(--f-high)"/>
+  <text x="190" y="120" class="s-lb">틸라코이드 공간 · H⁺ 높음</text>
+  <!-- ETC -->
+  <rect x="204" y="84" width="30" height="24" rx="4" fill="var(--gly)" stroke="var(--dk)"/>
+  <text x="219" y="100" class="s-sm" text-anchor="middle" fill="#fff">ETC</text>
+  <path d="M219,108 L219,124" stroke="var(--f-h)" stroke-width="2.5" marker-end="url(#pa7)"/>
+  <text x="219" y="146" class="s-sm" text-anchor="middle">전자 출처:</text>
+  <text x="219" y="158" class="s-ti" text-anchor="middle" fill="var(--gly)">물(빛으로 분해)</text>
+  <!-- ATP synthase -->
+  <rect x="282" y="84" width="18" height="24" rx="3" fill="var(--ac)" stroke="var(--dk)"/>
+  <circle cx="291" cy="74" r="13" fill="var(--ac)" stroke="var(--dk)"/>
+  <text x="291" y="78" class="s-sm" text-anchor="middle" fill="#fff">ATP</text>
+  <path d="M291,124 L291,88" stroke="var(--f-h)" stroke-width="3" marker-end="url(#pa7)"/>
+  <text x="291" y="146" class="s-sm" text-anchor="middle">ATP → 스트로마</text>
+  <text x="255" y="176" class="s-sm" text-anchor="middle"><tspan font-weight="700">빛</tspan>으로 전자를 물에서</text>
+  <text x="255" y="188" class="s-sm" text-anchor="middle">사슬 꼭대기로 올림</text>
+  <text x="255" y="212" class="s-ti" text-anchor="middle" fill="var(--gly)">빛 → ATP</text>
+  <text x="255" y="230" class="s-sm" text-anchor="middle">영양분이 전혀</text>
+  <text x="255" y="240" class="s-sm" text-anchor="middle">필요 없다</text>
+</svg>
+    <figcaption><b>도해 7</b> 두 소기관의 화학삼투 비교. 원리는 같고 <b>전자의 출처</b>가 다르다 — 미토콘드리아는 <b>음식</b>에서, 엽록체는 <b>물</b>에서 뽑아 <b>빛으로</b> 사슬 꼭대기에 올린다. <span class="tapz">탭하면 확대</span></figcaption>
+  </figure>
+
+  <div class="key">
+    <b>미토콘드리아</b> — 고에너지 전자를 <b>유기물</b>에서 추출 · H⁺를 기질 → 막사이공간으로 · ATP는 기질에서<br>
+    <b>엽록체</b> — 전자를 <b>물</b>에서 뽑아 <b>빛에너지로 끌어올림</b> · H⁺를 스트로마 → 틸라코이드 공간으로 · ATP는 <b>스트로마에서</b><br>
+    → 엽록체는 ATP를 만드는 데 <b>영양분이 전혀 필요 없다.</b> 그리고 ATP가 <b>캘빈 회로가 있는 스트로마</b>에 바로 생긴다.
+  </div>
+  <p>기울기 크기도 상당하다. 빛을 켜면 틸라코이드 공간은 <b>pH 5</b>, 스트로마는 <b>pH 8</b>이 된다 —
+  3단위 차이는 H⁺ 농도로 <b>1,000배</b>다. 빛을 끄면 사라지고 다시 켜면 회복된다. 화학삼투 모형의 강력한 증거다.</p>
+
+  <h2 class="fer"><span class="n">5</span>캘빈 회로: CO₂ → 당</h2>
+  <p class="sub">시트르산 회로의 거울상 — 부수는 대신 짓는다</p>
+
+  <p>시트르산 회로가 아세틸 CoA를 <em>산화해 에너지를 꺼내는</em> 이화대사라면,
+  캘빈 회로는 에너지를 <em>써서 탄수화물을 짓는</em> 동화대사다. 탄소는 CO₂로 들어와 당으로 나간다.</p>
+
+  <figure><svg id="p-calvin" viewBox="0 0 340 280" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="캘빈 회로">
+  <defs><marker id="pa8" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+    <path d="M0,0 L10,5 L0,10 z" fill="var(--f-calvin)"/></marker>
+    <marker id="pa8d" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="4.5" markerHeight="4.5" orient="auto-start-reverse">
+    <path d="M0,0 L10,5 L0,10 z" fill="var(--dk)"/></marker></defs>
+  <!-- CO2 유입 -->
+  <circle cx="170" cy="16" r="13" fill="var(--f-co2b)" stroke="var(--dk)"/>
+  <text x="170" y="20" class="s-ti" text-anchor="middle" fill="#fff">CO₂</text>
+  <text x="200" y="20" class="s-sm">3분자 (한 번에 하나씩)</text>
+  <path d="M170,30 L170,48" stroke="var(--dk)" stroke-width="2" marker-end="url(#pa8d)"/>
+  <!-- 원 -->
+  <circle cx="170" cy="150" r="78" fill="none" stroke="var(--f-calvin)" stroke-width="18" opacity=".16"/>
+  <circle cx="170" cy="150" r="78" fill="none" stroke="var(--f-calvin)" stroke-width="1.4" stroke-dasharray="4 4" opacity=".55"/>
+  <text x="170" y="146" class="s-ti" text-anchor="middle" fill="var(--f-calvin)">캘빈 회로</text>
+  <text x="170" y="158" class="s-sm" text-anchor="middle" fill="var(--f-calvin)">스트로마</text>
+  <path d="M216,96 A78,78 0 0,1 238,164" fill="none" stroke="var(--f-calvin)" stroke-width="2.5" marker-end="url(#pa8)"/>
+  <path d="M206,216 A78,78 0 0,1 130,214" fill="none" stroke="var(--f-calvin)" stroke-width="2.5" marker-end="url(#pa8)"/>
+  <path d="M92,142 A78,78 0 0,1 124,94" fill="none" stroke="var(--f-calvin)" stroke-width="2.5" marker-end="url(#pa8)"/>
+  <!-- 1단계 탄소고정 -->
+  <rect x="120" y="50" width="100" height="20" rx="5" fill="var(--f-rubisco)" stroke="var(--dk)"/>
+  <text x="170" y="64" class="s-ti" text-anchor="middle" fill="#fff">루비스코</text>
+  <rect x="238" y="52" width="94" height="18" rx="4" fill="var(--accent-soft)" stroke="var(--line)"/>
+  <text x="285" y="65" class="s-ti" text-anchor="middle" fill="var(--ac)">1단계 탄소고정</text>
+  <rect x="228" y="86" width="98" height="20" rx="5" fill="var(--card)" stroke="var(--dk)"/>
+  <text x="277" y="100" class="s-sm" text-anchor="middle">6 × 3-인산글리세르산</text>
+  <!-- ATP/NADPH 소비 -->
+  <rect x="272" y="118" width="46" height="17" rx="8" fill="var(--f-atp)" stroke="var(--dk)"/>
+  <text x="295" y="130" class="s-sm" text-anchor="middle">6 ATP</text>
+  <rect x="266" y="140" width="58" height="17" rx="8" fill="var(--ok-soft)" stroke="var(--ok)"/>
+  <text x="295" y="152" class="s-sm" text-anchor="middle" fill="var(--ok)">6 NADPH</text>
+  <rect x="238" y="164" width="94" height="18" rx="4" fill="var(--accent-soft)" stroke="var(--line)"/>
+  <text x="285" y="177" class="s-ti" text-anchor="middle" fill="var(--ac)">2단계 환원</text>
+  <!-- G3P -->
+  <rect x="196" y="222" width="86" height="20" rx="5" fill="var(--f-sugar)" stroke="var(--dk)"/>
+  <text x="239" y="236" class="s-ti" text-anchor="middle">6 × G3P (3탄당)</text>
+  <!-- 배출 -->
+  <path d="M239,244 L239,258" stroke="var(--ok)" stroke-width="2.5" marker-end="url(#pa8d)"/>
+  <rect x="204" y="260" width="66" height="18" rx="5" fill="var(--ok-soft)" stroke="var(--ok)"/>
+  <text x="237" y="273" class="s-ti" text-anchor="middle" fill="var(--ok)">1 G3P 배출</text>
+  <!-- 재생 -->
+  <rect x="42" y="222" width="94" height="20" rx="5" fill="var(--card)" stroke="var(--dk)"/>
+  <text x="89" y="236" class="s-sm" text-anchor="middle">5 × G3P 재순환</text>
+  <rect x="8" y="164" width="94" height="18" rx="4" fill="var(--accent-soft)" stroke="var(--line)"/>
+  <text x="55" y="177" class="s-ti" text-anchor="middle" fill="var(--ac)">3단계 RuBP 재생</text>
+  <rect x="14" y="118" width="46" height="17" rx="8" fill="var(--f-atp)" stroke="var(--dk)"/>
+  <text x="37" y="130" class="s-sm" text-anchor="middle">3 ATP</text>
+  <rect x="12" y="86" width="98" height="20" rx="5" fill="var(--card)" stroke="var(--dk)"/>
+  <text x="61" y="100" class="s-sm" text-anchor="middle">3 × RuBP (5탄당)</text>
+  <path d="M61,86 Q61,64 120,60" fill="none" stroke="var(--f-calvin)" stroke-width="2" marker-end="url(#pa8)"/>
+</svg>
+    <figcaption><b>도해 8</b> 캘빈 회로 3단계. <b>①탄소고정</b>(루비스코) → <b>②환원</b>(ATP·NADPH 소비) → <b>③RuBP 재생</b>(ATP 소비). <span class="tapz">탭하면 확대</span></figcaption>
+  </figure>
+
+  <div class="key">
+    <b>1단계 탄소고정</b> — <span class="t">루비스코</span>가 CO₂를 5탄당 <b>RuBP</b>에 붙인다. 생긴 6탄소 중간체는 불안정해 즉시 <b>3-인산글리세르산 2개</b>로 쪼개진다.<br>
+    <b>2단계 환원</b> — <b>ATP</b>로 인산화하고 <b>NADPH</b>로 환원해 <b>G3P</b>를 만든다.<br>
+    <b>3단계 재생</b> — G3P 5개를 재배열해 <b>ATP</b>를 더 써서 RuBP 3개를 되살린다.
+  </div>
+
+  <p><span class="t">루비스코</span>는 엽록체에서 가장 많은 단백질이고, <em>지구상에서 가장 많은 단백질</em>로 불린다.
+  이 이름을 기억해두면 뒤의 C₄ 이야기가 쉬워진다.</p>
+
+  <figure><svg id="p-budget" viewBox="0 0 340 130" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="캘빈 회로 수지">
+  <rect x="6" y="6" width="158" height="54" rx="9" fill="var(--f-panel)" stroke="var(--line)"/>
+  <text x="85" y="24" class="s-ti" text-anchor="middle">G3P 1분자를 만들려면</text>
+  <text x="85" y="42" class="s-tot" text-anchor="middle" fill="var(--ac)">CO₂ 3 · ATP 9 · NADPH 6</text>
+  <text x="85" y="54" class="s-sm" text-anchor="middle">회로를 3바퀴</text>
+  <rect x="176" y="6" width="158" height="54" rx="9" fill="var(--accent-soft)" stroke="var(--line)"/>
+  <text x="255" y="24" class="s-ti" text-anchor="middle">포도당 1분자를 만들려면</text>
+  <text x="255" y="42" class="s-tot" text-anchor="middle" fill="var(--ac)">CO₂ 6 · ATP 18 · NADPH 12</text>
+  <text x="255" y="54" class="s-sm" text-anchor="middle">회로를 6바퀴 (전부 ×2)</text>
+  <rect x="6" y="68" width="328" height="56" rx="9" fill="var(--card)" stroke="var(--line)"/>
+  <text x="16" y="86" class="s-ti" fill="var(--ac)">놓치기 쉬운 것</text>
+  <text x="16" y="102" class="s-sm">· 캘빈 회로의 직접 산물은 <tspan font-weight="700">포도당이 아니라 3탄당 G3P</tspan>다</text>
+  <text x="16" y="116" class="s-sm">· G3P 6개가 생겨도 <tspan font-weight="700">5개는 RuBP 재생에 다시 쓰이고 1개만 나간다</tspan></text>
+</svg>
+    <figcaption><b>도해 9</b> 수지 계산. 시험에 그대로 나오는 숫자다. <span class="tapz">탭하면 확대</span></figcaption>
+  </figure>
+
+  <div class="key">
+    <b>가장 많이 틀리는 두 가지</b><br>
+    ① 캘빈 회로의 직접 산물은 포도당이 아니라 <b>3탄당 G3P</b>다.<br>
+    ② G3P 6개가 생겨도 <b>5개는 RuBP 재생에 재투입</b>되고 <b>1개만 빠져나간다</b>.
+  </div>
+  <p>빛반응도 캘빈 회로도 <em>혼자서는 당을 못 만든다.</em> 광합성은 둘을 통합한 온전한 엽록체에서만 나타나는 <b>창발적 특성</b>이다.</p>
+
+  <h2><span class="n">6</span>더운 곳의 해법: 광호흡 · C₄ · CAM</h2>
+  <p class="sub">루비스코의 4억 년 된 결함</p>
+
+  <p>덥고 건조하면 식물은 물을 지키려 기공을 닫는다. 그러면 CO₂가 못 들어오고, 빛반응이 만든 O₂는 쌓인다.
+  여기서 문제가 터진다 — <b>루비스코는 CO₂와 O₂를 잘 구별하지 못한다.</b></p>
+
+  <div class="key">
+    <b>광호흡</b> — 루비스코가 CO₂ 대신 O₂를 붙잡아 생기는 과정. 빛이 있을 때 일어나고 O₂를 쓰지만,
+    정상 호흡과 달리 <b>ATP를 만들지 않고 오히려 쓰며, 당도 안 만든다.</b> 고정된 탄소의 <b>최대 50%</b>를 날린다.
+  </div>
+  <p>왜 이런 결함이 남았을까? 가설은 이렇다. 루비스코가 진화한 <em>태고의 대기는 O₂가 적고 CO₂가 많아</em>
+  O₂를 배제할 필요가 없었다. 지금은 O₂가 너무 많아져 그 무심함이 대가를 치르는 것이다.
+  (다만 강한 빛에 의한 손상을 막는 보호 역할을 한다는 증거도 있어, 순전한 낭비인지는 아직 논쟁 중이다.)</p>
+
+  <figure><svg id="p-c4cam" viewBox="0 0 340 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="광호흡과 C4 CAM 식물">
+  <defs><marker id="pa10" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+    <path d="M0,0 L10,5 L0,10 z" fill="var(--dk)"/></marker></defs>
+  <!-- 문제 -->
+  <rect x="6" y="6" width="328" height="72" rx="9" fill="var(--no-soft)" stroke="var(--line)"/>
+  <text x="16" y="24" class="s-ti" fill="var(--no)">문제 — 덥고 건조한 날</text>
+  <text x="16" y="40" class="s-sm">기공을 닫아 물을 지킨다 → 잎 안 <tspan font-weight="700">CO₂ 감소, O₂ 증가</tspan></text>
+  <text x="16" y="54" class="s-sm">→ 루비스코가 CO₂ 대신 <tspan font-weight="700">O₂를 붙잡는다</tspan> = <tspan font-weight="700" fill="var(--no)">광호흡</tspan></text>
+  <text x="16" y="70" class="s-sm" fill="var(--no)">광호흡은 당도 ATP도 만들지 않고 오히려 ATP를 쓴다 (고정 탄소의 최대 50% 손실)</text>
+  <!-- C4 -->
+  <rect x="6" y="86" width="328" height="102" rx="9" fill="var(--f-c4)" stroke="var(--line)"/>
+  <text x="16" y="104" class="s-ti">해법 1 · C₄ 식물 <tspan class="s-sm" font-weight="500">— 공간을 나눈다</tspan></text>
+  <text x="250" y="104" class="s-sm" fill="var(--sub)">옥수수 · 사탕수수</text>
+  <!-- 엽육세포 -->
+  <rect x="16" y="112" width="130" height="66" rx="8" fill="var(--f-meso)" stroke="var(--dk)"/>
+  <text x="81" y="128" class="s-ti" text-anchor="middle">엽육세포</text>
+  <circle cx="34" cy="146" r="10" fill="var(--f-co2b)" stroke="var(--dk)"/>
+  <text x="34" y="150" class="s-sm" text-anchor="middle" fill="#fff">CO₂</text>
+  <path d="M46,146 L62,146" stroke="var(--dk)" stroke-width="1.6" marker-end="url(#pa10)"/>
+  <rect x="64" y="136" width="72" height="20" rx="5" fill="var(--card)" stroke="var(--dk)"/>
+  <text x="100" y="150" class="s-sm" text-anchor="middle">PEP 카르복실화효소</text>
+  <text x="81" y="170" class="s-sm" text-anchor="middle" fill="var(--ac)">CO₂ 친화도 높고 O₂엔 안 붙음</text>
+  <!-- 이동 -->
+  <path d="M148,145 L176,145" stroke="var(--gly)" stroke-width="3" marker-end="url(#pa10)"/>
+  <text x="162" y="138" class="s-sm" text-anchor="middle" fill="var(--gly)">4탄소</text>
+  <text x="162" y="164" class="s-sm" text-anchor="middle" fill="var(--gly)">화합물</text>
+  <!-- 유관속초세포 -->
+  <rect x="180" y="112" width="146" height="66" rx="8" fill="var(--f-bundle)" stroke="var(--dk)"/>
+  <text x="253" y="128" class="s-ti" text-anchor="middle">유관속초세포</text>
+  <text x="253" y="144" class="s-sm" text-anchor="middle">CO₂를 내놓아 <tspan font-weight="700">농도를 높임</tspan></text>
+  <rect x="200" y="150" width="106" height="20" rx="5" fill="var(--f-rubisco)" stroke="var(--dk)"/>
+  <text x="253" y="164" class="s-ti" text-anchor="middle" fill="#fff">루비스코 → 캘빈 회로</text>
+  <!-- CAM -->
+  <rect x="6" y="196" width="328" height="98" rx="9" fill="var(--f-cam)" stroke="var(--line)"/>
+  <text x="16" y="214" class="s-ti">해법 2 · CAM 식물 <tspan class="s-sm" font-weight="500">— 시간을 나눈다</tspan></text>
+  <text x="250" y="214" class="s-sm" fill="var(--sub)">선인장 · 파인애플</text>
+  <!-- 밤 -->
+  <rect x="16" y="222" width="150" height="62" rx="8" fill="var(--f-night)" stroke="var(--dk)"/>
+  <text x="91" y="240" class="s-ti" text-anchor="middle">🌙 밤 — 기공 <tspan font-weight="700">열림</tspan></text>
+  <text x="91" y="256" class="s-sm" text-anchor="middle">CO₂를 받아 4탄소 산으로</text>
+  <text x="91" y="270" class="s-sm" text-anchor="middle">액포에 저장 (시원해서 증산 적음)</text>
+  <path d="M168,252 L180,252" stroke="var(--dk)" stroke-width="2" marker-end="url(#pa10)"/>
+  <!-- 낮 -->
+  <rect x="184" y="222" width="142" height="62" rx="8" fill="var(--f-day)" stroke="var(--dk)"/>
+  <text x="255" y="240" class="s-ti" text-anchor="middle">☀ 낮 — 기공 <tspan font-weight="700">닫힘</tspan></text>
+  <text x="255" y="256" class="s-sm" text-anchor="middle">저장한 산에서 CO₂를 꺼내</text>
+  <text x="255" y="270" class="s-sm" text-anchor="middle">캘빈 회로를 돌린다</text>
+</svg>
+    <figcaption><b>도해 10</b> 두 가지 해법. <b>C₄는 공간</b>을(엽육세포 ↔ 유관속초세포), <b>CAM은 시간</b>을(밤 ↔ 낮) 나눈다. 목표는 같다 — <b>루비스코 주변의 CO₂ 농도를 높이는 것</b>. <span class="tapz">탭하면 확대</span></figcaption>
+  </figure>
+
+  <div class="key">
+    <b>C₃ 식물</b> — 루비스코가 바로 고정, 첫 산물이 3탄소. 벼·밀·대두. 더우면 광호흡으로 손해.<br>
+    <b>C₄ 식물</b> — 엽육세포의 <b>PEP 카르복실화효소</b>가 먼저 고정(첫 산물 4탄소). 이 효소는 <b>CO₂ 친화도가 매우 높고 O₂엔 붙지 않는다.</b> 4탄소 화합물을 유관속초세포로 보내 거기서 CO₂를 풀어놓아 <b>농도를 높인 뒤</b> 루비스코에 넘긴다. 옥수수·사탕수수.<br>
+    <b>CAM 식물</b> — <b>밤에</b> 기공을 열어 CO₂를 4탄소 산으로 저장(액포), <b>낮에</b> 기공을 닫고 꺼내 쓴다. 선인장·파인애플.
+  </div>
+  <p>C₄는 <em>ATP를 더 쓴다</em> — PEP를 재생해야 하기 때문이다. 유관속초세포에 CO₂를 농축하는 대가다.
+  그래서 C₄는 <b>덥고 볕이 강한 곳에서 유리하고</b>, 서늘한 곳에서는 C₃가 더 경제적이다.</p>
+
+  <p style="margin-top:26px;padding:14px 16px;background:var(--accent-soft);border-radius:14px;font-size:15px">
+    <b>앞선 편 →</b> 여기서 만든 당을 세포가 다시 분해해 ATP를 얻는 과정은
+    <a href="../respiration/" style="color:var(--ac);font-weight:700">세포호흡과 발효 노트</a>에,
+    두 과정을 굴리는 효소의 원리는 <a href="../enzymes/" style="color:var(--ac);font-weight:700">효소와 물질대사 노트</a>에 있습니다.
+  </p>
+</section>
+
+<section id="map">
+  <div class="lead"><b>빛에서 당까지.</b> 숫자는 <b>포도당 1분자 기준</b>이다.</div>
+
+  <div class="flow">
+    <div class="st o"><h4>① 빛반응 <span style="font-size:12px;color:var(--sub);font-weight:500">· 틸라코이드막</span></h4>
+      <div class="io">빛 → <b>PS II</b>(P680) → 전달사슬 → <b>PS I</b>(P700) → Fd → NADPH<br>
+      <b>물 분해</b>: 전자 보충 · <b>O₂ 방출</b> · H⁺를 틸라코이드 공간에<br>
+      번 것: <b>ATP</b>(광인산화) + <b>NADPH</b> · 최종 방출 <b>O₂</b></div></div>
+    <div class="arw">↓ ATP·NADPH를 스트로마로</div>
+    <div class="st"><h4>② 캘빈 회로 <span style="font-size:12px;color:var(--sub);font-weight:500">· 스트로마</span></h4>
+      <div class="io"><b>1단계 탄소고정</b> — 루비스코가 CO₂ + RuBP(5C) → 3-인산글리세르산 2개<br>
+      <b>2단계 환원</b> — ATP·NADPH 써서 → <b>G3P</b><br>
+      <b>3단계 재생</b> — G3P 5개 + ATP → RuBP 재생</div></div>
+    <div class="tot">G3P 1개 = CO₂ 3 · ATP 9 · NADPH 6
+      <small>포도당 1개 = CO₂ 6 · ATP 18 · NADPH 12 · 회로 6바퀴 · 직접 산물은 포도당이 아니라 G3P</small></div>
+    <div class="arw" style="margin-top:14px">— 덥고 건조하면 —</div>
+    <div class="st f"><h4>광호흡과 그 해법</h4>
+      <div class="io"><b>광호흡</b>: 기공 닫힘 → CO₂↓ O₂↑ → 루비스코가 O₂를 붙잡음 → ATP 소모, 당 없음, 탄소 최대 50% 손실<br>
+      <b>C₄</b>(공간 분리): 엽육세포 PEP 카르복실화효소로 먼저 고정 → 유관속초세포에서 CO₂ 농축 → 루비스코<br>
+      <b>CAM</b>(시간 분리): 밤에 기공 열어 저장 → 낮에 닫고 사용</div></div>
+  </div>
+
+  <h3 style="margin-top:26px">호흡 ↔ 광합성 대조</h3>
+  <div class="tw">
+  <table>
+    <tr><th></th><th>세포호흡</th><th>광합성</th></tr>
+    <tr><td>장소</td><td>미토콘드리아</td><td>엽록체</td></tr>
+    <tr><td>전자의 출처</td><td>포도당(음식)</td><td><b>물</b></td></tr>
+    <tr><td>전자의 종착</td><td><b>O₂</b> → 물</td><td>NADP⁺ → NADPH → CO₂</td></tr>
+    <tr><td>에너지 방향</td><td>발열(방출)</td><td>흡열(빛 투입)</td></tr>
+    <tr><td>운반체</td><td>NAD⁺ / NADH</td><td>NADP⁺ / NADPH</td></tr>
+    <tr><td>H⁺ 쌓이는 곳</td><td>막사이공간</td><td>틸라코이드 공간</td></tr>
+    <tr><td>ATP 생기는 곳</td><td>기질</td><td>스트로마</td></tr>
+    <tr><td>기체</td><td>O₂ 소비, CO₂ 방출</td><td>CO₂ 소비, O₂ 방출</td></tr>
+  </table>
+  </div>
+
+  <h3 style="margin-top:26px">자주 틀리는 곳</h3>
+  <div class="key">
+    <ul>
+      <li>방출되는 <b>O₂는 물에서</b> 나온다. CO₂가 아니다(¹⁸O 실험).</li>
+      <li>당을 만드는 건 빛반응이 아니라 <b>캘빈 회로</b>다.</li>
+      <li>캘빈 회로의 직접 산물은 포도당이 아니라 <b>3탄당 G3P</b>.</li>
+      <li>G3P 6개 중 <b>1개만 나가고 5개는 RuBP 재생</b>에 쓰인다.</li>
+      <li>"암반응"이지만 <b>낮에 돈다</b> — 빛반응의 ATP·NADPH가 필요해서.</li>
+      <li>집광복합체는 <b>에너지</b>만 전달한다. 전자를 넘기는 건 반응중심.</li>
+      <li>작동 순서는 <b>PS II → PS I</b>(이름은 발견 순서).</li>
+      <li><b>녹색광이 광합성에 가장 비효율적</b>이다(반사되니까).</li>
+    </ul>
+  </div>
+</section>
+
+<section id="quiz">
+  <div class="lead">선택지를 누르면 바로 채점되고 해설이 열린다. <b>틀린 문제의 해설만 읽어도 이 단원의 함정은 거의 다 걸린다.</b></div>
+  <div id="qs"></div>
+  <div class="score" id="sc">0 / 12</div>
+</section>
+
+<section id="voca">
+  <div class="lead">카드를 <b>탭하면 뜻</b>이 열린다.</div>
+  <div class="deck" id="dk"></div>
+</section>
+</main>
+
+<div id="lb"><div id="lbi"></div></div>
+<button id="lbx">✕</button>
+<div id="lbh">두 손가락으로 확대 · 배경을 탭하면 닫힘</div>
+
+<footer>
+  광합성 · 학습 노트<br>
+  본문과 도해는 직접 작성·작도했습니다. 내용은 표준 생화학 교과 지식에 기반합니다.<br>
+  참고 문헌: Reece 외, <i>캠벨 생명과학</i> 9판 · Alberts 외, <i>Molecular Biology of the Cell</i><br>
+  <a href="../">목차</a> · <a href="../enzymes/">효소와 물질대사</a> · <a href="../respiration/">세포호흡과 발효</a>
+</footer>
+
+<script>
+/* ---- 탭 ---- */
+const secs=[...document.querySelectorAll('section')];
+document.querySelectorAll('nav button').forEach(b=>{
+  b.onclick=()=>{
+    document.querySelectorAll('nav button').forEach(x=>x.classList.remove('on'));
+    b.classList.add('on');
+    secs.forEach(s=>s.classList.toggle('on', s.id===b.dataset.s));
+    window.scrollTo({top:0});
+  };
+});
+
+/* ---- 진행 바 ---- */
+addEventListener('scroll',()=>{
+  const h=document.documentElement;
+  const p=h.scrollTop/(h.scrollHeight-h.clientHeight||1);
+  document.getElementById('bar').style.width=(p*100)+'%';
+},{passive:true});
+
+/* ---- 라이트박스 (핀치 줌) ---- */
+const lb=document.getElementById('lb'), lbi=document.getElementById('lbi'),
+      lbx=document.getElementById('lbx'), lbh=document.getElementById('lbh');
+let sc=1,tx=0,ty=0,st=1,sx=0,sy=0,pd=0,moved=false;
+function apply(){lbi.style.transform=`translate(${tx}px,${ty}px) scale(${sc})`;}
+function reset(){sc=1;tx=0;ty=0;apply();}
+document.querySelectorAll('figure svg').forEach(s=>{
+  s.addEventListener('click',()=>{
+    lbi.innerHTML=''; lbi.appendChild(s.cloneNode(true));
+    lb.classList.add('on'); reset();
+    lbx.style.display='block'; lbh.style.display='block';
+    document.body.style.overflow='hidden';
+  });
+});
+function close(){lb.classList.remove('on');lbx.style.display='none';lbh.style.display='none';
+  document.body.style.overflow='';lbi.innerHTML='';}
+lbx.onclick=close;
+lb.addEventListener('click',e=>{ if(!moved && e.target===lb) close(); });
+function dist(t){const a=t[0],b=t[1];return Math.hypot(a.clientX-b.clientX,a.clientY-b.clientY);}
+lb.addEventListener('touchstart',e=>{
+  moved=false;
+  if(e.touches.length===2){pd=dist(e.touches);st=sc;}
+  else if(e.touches.length===1){sx=e.touches[0].clientX-tx;sy=e.touches[0].clientY-ty;}
+},{passive:true});
+lb.addEventListener('touchmove',e=>{
+  moved=true;
+  if(e.touches.length===2){
+    e.preventDefault();
+    sc=Math.min(6,Math.max(1,st*dist(e.touches)/pd)); apply();
+  }else if(e.touches.length===1&&sc>1){
+    e.preventDefault();
+    tx=e.touches[0].clientX-sx; ty=e.touches[0].clientY-sy; apply();
+  }
+},{passive:false});
+lb.addEventListener('dblclick',()=>{ sc=sc>1?1:2.6; tx=0;ty=0; apply(); });
+addEventListener('keydown',e=>{if(e.key==='Escape')close();});
+
+/* ---- 퀴즈 ---- */
+const QS=[
+ {q:"광합성으로 방출되는 O₂의 산소 원자는 어디서 온 것인가?",
+  o:["CO₂","H₂O","포도당","공기 중의 O₂"],a:1,
+  e:"<b>물이다.</b> 1930년대까지는 CO₂가 쪼개져 O₂가 나온다고 봤지만, 반 닐이 H₂S를 쓰는 황세균이 O₂ 대신 <b>황(S)</b>을 내놓는 걸 보고 뒤집었다. 20년 뒤 <b>¹⁸O 동위원소</b> 실험이 증명했다 — 물에 표지하면 방출된 O₂가 표지되고, CO₂에 표지하면 O₂는 표지되지 않았다."},
+ {q:"캘빈 회로가 직접 만들어 내보내는 산물은?",
+  o:["포도당","3탄당 G3P","RuBP","녹말"],a:1,
+  e:"<b>3탄당 G3P</b>(글리세르알데히드 3-인산)다. 포도당은 G3P로부터 나중에 합성된다. 게다가 회로가 3바퀴 돌면 G3P가 6개 생기지만 <b>5개는 RuBP 재생에 재투입되고 1개만 빠져나간다.</b>"},
+ {q:"캘빈 회로가 흔히 '암반응'이라 불리는데, 실제로는 언제 도는가?",
+  o:["밤에만 돈다","대부분의 식물에서 낮에 돈다","빛과 무관하게 항상 같은 속도로 돈다","빛이 직접 캘빈 회로 효소를 활성화할 때만"],a:1,
+  e:"이름이 오해를 부른다. 캘빈 회로의 어느 단계도 <b>빛을 직접 쓰지 않는 건 맞다</b>. 하지만 회로를 돌리려면 빛반응이 만든 <b>ATP와 NADPH</b>가 필요하므로, 대부분의 식물에서 <b>낮에 돈다</b>."},
+ {q:"집광복합체(안테나 색소)가 반응중심으로 전달하는 것은?",
+  o:["전자","에너지","H⁺","ATP"],a:1,
+  e:"<b>에너지만</b> 색소에서 색소로 릴레이된다. 전자가 이동하는 게 아니다. 그 에너지가 반응중심의 <b>엽록소 a 쌍</b>에 도달하는 순간, 비로소 <b>전자가 1차 전자수용체로 넘어간다</b> — 이것이 빛반응의 첫 단계다."},
+ {q:"잎이 녹색으로 보이는 이유와, 그로부터 알 수 있는 사실은?",
+  o:["엽록소가 녹색광을 가장 잘 흡수해서 — 녹색광이 광합성에 가장 효율적","엽록소가 녹색광을 흡수하지 않고 반사해서 — 녹색광이 광합성에 가장 비효율적","엽록체가 녹색 단백질을 만들어서 — 색과 광합성은 무관","녹색광의 에너지가 가장 커서 — 녹색광만 광합성에 쓰인다"],a:1,
+  e:"우리가 보는 색은 <b>반사된 색</b>이다. 엽록소는 <b>청자색과 적색을 흡수</b>하고 녹색은 반사·투과한다. 흡수되지 않으니 <b>녹색광은 광합성에 가장 비효율적</b>이다."},
+ {q:"선형 전자 흐름에서 광계의 작동 순서는?",
+  o:["PS I → PS II","PS II → PS I","동시에 작동","빛의 세기에 따라 달라진다"],a:1,
+  e:"이름은 <b>발견된 순서</b>로 붙었지만, 작동 순서는 <b>PS II가 먼저</b>다. PS II(P680)가 물을 쪼개 전자를 얻고, 전달사슬을 거쳐 PS I(P700)에서 다시 빛을 받아 올라간 뒤 Fd를 지나 NADPH가 된다."},
+ {q:"미토콘드리아와 엽록체의 화학삼투에서 가장 본질적인 차이는?",
+  o:["ATP 합성효소의 구조가 완전히 다르다","전자의 출처가 다르다 — 음식 vs 물(빛으로 끌어올림)","엽록체는 H⁺ 기울기를 쓰지 않는다","미토콘드리아만 전자전달사슬이 있다"],a:1,
+  e:"원리는 판박이고 <b>ATP 합성효소는 거의 동일</b>하다. 결정적 차이는 <b>전자의 출처</b>다. 미토콘드리아는 고에너지 전자를 <b>유기물</b>에서 뽑지만, 엽록체는 <b>물</b>에서 뽑아 <b>빛에너지로 사슬 꼭대기에 올린다</b>. 그래서 엽록체는 ATP를 만드는 데 영양분이 전혀 필요 없다."},
+ {q:"빛반응에서 물이 분해되는 직접적인 이유는?",
+  o:["O₂를 만들기 위해","P680⁺가 잃은 전자를 채우기 위해","H⁺ 기울기를 없애기 위해","NADPH를 산화시키기 위해"],a:1,
+  e:"O₂는 <b>부산물</b>이지 목적이 아니다. 빛으로 전자를 잃은 <b>P680⁺</b>는 알려진 가장 강력한 산화제 중 하나이고, 그 빈자리를 채우려 물에서 전자를 뜯어온다. 그 과정에서 H⁺는 틸라코이드 공간으로, 산소 원자는 짝을 이뤄 O₂로 나간다."},
+ {q:"광호흡에 대한 설명으로 옳은 것은?",
+  o:["ATP를 만들며 당도 만든다","ATP를 만들지 않고 오히려 소모하며 당도 만들지 않는다","산소를 만들어 낸다","밤에만 일어난다"],a:1,
+  e:"이름이 '호흡'이라 헷갈리지만 <b>정상 호흡과 전혀 다르다</b>. 빛이 있을 때 일어나고 O₂를 쓰지만, <b>ATP를 만들지 않고 오히려 소모하며 당도 만들지 않는다</b>. 고정된 탄소의 최대 50%를 날린다. 기공이 닫혀 CO₂가 줄고 O₂가 늘 때 루비스코가 O₂를 붙잡아 생긴다."},
+ {q:"C₄ 식물이 광호흡을 피하는 핵심 원리는?",
+  o:["루비스코를 아예 쓰지 않는다","PEP 카르복실화효소로 먼저 고정해 유관속초세포에 CO₂를 농축한 뒤 루비스코에 넘긴다","밤에만 광합성한다","기공을 항상 열어둔다"],a:1,
+  e:"C₄도 <b>루비스코를 쓴다</b> — 다만 <b>CO₂ 농도를 높여준 뒤</b>에 쓴다. 엽육세포의 <b>PEP 카르복실화효소</b>는 CO₂ 친화도가 매우 높고 <b>O₂에는 붙지 않는다</b>. 이것이 먼저 고정해 4탄소 화합물로 만들어 유관속초세포로 보내면, 거기서 CO₂가 풀려 농도가 높아진 상태로 루비스코가 일한다."},
+ {q:"C₄ 식물과 CAM 식물이 문제를 해결하는 방식의 차이는?",
+  o:["C₄는 공간을 나누고, CAM은 시간을 나눈다","C₄는 시간을 나누고, CAM은 공간을 나눈다","둘 다 루비스코를 버렸다","C₄만 캘빈 회로를 쓴다"],a:0,
+  e:"목표는 같다 — <b>루비스코 주변의 CO₂ 농도를 높이는 것</b>. <b>C₄</b>는 <b>공간 분리</b>(엽육세포에서 고정 → 유관속초세포에서 캘빈), <b>CAM</b>은 <b>시간 분리</b>(밤에 기공 열어 저장 → 낮에 닫고 사용)다."},
+ {q:"포도당 1분자를 만드는 데 캘빈 회로가 소비하는 양은?",
+  o:["CO₂ 3 · ATP 9 · NADPH 6","CO₂ 6 · ATP 18 · NADPH 12","CO₂ 6 · ATP 6 · NADPH 6","CO₂ 12 · ATP 36 · NADPH 24"],a:1,
+  e:"G3P <b>1개</b>를 만들려면 회로가 3바퀴 돌며 <b>CO₂ 3 · ATP 9 · NADPH 6</b>을 쓴다. 포도당은 G3P <b>2개</b>가 필요하므로 전부 ×2 — <b>CO₂ 6 · ATP 18 · NADPH 12</b>, 회로 6바퀴다."},
+];
+const V=[
+ ["광독립영양생물","photoautotroph","빛과 CO₂만으로 스스로 양분을 만드는 생물. 식물·조류·남세균 등."],
+ ["엽육조직","mesophyll","잎 안쪽의 광합성 조직. 세포 하나에 엽록체가 30~40개 들어 있다."],
+ ["기공","stoma (복수 stomata)","잎 표면의 미세한 구멍. CO₂가 들어오고 O₂가 나가며, 증산의 통로이기도 하다."],
+ ["스트로마","stroma","엽록체 내부의 액체. <b>캘빈 회로</b>가 여기서 일어난다."],
+ ["틸라코이드","thylakoid","엽록체 안의 막주머니. 그 막에서 <b>빛반응</b>이 일어난다. 포개진 더미가 그라나."],
+ ["틸라코이드 공간","thylakoid space","틸라코이드 주머니 내부. 빛반응 동안 <b>H⁺가 쌓이는 곳</b>(pH 5까지)."],
+ ["엽록소 a","chlorophyll a","광합성의 핵심 색소. 청자색·적색을 흡수하고 녹색은 반사한다."],
+ ["광자","photon","빛의 입자적 단위. 에너지는 파장에 <b>반비례</b>한다(보라 > 빨강, 약 2배)."],
+ ["광계","photosystem","집광복합체 + 반응중심복합체. 빛에너지를 화학에너지로 바꾸는 단위."],
+ ["집광복합체","light-harvesting complex","안테나 역할의 색소 무리. <b>에너지만</b> 릴레이로 반응중심에 넘긴다."],
+ ["반응중심복합체","reaction-center complex","엽록소 a 쌍 + 1차 전자수용체. 여기서 <b>전자가 실제로 넘어간다</b>."],
+ ["P680 / P700","P680 / P700","PS II와 PS I의 반응중심 엽록소 a. 각각 680 nm·700 nm를 가장 잘 흡수한다. 작동 순서는 <b>PS II → PS I</b>."],
+ ["선형 전자 흐름","linear electron flow","물 → PS II → 전달사슬 → PS I → Fd → NADPH로 이어지는 빛반응의 주 경로. Z 도식."],
+ ["광인산화","photophosphorylation","빛에너지로 만든 H⁺ 기울기를 이용해 ADP를 ATP로 만드는 것."],
+ ["NADP⁺ / NADPH","nicotinamide adenine dinucleotide phosphate","빛반응의 전자수용체. 세포호흡의 NAD⁺와 거의 같고 <b>인산기가 하나 더</b> 있다. 캘빈 회로의 환원력."],
+ ["캘빈 회로","Calvin cycle","스트로마에서 CO₂를 당으로 환원하는 동화대사. 3단계: 탄소고정 → 환원 → RuBP 재생."],
+ ["탄소고정","carbon fixation","공기 중 CO₂를 유기분자에 처음 결합시키는 것."],
+ ["루비스코","rubisco","RuBP 카르복실화효소. 캘빈 회로의 탄소고정을 촉매. 엽록체에서 가장 많고 <b>지구상에서 가장 많은 단백질</b>. CO₂와 O₂를 잘 구별하지 못한다."],
+ ["RuBP","ribulose bisphosphate","CO₂를 받는 5탄당 수용체. 회로 3단계에서 재생된다."],
+ ["G3P","glyceraldehyde 3-phosphate","캘빈 회로의 <b>직접 산물인 3탄당</b>. 6개 생기면 5개는 RuBP 재생에, 1개만 배출."],
+ ["광호흡","photorespiration","루비스코가 CO₂ 대신 O₂를 붙잡아 생기는 소모적 과정. <b>ATP를 쓰기만 하고 당은 안 만든다</b>."],
+ ["C₃ 식물","C3 plant","루비스코가 바로 고정, 첫 산물이 3탄소. 벼·밀·대두. 더우면 광호흡으로 손해."],
+ ["C₄ 식물","C4 plant","PEP 카르복실화효소로 먼저 고정(첫 산물 4탄소) → 유관속초세포에 CO₂ 농축. <b>공간 분리</b>. 옥수수·사탕수수."],
+ ["PEP 카르복실화효소","PEP carboxylase","C₄ 식물 엽육세포의 효소. CO₂ 친화도가 매우 높고 <b>O₂에는 붙지 않는다</b>."],
+ ["CAM 식물","CAM plant","밤에 기공을 열어 CO₂를 4탄소 산으로 저장하고 낮에 꺼내 쓴다. <b>시간 분리</b>. 선인장·파인애플."],
+];
+
+const qs=document.getElementById('qs'); let done=0, right=0;
+QS.forEach((Q,i)=>{
+  const d=document.createElement('div'); d.className='q';
+  d.innerHTML=`<div class="qn">Q${i+1}</div><div class="qt">${Q.q}</div>`;
+  const ex=document.createElement('div'); ex.className='exp'; ex.innerHTML=Q.e;
+  Q.o.forEach((t,j)=>{
+    const b=document.createElement('button'); b.className='opt'; b.textContent=t;
+    b.onclick=()=>{
+      [...d.querySelectorAll('.opt')].forEach(x=>x.disabled=true);
+      d.querySelectorAll('.opt')[Q.a].classList.add('ok');
+      if(j!==Q.a) b.classList.add('no'); else right++;
+      ex.classList.add('show'); done++;
+      document.getElementById('sc').textContent=`${right} / ${QS.length}  (푼 문제 ${done})`;
+    };
+    d.appendChild(b);
+  });
+  d.appendChild(ex); qs.appendChild(d);
+});
+document.getElementById('sc').textContent=`0 / ${QS.length}`;
+const dk=document.getElementById('dk');
+V.forEach(([w,en,d],i)=>{
+  const c=document.createElement('div'); c.className='fc';
+  c.innerHTML=`<div class="w">${w}<span>${i+1}/${V.length}</span></div><div class="en">${en}</div><div class="d">${d}</div>`;
+  c.onclick=()=>c.classList.toggle('open');
+  dk.appendChild(c);
+});
+</script>
+</body>
+</html>

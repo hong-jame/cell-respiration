@@ -10,13 +10,13 @@
 :root{
   --bg:#faf9f7; --card:#ffffff; --ink:#1c1b19; --sub:#6b6862;
   --line:#e6e2db; --ac:#c47a00; --accent-soft:#fff6e2; --dk:#3a362e;
-  --gly:#12897b; --pyr:#d95f2a; --oxp:#6b4fb8; --enz:#7b5ec7;
+  --gly:#12897b; --pyr:#d95f2a; --oxp:#6b4fb8; --enz:#7b5ec7; --pho:#3f8f3f;
   --r:16px; --shadow:0 1px 3px rgba(0,0,0,.06),0 6px 18px rgba(0,0,0,.04);
 }
 @media (prefers-color-scheme:dark){
   :root{ --bg:#16150f; --card:#211f18; --ink:#f0ede5; --sub:#a29d92;
     --line:#332f26; --ac:#f5b024; --accent-soft:#2c2415; --dk:#e8e4da; --shadow:none;
-    --gly:#2ab5a3; --pyr:#f0783f; --oxp:#9a80e0; --enz:#9a80e0; }
+    --gly:#2ab5a3; --pyr:#f0783f; --oxp:#9a80e0; --enz:#9a80e0; --pho:#4caf50; }
 }
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 html,body{margin:0;padding:0}
@@ -37,7 +37,7 @@ h1{font-size:27px;margin:0 0 10px;letter-spacing:-.035em;line-height:1.3}
 .card:active{transform:scale(.99)}
 .card:hover{border-color:var(--ac)}
 .card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--bar)}
-.card.e{--bar:var(--enz)} .card.r{--bar:var(--gly)}
+.card.e{--bar:var(--enz)} .card.r{--bar:var(--gly)} .card.p{--bar:var(--pho)}
 
 .ctop{display:flex;align-items:center;gap:10px;margin-bottom:9px}
 .badge{flex:none;width:34px;height:34px;border-radius:10px;display:grid;place-items:center;
@@ -72,7 +72,7 @@ footer a{color:var(--sub)}
   <div class="hero">
     <div class="eyebrow">폰으로 읽는 학습 노트</div>
     <h1>생명과학 학습 노트</h1>
-    <p>세포가 에너지를 다루는 방법을 두 편으로 나눠 정리했습니다.<br>
+    <p>세포가 에너지를 다루는 방법을 세 편으로 나눠 정리했습니다.<br>
     글은 화면 폭에 맞춰 흐르고, 도해는 탭하면 확대됩니다.</p>
   </div>
 
@@ -109,6 +109,24 @@ footer a{color:var(--sub)}
         <span class="tag">해당과정</span><span class="tag">시트르산 회로</span>
         <span class="tag">전자전달사슬</span><span class="tag">화학삼투</span>
         <span class="tag">발효</span><span class="tag">ATP 총결산</span>
+      </div>
+      <div class="go">읽기 →</div>
+    </a>
+
+    <div class="link"><span></span>그 당은 어디서 왔나 ↓<span></span></div>
+
+    <a class="card p" href="photosynthesis/">
+      <div class="ctop">
+        <div class="badge">광합</div>
+        <div class="ct">광합성</div>
+        <div class="num">3편</div>
+      </div>
+      <p class="cd"><b>당신 몸의 탄소는 전부 공기에서 왔다.</b> 빛이 어떻게 당이 되는지 따라갑니다.
+      그리고 광합성이 내놓는 산소는, 알고 보면 <b>CO₂가 아니라 물에서 나옵니다.</b></p>
+      <div class="tags">
+        <span class="tag">엽록체</span><span class="tag">빛반응</span>
+        <span class="tag">광계 · Z 도식</span><span class="tag">캘빈 회로</span>
+        <span class="tag">루비스코</span><span class="tag">광호흡 · C₄ · CAM</span>
       </div>
       <div class="go">읽기 →</div>
     </a>
