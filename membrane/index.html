@@ -1,0 +1,1030 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#e09000">
+<meta name="description" content="막의 구조와 기능 — 유동 모자이크에서 능동수송까지, 폰으로 읽는 생명과학 학습 노트">
+<title>막의 구조와 기능 · 학습 노트</title>
+<style>
+:root{
+  --bg:#faf9f7; --card:#ffffff; --ink:#1c1b19; --sub:#6b6862;
+  --line:#e6e2db; --accent:#e09000; --accent-soft:#fff6e2;
+  --gly:#1a9e8f; --pyr:#e8703a; --oxp:#7b5ec7; --fer:#3b7dd8;
+  --ok:#1f9254; --no:#d0453b;
+
+  --ac:#c47a00; --dk:#3a362e;
+  --ok-soft:#e6f4ea; --no-soft:#fdecea;
+  --f-green:#e8f4e4; --f-sun:#e8a200; --f-chl:#a9d18e; --f-mit:#fbd9a5;
+  --f-atp:#ffe14d; --f-heat:#d94a3d; --f-e:#ffd54a; --f-ox:#ffe0b3; --f-red:#cfe3fb;
+  --f-cyt:#fdf3e3; --f-co2:#6d6a63; --f-inv:#eaf3fb; --f-ret:#e4f3ee;
+  --f-ims:#fde3c8; --f-mem:#f5e6a8; --f-mat:#fdf0cf; --f-h:#c9302c;
+  --f-alc:#eaf1fb; --f-lac:#fbeaea; --f-pro:#e0d6f5; --f-car:#d9eeda; --f-fat:#fdf0bf;
+
+  --f-exo:#e6f4ea; --f-endo:#fdecea; --f-p:#ffe14d; --f-rib:#a9d18e; --f-ade:#f5b96b;
+  --f-adp:#ffd9a0; --f-enz:#c9b8ee; --f-enz2:#b3a3d8; --f-sub1:#f08a5d; --f-sub2:#7bc86c;
+  --f-prod:#5b9bd5; --f-inh:#e05a4f; --f-int:#dbeafe;
+  --f-norm:#f2f7f3; --f-comp:#fdf2e9; --f-noncomp:#fbeef2;
+
+  --f-leaf:#8fce7a; --f-epi:#e8eef0; --f-meso:#a9d18e; --f-chlo:#d7ecc8; --f-thy:#4f9e3f;
+  --f-panel:#f2f0eb; --f-fromco2:#b5179e; --f-fromh2o:#0a84c4; --f-co2b:#5a5750;
+  --f-sugar:#9fd67f; --f-calvin:#1f6fb2; --f-rubisco:#8250c4; --f-ps:#a0459c;
+  --f-pig:#5ac35a; --f-accept:#cfc3ee; --f-carrier:#c9b8ee; --f-e2:#c58a00;
+  --f-mitp:#fdf0e0; --f-chlp:#eaf6e2; --f-high:#f6d3a8; --f-low:#fbf3e2;
+  --f-c4:#eef6e6; --f-bundle:#f7e3a8; --f-cam:#eef2fb; --f-night:#dfe6f5; --f-day:#fdf3d0;
+
+  --f-head:#c9c6bf; --f-tail:#e8b33a; --f-prot:#b9a6e6; --f-prot2:#9a80e0; --f-chol:#f0954a;
+  --f-sugar2:#3f8f3f; --f-membg:#fdf0cf; --f-panel:#f2f0eb; --f-panel2:#eef4f2;
+  --f-warm:#fdeee6; --f-cold:#eaf1fb; --f-sub:#f0954a; --f-fiber:#d95f2a; --f-ecm:#12897b;
+  --f-hydroph:#a9d18e; --f-water:#7bc4e8; --f-polar:#f0c05a; --f-ion:#e05a4f; --f-slow:#c47a00;
+  --f-hypo:#eaf1fb; --f-iso:#f2f0eb; --f-hyper:#fdeee6; --f-rbc:#d0453b; --f-wall:#d9c48a;
+  --f-eu:#fdf0d8; --f-vac:#a8cfe8; --f-passive:#eef6ea; --f-active:#fdeee6;
+  --f-solute:#6b4fb8; --f-solute2:#d95f2a; --f-pump:#7b5ec7; --f-atp2:#c47a00;
+  --f-exo2:#eef6ea; --f-endo2:#eef2fb; --f-cargo:#d95f2a; --f-na:#e8a200; --f-k:#3f8f3f;
+  --r:14px; --shadow:0 1px 3px rgba(0,0,0,.06),0 6px 18px rgba(0,0,0,.04);
+}
+@media (prefers-color-scheme:dark){
+  :root{ --bg:#16150f; --card:#211f18; --ink:#f0ede5; --sub:#a29d92;
+    --line:#332f26; --accent:#f5b024; --accent-soft:#2c2415; --shadow:none;
+    --ac:#f5b024; --dk:#e8e4da;
+    --ok-soft:#17301f; --no-soft:#331916;
+    --f-green:#1b2a1c; --f-chl:#3f6b34; --f-mit:#4a3416; --f-cyt:#241d10;
+    --f-atp:#8a7415; --f-e:#8a7415; --f-ox:#3d2c12; --f-red:#16273d;
+    --f-inv:#151f2b; --f-ret:#12251f; --f-ims:#3d2611; --f-mem:#3a3213; --f-mat:#2b2411;
+    --f-alc:#151f2b; --f-lac:#2b1615; --f-pro:#251c3a; --f-car:#16281a; --f-fat:#2e2810;
+    --f-co2:#8a8880;
+    --f-exo:#16281c; --f-endo:#2b1615; --f-p:#8a7415; --f-rib:#3f6b34; --f-ade:#6b4a1e;
+    --f-adp:#5c4218; --f-enz:#4a3d70; --f-enz2:#3a3059; --f-sub1:#7a3f28; --f-sub2:#3a6b32;
+    --f-prod:#2c4d70; --f-inh:#7a2f28; --f-int:#1c2a3d;
+    --f-norm:#1a201b; --f-comp:#2b2015; --f-noncomp:#2b171d;
+    --f-leaf:#3f6b34; --f-epi:#2a2f31; --f-meso:#3f6b34; --f-chlo:#1e2f1a; --f-thy:#57a344;
+    --f-panel:#262319; --f-fromco2:#e05ac8; --f-fromh2o:#3aaee8; --f-co2b:#8a8880;
+    --f-sugar:#3f6b34; --f-calvin:#3f92d6; --f-rubisco:#9a72e0; --f-ps:#c060ba;
+    --f-pig:#3f8f3f; --f-accept:#4a3d70; --f-carrier:#4a3d70; --f-e2:#f0b429;
+    --f-mitp:#2b2114; --f-chlp:#1a2716; --f-high:#4a3416; --f-low:#2b2411;
+    --f-c4:#1a2716; --f-bundle:#4a3d16; --f-cam:#171d2b; --f-night:#1b2136; --f-day:#2e2810;
+    --f-head:#5a564d; --f-tail:#8a6a2b; --f-prot:#4a3d70; --f-prot2:#6b5aa0; --f-chol:#8a5228;
+    --f-sugar2:#3f8f3f; --f-membg:#2b2411; --f-panel:#262319; --f-panel2:#1b2622;
+    --f-warm:#2b1d16; --f-cold:#151f2b; --f-sub:#8a5228; --f-fiber:#8a3f20; --f-ecm:#1f6b5f;
+    --f-hydroph:#3f6b34; --f-water:#26445c; --f-polar:#6b5220; --f-ion:#7a2f28; --f-slow:#f5b024;
+    --f-hypo:#151f2b; --f-iso:#262319; --f-hyper:#2b1d16; --f-rbc:#8a2f28; --f-wall:#5c4f2a;
+    --f-eu:#2b2411; --f-vac:#26445c; --f-passive:#16281c; --f-active:#2b1d16;
+    --f-solute:#9a80e0; --f-solute2:#f0783f; --f-pump:#6b5aa0; --f-atp2:#f5b024;
+    --f-exo2:#16281c; --f-endo2:#151f2b; --f-cargo:#f0783f; --f-na:#c08a1a; --f-k:#3f8f3f;
+
+
+ --f-sun:#f5b024; --f-heat:#e8564a; --f-h:#e8564a;
+  }
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0}
+body{
+  background:var(--bg); color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic","Noto Sans KR",sans-serif;
+  font-size:17px; line-height:1.75; letter-spacing:-.01em;
+  -webkit-text-size-adjust:100%;
+}
+
+/* ===== 헤더 ===== */
+header{
+  position:sticky; top:0; z-index:50; background:var(--card);
+  border-bottom:1px solid var(--line); padding:env(safe-area-inset-top) 0 0;
+}
+.hd{display:flex;align-items:center;gap:10px;padding:11px 16px 9px}
+.hd .ch{
+  background:var(--accent); color:#fff; font-weight:800; font-size:15px;
+  width:30px;height:30px;border-radius:9px;display:grid;place-items:center;flex:none;
+}
+.hd h1{font-size:16px;margin:0;font-weight:700;letter-spacing:-.02em}
+.hd .src{font-size:11px;color:var(--sub);margin-top:1px}
+.home{margin-left:auto;flex:none;display:grid;place-items:center;width:34px;height:34px;
+  border-radius:9px;border:1px solid var(--line);background:var(--bg);color:var(--sub);
+  text-decoration:none;font-size:15px}
+.home:active{background:var(--accent-soft)}
+
+nav{display:flex;overflow-x:auto;scrollbar-width:none;padding:0 8px 0;gap:2px}
+nav::-webkit-scrollbar{display:none}
+nav button{
+  flex:none;background:none;border:0;padding:9px 13px 11px;font:inherit;font-size:14px;
+  font-weight:600;color:var(--sub);border-bottom:2.5px solid transparent;cursor:pointer;
+}
+nav button.on{color:var(--accent);border-bottom-color:var(--accent)}
+
+/* 진행 바 */
+#bar{height:2px;background:var(--accent);width:0;transition:width .15s}
+
+main{padding:18px 16px 90px;max-width:760px;margin:0 auto}
+section{display:none}
+section.on{display:block;animation:fade .22s ease}
+@keyframes fade{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+
+/* ===== 읽기 ===== */
+.lead{
+  background:var(--accent-soft); border:1px solid var(--line); border-radius:var(--r);
+  padding:15px 16px; margin:0 0 22px; font-size:15.5px; line-height:1.7;
+}
+.lead b{color:var(--accent)}
+
+h2{
+  font-size:19px; margin:34px 0 4px; letter-spacing:-.03em; line-height:1.4;
+  scroll-margin-top:100px;
+}
+h2 .n{
+  display:inline-block; font-size:12px; font-weight:800; color:#fff;
+  background:var(--ink); border-radius:5px; padding:2px 7px; margin-right:7px;
+  vertical-align:2px; letter-spacing:0;
+}
+h2.gly .n{background:var(--gly)} h2.pyr .n{background:var(--pyr)}
+h2.oxp .n{background:var(--oxp)} h2.fer .n{background:var(--fer)}
+.sub{color:var(--sub);font-size:13.5px;margin:0 0 16px;font-weight:500}
+h3{font-size:16px;margin:24px 0 8px;letter-spacing:-.02em}
+p{margin:0 0 13px}
+.t{color:var(--accent);font-weight:700}
+em{font-style:normal;background:linear-gradient(transparent 58%,var(--accent-soft) 58%);font-weight:600}
+
+/* 그림 */
+figure{margin:18px 0;background:var(--card);border:1px solid var(--line);
+  border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow)}
+figure svg{width:100%;height:auto;display:block;cursor:zoom-in;background:var(--card);padding:8px 6px}
+.s-ti{font:700 9.5px -apple-system,"Malgun Gothic",sans-serif;fill:var(--dk)}
+.s-sm{font:500 8.5px -apple-system,"Malgun Gothic",sans-serif;fill:var(--dk)}
+.s-lb{font:600 9px -apple-system,"Malgun Gothic",sans-serif;fill:var(--sub)}
+.s-tot{font:800 12px -apple-system,"Malgun Gothic",sans-serif}
+figcaption{padding:9px 13px 11px;font-size:12.5px;color:var(--sub);line-height:1.55;
+  border-top:1px solid var(--line)}
+figcaption b{color:var(--ink);font-size:12.5px}
+.tapz{font-size:11px;color:var(--accent);font-weight:600}
+
+/* 요점 박스 */
+.key{
+  border-left:3px solid var(--accent); background:var(--card); border-radius:0 var(--r) var(--r) 0;
+  padding:13px 15px; margin:16px 0; font-size:15.5px; box-shadow:var(--shadow);
+}
+.key b{color:var(--accent)}
+.key ul{margin:6px 0 0;padding-left:18px}
+.key li{margin:4px 0}
+
+/* 표 */
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:16px 0;
+  border:1px solid var(--line);border-radius:var(--r);background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:14px;min-width:420px}
+th,td{padding:9px 11px;text-align:left;border-bottom:1px solid var(--line)}
+th{background:var(--accent-soft);font-weight:700;font-size:13px;white-space:nowrap}
+td:first-child{font-weight:600;white-space:nowrap}
+tr:last-child td{border-bottom:0}
+
+/* ===== 핵심정리 ===== */
+.flow{display:flex;flex-direction:column;gap:9px;margin:16px 0}
+.st{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--gly);
+  border-radius:10px;padding:12px 14px;box-shadow:var(--shadow)}
+.st.p{border-left-color:var(--pyr)} .st.o{border-left-color:var(--oxp)} .st.f{border-left-color:var(--fer)}
+.st h4{margin:0 0 3px;font-size:15px}
+.st .io{font-size:13px;color:var(--sub);line-height:1.6}
+.st .io b{color:var(--ink)}
+.arw{text-align:center;color:var(--sub);font-size:13px;margin:-4px 0}
+.tot{background:var(--accent);color:#fff;border-radius:12px;padding:14px;text-align:center;
+  font-weight:700;font-size:16px;margin-top:6px}
+.tot small{display:block;font-weight:500;font-size:12px;opacity:.9;margin-top:3px}
+
+/* ===== 퀴즈 ===== */
+.q{background:var(--card);border:1px solid var(--line);border-radius:var(--r);
+  padding:16px;margin:0 0 14px;box-shadow:var(--shadow)}
+.qn{font-size:11px;font-weight:800;color:var(--accent);letter-spacing:.06em;margin-bottom:5px}
+.qt{font-weight:600;margin-bottom:11px;line-height:1.65}
+.opt{display:block;width:100%;text-align:left;background:var(--bg);border:1.5px solid var(--line);
+  border-radius:9px;padding:11px 13px;margin:6px 0;font:inherit;font-size:15px;cursor:pointer;
+  color:var(--ink);transition:.12s;line-height:1.5}
+.opt:active{transform:scale(.99)}
+.opt.ok{border-color:var(--ok);background:color-mix(in srgb,var(--ok) 12%,transparent);font-weight:600}
+.opt.no{border-color:var(--no);background:color-mix(in srgb,var(--no) 10%,transparent)}
+.opt:disabled{cursor:default}
+.exp{display:none;margin-top:10px;padding:11px 13px;background:var(--accent-soft);
+  border-radius:9px;font-size:14px;line-height:1.65}
+.exp.show{display:block}
+.exp b{color:var(--accent)}
+.score{position:sticky;bottom:14px;background:var(--ink);color:var(--bg);border-radius:99px;
+  padding:11px 18px;text-align:center;font-weight:700;font-size:14px;box-shadow:0 6px 20px rgba(0,0,0,.25);
+  margin-top:18px}
+
+/* ===== 용어카드 ===== */
+.deck{display:grid;gap:10px}
+.fc{background:var(--card);border:1px solid var(--line);border-radius:var(--r);
+  padding:15px 16px;cursor:pointer;box-shadow:var(--shadow);transition:.12s}
+.fc:active{transform:scale(.995)}
+.fc .w{font-weight:700;font-size:16px;display:flex;justify-content:space-between;align-items:center;gap:8px}
+.fc .w span{font-size:11px;color:var(--sub);font-weight:600;flex:none}
+.fc .en{font-size:12px;color:var(--sub);margin-top:2px;font-weight:500}
+.fc .d{display:none;margin-top:9px;padding-top:9px;border-top:1px dashed var(--line);
+  font-size:14.5px;line-height:1.65;color:var(--ink)}
+.fc.open .d{display:block}
+.fc.open{border-color:var(--accent)}
+
+/* 라이트박스 */
+#lb{position:fixed;inset:0;background:var(--bg);z-index:200;display:none;
+  place-items:center;touch-action:none;padding:20px}
+#lb.on{display:grid}
+#lbi{width:100%;transform-origin:center center;will-change:transform}
+#lbi svg{width:100%;height:auto;max-height:88vh}
+#lbx{position:fixed;top:calc(env(safe-area-inset-top) + 10px);right:12px;z-index:201;
+  background:var(--card);color:var(--ink);border:1px solid var(--line);width:40px;height:40px;border-radius:50%;
+  font-size:22px;cursor:pointer;backdrop-filter:blur(6px)}
+#lbh{position:fixed;bottom:calc(env(safe-area-inset-bottom) + 16px);left:50%;transform:translateX(-50%);
+  color:var(--sub);font-size:12px;z-index:201;pointer-events:none;
+  padding:5px 12px;border-radius:99px}
+
+footer{text-align:center;font-size:11.5px;color:var(--sub);padding:26px 16px 30px;line-height:1.7}
+</style>
+</head>
+<body>
+<header>
+  <div class="hd">
+    <div class="ch">막</div>
+    <div>
+      <h1>막의 구조와 기능</h1>
+      <div class="src">유동 모자이크에서 능동수송까지 · 폰으로 읽는 학습 노트</div>
+    </div>
+    <a class="home" href="../" aria-label="목차로" title="목차로">☰</a>
+  </div>
+  <nav>
+    <button class="on" data-s="read">읽기</button>
+    <button data-s="map">한눈에</button>
+    <button data-s="quiz">퀴즈</button>
+    <button data-s="voca">용어</button>
+  </nav>
+  <div id="bar"></div>
+</header>
+<main>
+
+<section id="read" class="on">
+  <div class="lead">
+    <b>세포는 막으로 정의된다.</b> 안과 밖을 가르는 경계가 없으면 세포도 없다.
+    그런데 막이 완벽한 장벽이면 세포는 굶어 죽는다. <b>막은 막으면서 통과시켜야 한다</b> —
+    이 모순을 어떻게 푸는지가 이 노트의 내용이다.
+  </div>
+
+  <p>두께가 <em>8 nm</em>에 불과하다. 이 종이 한 장 두께에 8,000개를 쌓을 수 있다.
+  그런데 이 얇은 막이 무엇을 들이고 무엇을 막을지 <b>골라낸다</b>. 이것을 <span class="t">선택적 투과성</span>이라 한다.</p>
+
+  <h2><span class="n">1</span>막은 어떻게 생겼나</h2>
+  <p class="sub">샌드위치가 아니라 모자이크다</p>
+
+  <p>출발점은 <span class="t">인지질</span>이다. 인지질은 <span class="t">양친매성</span>이다 —
+  머리는 <em>친수성</em>, 두 꼬리는 <em>소수성</em>이다. 물에 넣으면 저절로 <b>이중층</b>이 된다.
+  꼬리끼리 안으로 숨고 머리는 물 쪽으로 향하는 게 가장 안정하기 때문이다.</p>
+
+  <div class="key">
+    <b>막은 저절로 만들어진다.</b> 아무도 조립하지 않는다 — 물과 기름이 섞이지 않는다는 사실이 구조를 만든다.
+    생명의 첫 경계도 이렇게 생겼을 것이다.
+  </div>
+
+  <p>1935년 데이비슨-다니엘리는 단백질이 이중층을 <em>샌드위치처럼 감싼다</em>고 봤다. 하지만 문제가 있었다.
+  단백질은 친수성 부위와 소수성 부위를 함께 가지는데, 소수성 부위가 물에 노출된 채로 있는 건 부자연스럽다.
+  1972년 싱어와 니콜슨이 <span class="t">유동 모자이크 모형</span>을 내놓았다.</p>
+
+  <figure><svg id="m-mosaic" viewBox="0 0 340 220" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="유동 모자이크 모형">
+  <text x="10" y="16" class="s-lb">세포 외부</text>
+  <!-- 이중층 -->
+  <g>
+    <!-- 위쪽 머리 -->
+    <g fill="var(--f-head)" stroke="var(--dk)" stroke-width=".4">
+      <circle cx="18" cy="62" r="5"/><circle cx="30" cy="62" r="5"/><circle cx="42" cy="62" r="5"/><circle cx="54" cy="62" r="5"/>
+      <circle cx="66" cy="62" r="5"/><circle cx="78" cy="62" r="5"/><circle cx="126" cy="62" r="5"/><circle cx="138" cy="62" r="5"/>
+      <circle cx="150" cy="62" r="5"/><circle cx="198" cy="62" r="5"/><circle cx="210" cy="62" r="5"/><circle cx="222" cy="62" r="5"/>
+      <circle cx="234" cy="62" r="5"/><circle cx="282" cy="62" r="5"/><circle cx="294" cy="62" r="5"/><circle cx="306" cy="62" r="5"/>
+      <circle cx="318" cy="62" r="5"/>
+    </g>
+    <!-- 꼬리 -->
+    <g stroke="var(--f-tail)" stroke-width="1.6">
+      <path d="M18,67 l0,22 M30,67 l0,22 M42,67 l0,22 M54,67 l0,22 M66,67 l0,22 M78,67 l0,22"/>
+      <path d="M126,67 l0,22 M138,67 l0,22 M150,67 l0,22"/>
+      <path d="M198,67 l0,22 M210,67 l0,22 M222,67 l0,22 M234,67 l0,22"/>
+      <path d="M282,67 l0,22 M294,67 l0,22 M306,67 l0,22 M318,67 l0,22"/>
+      <path d="M18,113 l0,-22 M30,113 l0,-22 M42,113 l0,-22 M54,113 l0,-22 M66,113 l0,-22 M78,113 l0,-22"/>
+      <path d="M126,113 l0,-22 M138,113 l0,-22 M150,113 l0,-22"/>
+      <path d="M198,113 l0,-22 M210,113 l0,-22 M222,113 l0,-22 M234,113 l0,-22"/>
+      <path d="M282,113 l0,-22 M294,113 l0,-22 M306,113 l0,-22 M318,113 l0,-22"/>
+    </g>
+    <!-- 아래쪽 머리 -->
+    <g fill="var(--f-head)" stroke="var(--dk)" stroke-width=".4">
+      <circle cx="18" cy="118" r="5"/><circle cx="30" cy="118" r="5"/><circle cx="42" cy="118" r="5"/><circle cx="54" cy="118" r="5"/>
+      <circle cx="66" cy="118" r="5"/><circle cx="78" cy="118" r="5"/><circle cx="126" cy="118" r="5"/><circle cx="138" cy="118" r="5"/>
+      <circle cx="150" cy="118" r="5"/><circle cx="198" cy="118" r="5"/><circle cx="210" cy="118" r="5"/><circle cx="222" cy="118" r="5"/>
+      <circle cx="234" cy="118" r="5"/><circle cx="282" cy="118" r="5"/><circle cx="294" cy="118" r="5"/><circle cx="306" cy="118" r="5"/>
+      <circle cx="318" cy="118" r="5"/>
+    </g>
+  </g>
+  <!-- 내재성 단백질 (관통) -->
+  <path d="M88,54 q14,-4 14,10 l0,52 q0,14 -14,10 q-6,-2 -6,-10 l0,-52 q0,-8 6,-10 z" fill="var(--f-prot)" stroke="var(--dk)"/>
+  <path d="M158,52 q18,-2 22,14 q4,20 -4,40 q-6,16 -20,12 q-10,-4 -8,-20 l0,-30 q0,-14 10,-16 z" fill="var(--f-prot)" stroke="var(--dk)"/>
+  <path d="M244,54 q16,-2 18,14 l0,44 q-2,16 -18,14 q-8,-2 -8,-14 l0,-44 q0,-12 8,-14 z" fill="var(--f-prot)" stroke="var(--dk)"/>
+  <!-- 통로 -->
+  <rect x="166" y="56" width="6" height="66" fill="var(--bg)"/>
+  <!-- 주변부 단백질 -->
+  <ellipse cx="106" cy="132" rx="14" ry="8" fill="var(--f-prot2)" stroke="var(--dk)"/>
+  <!-- 콜레스테롤 -->
+  <g fill="var(--f-chol)" stroke="var(--dk)" stroke-width=".5">
+    <rect x="112" y="76" width="5" height="26" rx="2"/><rect x="190" y="76" width="5" height="26" rx="2"/>
+    <rect x="270" y="76" width="5" height="26" rx="2"/>
+  </g>
+  <!-- 당사슬 -->
+  <g stroke="var(--f-sugar2)" stroke-width="1.6" fill="none">
+    <path d="M95,50 l-6,-8 M95,50 l6,-8 M95,50 l0,-10"/>
+    <path d="M170,44 l-6,-8 M170,44 l6,-8"/>
+    <path d="M60,57 l-4,-10 M60,57 l5,-9"/>
+  </g>
+  <g fill="var(--f-sugar2)">
+    <circle cx="89" cy="42" r="2.6"/><circle cx="101" cy="42" r="2.6"/><circle cx="95" cy="40" r="2.6"/>
+    <circle cx="164" cy="36" r="2.6"/><circle cx="176" cy="36" r="2.6"/>
+    <circle cx="56" cy="47" r="2.6"/><circle cx="65" cy="48" r="2.6"/>
+  </g>
+  <text x="10" y="140" class="s-lb">세포질(세포 내부)</text>
+  <!-- 라벨 -->
+  <text x="30" y="34" class="s-sm" fill="var(--f-sugar2)">당사슬 — 바깥면에만</text>
+  <text x="252" y="36" class="s-sm">인지질 이중층</text>
+  <path d="M282,40 L300,56" stroke="var(--dk)" stroke-width=".8"/>
+  <text x="298" y="140" class="s-sm" text-anchor="end">내재성 단백질(관통)</text>
+  <path d="M252,124 L262,136" stroke="var(--dk)" stroke-width=".8"/>
+  <text x="106" y="152" class="s-sm" text-anchor="middle">주변부 단백질</text>
+  <text x="132" y="106" class="s-sm" fill="var(--f-chol)">콜레스테롤</text>
+  <!-- 요약 -->
+  <rect x="6" y="160" width="328" height="54" rx="8" fill="var(--accent-soft)" stroke="var(--line)"/>
+  <text x="16" y="177" class="s-ti" fill="var(--ac)">유동(fluid) + 모자이크(mosaic)</text>
+  <text x="16" y="192" class="s-sm"><tspan font-weight="700">유동</tspan> — 분자들이 고정돼 있지 않고 떠다닌다. 인지질은 1초에 약 10⁷번 자리를 바꾼다(≈2 μm/초)</text>
+  <text x="16" y="206" class="s-sm"><tspan font-weight="700">모자이크</tspan> — 여러 단백질이 지질 바다에 박힌 조각들처럼 흩어져 있다. 상하 뒤집기는 한 달에 한 번꼴로 드물다</text>
+</svg>
+    <figcaption><b>도해 1</b> 단백질이 이중층을 <b>감싸는</b> 게 아니라 <b>박혀 있다</b>. 소수성 부위는 막 내부에, 친수성 부위는 양쪽 수용액에 닿는다. 이러면 모든 부위가 편안하다. <span class="tapz">탭하면 확대</span></figcaption>
+  </figure>
+
+  <div class="key">
+    <b>당사슬은 막의 바깥면에만 있다.</b> 이건 우연이 아니다 — 소포체 내강에서 붙은 것이 소낭이 뒤집혀 융합되며 바깥면이 되기 때문이다.
+    그래서 막에는 <b>안팎의 방향성</b>이 있다. 세포 인식이 바깥에서 일어나는 이유이기도 하다.
+  </div>
+
+  <h2 class="gly"><span class="n">2</span>"유동"이 뜻하는 것</h2>
+  <p class="sub">막은 판이 아니라 액체에 가깝다</p>
+
+  <p>막의 분자들은 고정돼 있지 않다. 인지질은 <em>1초에 약 10⁷번</em> 옆자리와 위치를 바꾼다 —
+  1초에 2 μm, 즉 <b>세균 한 마리 길이</b>를 훑는 속도다. 반면 <b>이중층을 상하로 뒤집는 건 한 달에 한 번</b>꼴로 드물다.
+  친수성 머리가 소수성 내부를 통과해야 하기 때문이다.</p>
+
+  <figure><svg id="m-fluid" viewBox="0 0 340 190" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="막의 유동성">
+  <!-- 온도 -->
+  <rect x="6" y="6" width="158" height="86" rx="9" fill="var(--f-panel)" stroke="var(--line)"/>
+  <text x="16" y="24" class="s-ti">불포화 꼬리 = 유동성 ↑</text>
+  <g transform="translate(20,32)">
+    <text x="0" y="10" class="s-sm">포화(곧음)</text>
+    <g stroke="var(--f-tail)" stroke-width="1.6">
+      <path d="M4,16 l0,20 M12,16 l0,20 M20,16 l0,20 M28,16 l0,20 M36,16 l0,20"/>
+    </g>
+    <g fill="var(--f-head)" stroke="var(--dk)" stroke-width=".4">
+      <circle cx="4" cy="14" r="3"/><circle cx="12" cy="14" r="3"/><circle cx="20" cy="14" r="3"/><circle cx="28" cy="14" r="3"/><circle cx="36" cy="14" r="3"/>
+    </g>
+    <text x="4" y="50" class="s-sm">촘촘 → 굳음</text>
+  </g>
+  <g transform="translate(92,32)">
+    <text x="0" y="10" class="s-sm" fill="var(--ac)">불포화(꺾임)</text>
+    <g stroke="var(--f-tail)" stroke-width="1.6" fill="none">
+      <path d="M4,16 l0,8 l5,5 l-5,7"/><path d="M16,16 l0,8 l5,5 l-5,7"/><path d="M28,16 l0,8 l5,5 l-5,7"/><path d="M40,16 l0,8 l5,5 l-5,7"/>
+    </g>
+    <g fill="var(--f-head)" stroke="var(--dk)" stroke-width=".4">
+      <circle cx="4" cy="14" r="3"/><circle cx="16" cy="14" r="3"/><circle cx="28" cy="14" r="3"/><circle cx="40" cy="14" r="3"/>
+    </g>
+    <text x="0" y="50" class="s-sm" fill="var(--ac)">틈 → 유동적</text>
+  </g>
+  <!-- 콜레스테롤 -->
+  <rect x="176" y="6" width="158" height="86" rx="9" fill="var(--f-panel2)" stroke="var(--line)"/>
+  <text x="186" y="24" class="s-ti">콜레스테롤 = 온도 완충재</text>
+  <g transform="translate(190,34)">
+    <rect x="0" y="0" width="60" height="44" rx="4" fill="var(--f-warm)" stroke="var(--line)"/>
+    <text x="30" y="14" class="s-sm" text-anchor="middle">따뜻할 때</text>
+    <text x="30" y="28" class="s-sm" text-anchor="middle" fill="var(--no)">유동성을</text>
+    <text x="30" y="39" class="s-sm" text-anchor="middle" fill="var(--no)">낮춘다</text>
+  </g>
+  <g transform="translate(264,34)">
+    <rect x="0" y="0" width="60" height="44" rx="4" fill="var(--f-cold)" stroke="var(--line)"/>
+    <text x="30" y="14" class="s-sm" text-anchor="middle">차가울 때</text>
+    <text x="30" y="28" class="s-sm" text-anchor="middle" fill="var(--fer)">굳는 것을</text>
+    <text x="30" y="39" class="s-sm" text-anchor="middle" fill="var(--fer)">막는다</text>
+  </g>
+  <!-- 결론 -->
+  <rect x="6" y="100" width="328" height="84" rx="9" fill="var(--card)" stroke="var(--line)"/>
+  <text x="16" y="118" class="s-ti" fill="var(--ac)">왜 유동성이 중요한가</text>
+  <text x="16" y="134" class="s-sm">막이 굳으면 <tspan font-weight="700">투과성이 바뀌고 효소 단백질이 활성을 잃는다</tspan> — 막은 유동적이어야 작동한다.</text>
+  <text x="16" y="150" class="s-sm">추운 곳의 생물은 <tspan font-weight="700">불포화지방산 비율이 높은</tspan> 막을 가진다(겨울 밀이 그 예).</text>
+  <text x="16" y="166" class="s-sm">콜레스테롤은 방향에 따라 반대로 작용해 <tspan font-weight="700">온도 변화의 완충제</tspan> 역할을 한다.</text>
+  <text x="16" y="180" class="s-sm" fill="var(--sub)">→ 진화적 적응: 서식 온도에 맞춰 막 지질 조성이 달라진다.</text>
+</svg>
+    <figcaption><b>도해 2</b> 유동성을 정하는 두 가지. <b>불포화지방산</b>이 많으면 꼬리가 꺾여 촘촘히 못 쌓이므로 유동적이다. <b>콜레스테롤</b>은 온도에 따라 반대로 작용하는 완충재다. <span class="tapz">탭하면 확대</span></figcaption>
+  </figure>
+
+  <div class="key">
+    <b>왜 유동성이 중요한가</b> — 막이 굳으면 투과성이 변하고 막단백질(효소)이 활성을 잃는다.
+    <b>막은 유동적이어야 작동한다.</b><br>
+    그래서 추운 곳의 생물은 <b>불포화지방산 비율이 높은</b> 막을 갖는다. 서식 온도에 맞춘 <b>진화적 적응</b>이다.
+  </div>
+
+  <h2 class="pyr"><span class="n">3</span>막의 성격은 단백질이 정한다</h2>
+  <p class="sub">같은 이중층인데 왜 하는 일이 다른가</p>
+
+  <p>인지질 이중층은 거의 똑같다. 그런데 미토콘드리아 내막은 ATP를 만들고, 틸라코이드막은 빛을 잡고,
+  원형질막은 신호를 받는다. 차이를 만드는 건 <em>박혀 있는 단백질</em>이다.</p>
+
+  <figure><svg id="m-func" viewBox="0 0 340 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="막단백질의 여섯 가지 기능">
+  <rect x="6" y="60" width="328" height="34" fill="var(--f-membg)"/>
+  <text x="10" y="54" class="s-lb">세포 외부</text>
+  <text x="10" y="108" class="s-lb">세포질</text>
+  <g stroke="var(--dk)" stroke-width="1"/>
+  <!-- 1 수송 -->
+  <rect x="20" y="54" width="18" height="46" rx="5" fill="var(--f-prot)" stroke="var(--dk)"/>
+  <rect x="26" y="56" width="6" height="42" fill="var(--bg)"/>
+  <path d="M29,44 L29,108" stroke="var(--gly)" stroke-width="2"/>
+  <path d="M29,108 l-3,-6 l6,0 z" fill="var(--gly)"/>
+  <text x="29" y="126" class="s-sm" text-anchor="middle">① 수송</text>
+  <!-- 2 효소 -->
+  <path d="M68,54 q14,-2 14,12 l0,22 q0,12 -14,12 q-8,-2 -8,-12 l0,-22 q0,-10 8,-12 z" fill="var(--f-prot)" stroke="var(--dk)"/>
+  <circle cx="76" cy="46" r="4" fill="var(--f-sub)" stroke="var(--dk)" stroke-width=".5"/>
+  <text x="72" y="126" class="s-sm" text-anchor="middle">② 효소</text>
+  <!-- 3 신호전달 -->
+  <path d="M114,54 q12,-2 12,12 l0,22 q0,12 -12,12 q-8,-2 -8,-12 l0,-22 q0,-10 8,-12 z" fill="var(--f-prot)" stroke="var(--dk)"/>
+  <circle cx="119" cy="42" r="5" fill="var(--no)" stroke="var(--dk)" stroke-width=".5"/>
+  <path d="M119,96 l0,10" stroke="var(--no)" stroke-width="1.6"/>
+  <text x="117" y="126" class="s-sm" text-anchor="middle">③ 신호전달</text>
+  <!-- 4 세포인식 -->
+  <path d="M172,54 q12,-2 12,12 l0,22 q0,12 -12,12 q-8,-2 -8,-12 l0,-22 q0,-10 8,-12 z" fill="var(--f-prot)" stroke="var(--dk)"/>
+  <g stroke="var(--f-sugar2)" stroke-width="1.4" fill="none"><path d="M176,48 l-5,-7 M176,48 l5,-7"/></g>
+  <g fill="var(--f-sugar2)"><circle cx="171" cy="40" r="2.4"/><circle cx="181" cy="40" r="2.4"/></g>
+  <text x="176" y="126" class="s-sm" text-anchor="middle">④ 세포인식</text>
+  <!-- 5 세포간 결합 -->
+  <path d="M228,54 q10,-2 10,12 l0,22 q0,12 -10,12 q-7,-2 -7,-12 l0,-22 q0,-10 7,-12 z" fill="var(--f-prot)" stroke="var(--dk)"/>
+  <path d="M248,54 q10,-2 10,12 l0,22 q0,12 -10,12 q-7,-2 -7,-12 l0,-22 q0,-10 7,-12 z" fill="var(--f-prot)" stroke="var(--dk)"/>
+  <path d="M238,64 L248,64 M238,74 L248,74" stroke="var(--dk)" stroke-width="1.4"/>
+  <text x="240" y="126" class="s-sm" text-anchor="middle">⑤ 세포 결합</text>
+  <!-- 6 세포골격 부착 -->
+  <path d="M298,54 q12,-2 12,12 l0,22 q0,12 -12,12 q-8,-2 -8,-12 l0,-22 q0,-10 8,-12 z" fill="var(--f-prot)" stroke="var(--dk)"/>
+  <path d="M300,96 l-8,14 M300,96 l8,14" stroke="var(--f-fiber)" stroke-width="1.8"/>
+  <path d="M296,44 l-8,-10 M304,44 l8,-10" stroke="var(--f-ecm)" stroke-width="1.8"/>
+  <text x="300" y="126" class="s-sm" text-anchor="middle">⑥ 골격·ECM 부착</text>
+  <!-- 설명 -->
+  <rect x="6" y="136" width="328" height="58" rx="8" fill="var(--accent-soft)" stroke="var(--line)"/>
+  <text x="16" y="153" class="s-ti" fill="var(--ac)">막의 성격은 지질이 아니라 단백질이 정한다</text>
+  <text x="16" y="169" class="s-sm">같은 인지질 이중층이라도 <tspan font-weight="700">어떤 단백질이 박혀 있느냐</tspan>에 따라 막의 기능이 완전히 달라진다.</text>
+  <text x="16" y="185" class="s-sm">그래서 미토콘드리아 내막, 틸라코이드막, 원형질막이 전부 다른 일을 한다.</text>
+</svg>
+    <figcaption><b>도해 3</b> 막단백질의 여섯 가지 일. 한 막에 이 중 여럿이 동시에 있다. <span class="tapz">탭하면 확대</span></figcaption>
+  </figure>
+
+  <div class="key">
+    <b>내재성 단백질</b> — 소수성 부위로 이중층을 관통. 대개 α 나선. 통로·펌프가 여기 속한다.<br>
+    <b>주변부 단백질</b> — 막 표면에 붙어 있을 뿐 관통하지 않는다.<br>
+    많은 막단백질이 <b>세포골격이나 세포외기질에 고정</b>되어 있어, 생각만큼 자유롭게 떠다니지는 않는다.
+  </div>
+
+  <h2 class="oxp"><span class="n">4</span>무엇이 통과하는가</h2>
+  <p class="sub">막 한가운데는 기름이다</p>
+
+  <figure><svg id="m-perm" viewBox="0 0 340 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="선택적 투과성">
+  <defs><marker id="ma4" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+    <path d="M0,0 L10,5 L0,10 z" fill="var(--ok)"/></marker></defs>
+  <rect x="6" y="74" width="328" height="40" fill="var(--f-membg)"/>
+  <text x="10" y="66" class="s-lb">바깥</text>
+  <text x="10" y="130" class="s-lb">안쪽</text>
+  <text x="170" y="18" class="s-ti" text-anchor="middle">인지질 이중층 한가운데는 <tspan fill="var(--ac)">기름</tspan>이다</text>
+  <!-- 통과 O -->
+  <g>
+    <circle cx="42" cy="44" r="8" fill="var(--f-hydroph)" stroke="var(--dk)"/>
+    <text x="42" y="47" class="s-sm" text-anchor="middle">O₂</text>
+    <path d="M42,56 L42,132" stroke="var(--ok)" stroke-width="2.2" marker-end="url(#ma4)"/>
+    <text x="42" y="150" class="s-sm" text-anchor="middle" fill="var(--ok)">통과</text>
+  </g>
+  <g>
+    <circle cx="82" cy="44" r="9" fill="var(--f-hydroph)" stroke="var(--dk)"/>
+    <text x="82" y="47" class="s-sm" text-anchor="middle">CO₂</text>
+    <path d="M82,56 L82,132" stroke="var(--ok)" stroke-width="2.2" marker-end="url(#ma4)"/>
+    <text x="82" y="150" class="s-sm" text-anchor="middle" fill="var(--ok)">통과</text>
+  </g>
+  <g>
+    <circle cx="126" cy="44" r="9" fill="var(--f-hydroph)" stroke="var(--dk)"/>
+    <text x="126" y="47" class="s-sm" text-anchor="middle">지질</text>
+    <path d="M126,56 L126,132" stroke="var(--ok)" stroke-width="2.2" marker-end="url(#ma4)"/>
+    <text x="126" y="150" class="s-sm" text-anchor="middle" fill="var(--ok)">통과</text>
+  </g>
+  <!-- 물: 작지만 극성 -->
+  <g>
+    <circle cx="178" cy="44" r="9" fill="var(--f-water)" stroke="var(--dk)"/>
+    <text x="178" y="47" class="s-sm" text-anchor="middle">H₂O</text>
+    <path d="M178,56 L178,132" stroke="var(--f-slow)" stroke-width="2.2" stroke-dasharray="5 3" marker-end="url(#ma4)"/>
+    <text x="178" y="150" class="s-sm" text-anchor="middle" fill="var(--f-slow)">느리게</text>
+    <text x="178" y="161" class="s-sm" text-anchor="middle" fill="var(--f-slow)">(작지만 극성)</text>
+  </g>
+  <!-- 막힘 -->
+  <g>
+    <circle cx="240" cy="44" r="10" fill="var(--f-polar)" stroke="var(--dk)"/>
+    <text x="240" y="47" class="s-sm" text-anchor="middle">포도당</text>
+    <path d="M240,56 L240,72" stroke="var(--no)" stroke-width="2.2"/>
+    <line x1="232" y1="80" x2="248" y2="96" stroke="var(--no)" stroke-width="2.6"/>
+    <line x1="248" y1="80" x2="232" y2="96" stroke="var(--no)" stroke-width="2.6"/>
+    <text x="240" y="150" class="s-sm" text-anchor="middle" fill="var(--no)">막힘</text>
+  </g>
+  <g>
+    <circle cx="298" cy="44" r="10" fill="var(--f-ion)" stroke="var(--dk)"/>
+    <text x="298" y="47" class="s-sm" text-anchor="middle">Na⁺</text>
+    <path d="M298,56 L298,72" stroke="var(--no)" stroke-width="2.2"/>
+    <line x1="290" y1="80" x2="306" y2="96" stroke="var(--no)" stroke-width="2.6"/>
+    <line x1="306" y1="80" x2="290" y2="96" stroke="var(--no)" stroke-width="2.6"/>
+    <text x="298" y="150" class="s-sm" text-anchor="middle" fill="var(--no)">막힘</text>
+  </g>
+  <!-- 요약 -->
+  <rect x="6" y="168" width="328" height="28" rx="8" fill="var(--accent-soft)" stroke="var(--line)"/>
+  <text x="170" y="180" class="s-ti" text-anchor="middle" fill="var(--ac)">소수성(비극성)은 통과 · 극성·이온은 막힘</text>
+  <text x="170" y="192" class="s-sm" text-anchor="middle">막힌 것들은 <tspan font-weight="700">수송 단백질</tspan>의 도움을 받아야 한다 → 그래서 막이 “선택적”이다</text>
+</svg>
+    <figcaption><b>도해 4</b> 규칙은 단순하다. <b>소수성(비극성)은 통과, 극성·이온은 막힘.</b> 물은 예외적으로 작아서 느리게나마 통과한다. <span class="tapz">탭하면 확대</span></figcaption>
+  </figure>
+
+  <div class="key">
+    통과 <b>○</b> — O₂, CO₂, 지질 같은 <b>비극성</b> 분자<br>
+    통과 <b>△</b> — 물(작지만 극성이라 느리다. 그래서 <b>아쿠아포린</b>이라는 전용 통로가 따로 있다)<br>
+    통과 <b>✕</b> — 포도당 같은 <b>극성</b> 분자, Na⁺·K⁺ 같은 <b>이온</b><br>
+    → 막힌 것들은 <b>수송 단백질</b>이 있어야 지나간다. 그래서 막이 “선택적”이다.
+  </div>
+  <p>아이러니가 있다. <em>이온은 작은데도 막을 못 지난다.</em> 전하 때문에 물 분자를 잔뜩 끌고 다녀,
+  기름 같은 막 내부에 들어가는 것이 에너지적으로 불리하기 때문이다. <b>크기가 아니라 성질이 문제다.</b></p>
+
+  <h2 class="fer"><span class="n">5</span>삼투: 물은 어디로 가는가</h2>
+  <p class="sub">시험에 가장 많이 나오는 자리</p>
+
+  <p><span class="t">확산</span>은 물질이 <em>농도가 높은 곳에서 낮은 곳으로</em> 저절로 퍼지는 것이다.
+  에너지가 들지 않는다 — 오히려 엔트로피가 늘어나는 자발적 과정이다.
+  <span class="t">삼투</span>는 그중 <b>물</b>의 확산을 가리킨다.</p>
+  <div class="key">
+    <b>물은 용질 농도가 낮은 쪽 → 높은 쪽으로 이동한다.</b><br>
+    헷갈리면 <b>"물도 자기 농도가 높은 곳에서 낮은 곳으로 간다"</b>고 뒤집어 생각하면 된다 — 결국 같은 말이다.
+  </div>
+
+  <figure><svg id="m-osmosis" viewBox="0 0 340 280" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="삼투와 세포의 물 균형">
+  <defs><marker id="ma5" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="4.5" markerHeight="4.5" orient="auto-start-reverse">
+    <path d="M0,0 L10,5 L0,10 z" fill="var(--fer)"/></marker></defs>
+  <!-- 헤더 -->
+  <text x="86" y="16" class="s-ti" text-anchor="middle">저장액</text>
+  <text x="86" y="27" class="s-sm" text-anchor="middle">(바깥 용질 낮음)</text>
+  <text x="176" y="16" class="s-ti" text-anchor="middle">등장액</text>
+  <text x="176" y="27" class="s-sm" text-anchor="middle">(같음)</text>
+  <text x="266" y="16" class="s-ti" text-anchor="middle">고장액</text>
+  <text x="266" y="27" class="s-sm" text-anchor="middle">(바깥 용질 높음)</text>
+  <text x="18" y="76" class="s-ti">동물</text>
+  <text x="18" y="88" class="s-ti">세포</text>
+  <text x="18" y="192" class="s-ti">식물</text>
+  <text x="18" y="204" class="s-ti">세포</text>
+  <!-- 동물세포 3개 -->
+  <rect x="46" y="34" width="80" height="86" rx="8" fill="var(--f-hypo)" stroke="var(--line)"/>
+  <circle cx="86" cy="72" r="26" fill="var(--f-rbc)" stroke="var(--dk)" stroke-width="1.2"/>
+  <path d="M86,40 L86,50 M64,60 L72,66 M108,60 L100,66" stroke="var(--fer)" stroke-width="1.8" marker-end="url(#ma5)"/>
+  <text x="86" y="76" class="s-sm" text-anchor="middle" fill="#fff">물 유입</text>
+  <text x="86" y="110" class="s-ti" text-anchor="middle" fill="var(--no)">터짐(용혈)</text>
+  <rect x="136" y="34" width="80" height="86" rx="8" fill="var(--f-iso)" stroke="var(--line)"/>
+  <path d="M176,54 a22,22 0 1,0 0.1,0 z" fill="var(--f-rbc)" stroke="var(--dk)" stroke-width="1.2"/>
+  <ellipse cx="176" cy="76" rx="9" ry="6" fill="var(--f-iso)"/>
+  <path d="M158,58 l-8,-6 M194,58 l8,-6" stroke="var(--fer)" stroke-width="1.4"/>
+  <text x="176" y="110" class="s-ti" text-anchor="middle" fill="var(--ok)">정상</text>
+  <rect x="226" y="34" width="80" height="86" rx="8" fill="var(--f-hyper)" stroke="var(--line)"/>
+  <path d="M266,52 q16,4 14,16 q10,6 0,14 q4,12 -14,14 q-18,-2 -14,-14 q-10,-8 0,-14 q-2,-12 14,-16 z" fill="var(--f-rbc)" stroke="var(--dk)" stroke-width="1.2"/>
+  <path d="M266,44 L266,52 M244,62 L252,66" stroke="var(--fer)" stroke-width="1.6" marker-start="url(#ma5)"/>
+  <text x="266" y="110" class="s-ti" text-anchor="middle" fill="var(--no)">쪼그라듦</text>
+  <!-- 식물세포 3개 -->
+  <rect x="46" y="150" width="80" height="94" rx="8" fill="var(--f-hypo)" stroke="var(--line)"/>
+  <rect x="58" y="164" width="56" height="60" rx="3" fill="var(--f-wall)" stroke="var(--dk)" stroke-width="1.6"/>
+  <rect x="63" y="169" width="46" height="50" rx="2" fill="var(--f-eu)" stroke="var(--dk)" stroke-width=".7"/>
+  <rect x="70" y="176" width="32" height="36" rx="3" fill="var(--f-vac)" stroke="var(--dk)" stroke-width=".6"/>
+  <path d="M86,152 L86,162" stroke="var(--fer)" stroke-width="1.8" marker-end="url(#ma5)"/>
+  <text x="86" y="236" class="s-ti" text-anchor="middle" fill="var(--ok)">팽만(건강)</text>
+  <rect x="136" y="150" width="80" height="94" rx="8" fill="var(--f-iso)" stroke="var(--line)"/>
+  <rect x="148" y="164" width="56" height="60" rx="3" fill="var(--f-wall)" stroke="var(--dk)" stroke-width="1.6"/>
+  <rect x="153" y="170" width="46" height="48" rx="2" fill="var(--f-eu)" stroke="var(--dk)" stroke-width=".7"/>
+  <rect x="160" y="178" width="32" height="32" rx="3" fill="var(--f-vac)" stroke="var(--dk)" stroke-width=".6"/>
+  <text x="176" y="236" class="s-ti" text-anchor="middle" fill="var(--no)">축 처짐</text>
+  <rect x="226" y="150" width="80" height="94" rx="8" fill="var(--f-hyper)" stroke="var(--line)"/>
+  <rect x="238" y="164" width="56" height="60" rx="3" fill="var(--f-wall)" stroke="var(--dk)" stroke-width="1.6"/>
+  <rect x="248" y="176" width="36" height="36" rx="4" fill="var(--f-eu)" stroke="var(--dk)" stroke-width=".9"/>
+  <rect x="255" y="183" width="22" height="22" rx="3" fill="var(--f-vac)" stroke="var(--dk)" stroke-width=".6"/>
+  <path d="M266,162 L266,152" stroke="var(--fer)" stroke-width="1.8" marker-end="url(#ma5)"/>
+  <text x="266" y="236" class="s-ti" text-anchor="middle" fill="var(--no)">원형질분리</text>
+  <text x="266" y="247" class="s-sm" text-anchor="middle" fill="var(--no)">(막이 벽에서 떨어짐)</text>
+  <!-- 결론 -->
+  <rect x="6" y="254" width="328" height="24" rx="8" fill="var(--accent-soft)" stroke="var(--line)"/>
+  <text x="170" y="266" class="s-ti" text-anchor="middle" fill="var(--ac)">결정적 차이 = 세포벽이 있느냐</text>
+  <text x="170" y="276" class="s-sm" text-anchor="middle">동물세포는 등장액에서, 식물세포는 <tspan font-weight="700">저장액</tspan>에서 가장 건강하다</text>
+</svg>
+    <figcaption><b>도해 5</b> 이 여섯 칸이 핵심이다. <b>세포벽이 있느냐</b>가 운명을 가른다. 동물세포는 <b>등장액</b>에서, 식물세포는 <b>저장액</b>에서 가장 건강하다. <span class="tapz">탭하면 확대</span></figcaption>
+  </figure>
+
+  <div class="key">
+    <b>동물세포</b> — 저장액: 물이 들어와 <b>터진다(용혈)</b> · 등장액: <b>정상</b> · 고장액: 물이 빠져 <b>쪼그라든다</b><br>
+    <b>식물세포</b> — 저장액: 물이 들어오지만 벽이 <b>팽압</b>으로 버텨 <b>팽만(건강)</b> · 등장액: <b>축 처짐</b> · 고장액: <b>원형질분리</b>(막이 벽에서 떨어짐 → 죽을 수 있다)
+  </div>
+  <p>왜 상추가 물에 담그면 살아나고, 소금 뿌린 배추는 숨이 죽을까? 각각 저장액과 고장액이다.
+  목질이 아닌 식물이 꼿꼿한 것도 <em>팽압 덕분</em>이다.</p>
+  <p>벽이 없는 생물은 다른 해법을 쓴다. 민물의 짚신벌레는 세포가 저장액에 있는데,
+  <b>수축포</b>라는 펌프로 들어온 물을 계속 퍼내 터지지 않는다. 이것을 <span class="t">삼투조절</span>이라 한다.</p>
+
+  <h2><span class="n">6</span>거슬러 올리기: 능동수송</h2>
+  <p class="sub">그리고 통째로 나르기</p>
+
+  <figure><svg id="m-transport" viewBox="0 0 340 230" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="수동수송과 능동수송">
+  <defs><marker id="ma6" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+    <path d="M0,0 L10,5 L0,10 z" fill="var(--dk)"/></marker></defs>
+  <!-- 수동 -->
+  <rect x="6" y="6" width="200" height="140" rx="9" fill="var(--f-passive)" stroke="var(--line)"/>
+  <text x="16" y="24" class="s-ti">수동수송 <tspan class="s-sm" font-weight="500">— ATP 안 씀 · 기울기 따라</tspan></text>
+  <rect x="16" y="62" width="180" height="24" fill="var(--f-membg)"/>
+  <!-- 농도 표시: 위 많음 -->
+  <g fill="var(--f-solute)">
+    <circle cx="34" cy="42" r="3"/><circle cx="50" cy="48" r="3"/><circle cx="66" cy="40" r="3"/><circle cx="46" cy="54" r="3"/>
+    <circle cx="106" cy="42" r="3"/><circle cx="122" cy="48" r="3"/><circle cx="138" cy="40" r="3"/><circle cx="118" cy="54" r="3"/>
+    <circle cx="168" cy="44" r="3"/><circle cx="180" cy="50" r="3"/>
+  </g>
+  <g fill="var(--f-solute)" opacity=".5">
+    <circle cx="40" cy="104" r="3"/><circle cx="120" cy="106" r="3"/><circle cx="176" cy="102" r="3"/>
+  </g>
+  <!-- 단순확산 -->
+  <path d="M48,58 L48,110" stroke="var(--gly)" stroke-width="2" marker-end="url(#ma6)"/>
+  <text x="48" y="128" class="s-sm" text-anchor="middle">단순확산</text>
+  <text x="48" y="139" class="s-sm" text-anchor="middle" fill="var(--sub)">지질층 직접</text>
+  <!-- 통로 -->
+  <rect x="104" y="56" width="18" height="36" rx="4" fill="var(--f-prot)" stroke="var(--dk)"/>
+  <rect x="110" y="58" width="6" height="32" fill="var(--f-passive)"/>
+  <path d="M113,58 L113,110" stroke="var(--gly)" stroke-width="2" marker-end="url(#ma6)"/>
+  <text x="113" y="128" class="s-sm" text-anchor="middle">촉진확산</text>
+  <text x="113" y="139" class="s-sm" text-anchor="middle" fill="var(--sub)">통로 단백질</text>
+  <!-- 운반체 -->
+  <path d="M168,56 q12,-2 12,12 l0,12 q0,12 -12,12 q-8,-2 -8,-12 l0,-12 q0,-10 8,-12 z" fill="var(--f-prot)" stroke="var(--dk)"/>
+  <path d="M172,58 L172,110" stroke="var(--gly)" stroke-width="2" marker-end="url(#ma6)"/>
+  <text x="172" y="128" class="s-sm" text-anchor="middle">촉진확산</text>
+  <text x="172" y="139" class="s-sm" text-anchor="middle" fill="var(--sub)">운반체 단백질</text>
+  <!-- 능동 -->
+  <rect x="216" y="6" width="118" height="140" rx="9" fill="var(--f-active)" stroke="var(--line)"/>
+  <text x="226" y="24" class="s-ti">능동수송</text>
+  <text x="226" y="36" class="s-sm" fill="var(--no)">ATP 씀 · 기울기 거슬러</text>
+  <rect x="226" y="62" width="100" height="24" fill="var(--f-membg)"/>
+  <g fill="var(--f-solute2)">
+    <circle cx="248" cy="44" r="3"/><circle cx="266" cy="50" r="3"/><circle cx="286" cy="42" r="3"/><circle cx="306" cy="48" r="3"/>
+    <circle cx="262" cy="38" r="3"/><circle cx="300" cy="38" r="3"/>
+  </g>
+  <g fill="var(--f-solute2)" opacity=".5"><circle cx="270" cy="106" r="3"/></g>
+  <path d="M276,56 q12,-2 12,12 l0,12 q0,12 -12,12 q-8,-2 -8,-12 l0,-12 q0,-10 8,-12 z" fill="var(--f-pump)" stroke="var(--dk)"/>
+  <path d="M280,110 L280,58" stroke="var(--no)" stroke-width="2.4" marker-end="url(#ma6)"/>
+  <path d="M300,88 l6,10 l8,-4 l-4,12" fill="none" stroke="var(--f-atp2)" stroke-width="2"/>
+  <text x="312" y="112" class="s-ti" fill="var(--f-atp2)" text-anchor="middle">ATP</text>
+  <text x="276" y="128" class="s-sm" text-anchor="middle">펌프</text>
+  <text x="276" y="139" class="s-sm" text-anchor="middle" fill="var(--no)">낮은 곳 → 높은 곳</text>
+  <!-- 비교 표 -->
+  <rect x="6" y="154" width="328" height="70" rx="9" fill="var(--card)" stroke="var(--line)"/>
+  <line x1="6" y1="176" x2="334" y2="176" stroke="var(--line)"/>
+  <line x1="6" y1="198" x2="334" y2="198" stroke="var(--line)"/>
+  <line x1="120" y1="154" x2="120" y2="224" stroke="var(--line)"/>
+  <line x1="230" y1="154" x2="230" y2="224" stroke="var(--line)"/>
+  <text x="16" y="169" class="s-ti"> </text>
+  <text x="175" y="169" class="s-ti" text-anchor="middle">수동수송</text>
+  <text x="282" y="169" class="s-ti" text-anchor="middle">능동수송</text>
+  <text x="16" y="191" class="s-ti">에너지(ATP)</text>
+  <text x="175" y="191" class="s-sm" text-anchor="middle" fill="var(--ok)">안 씀</text>
+  <text x="282" y="191" class="s-sm" text-anchor="middle" fill="var(--no)">씀</text>
+  <text x="16" y="213" class="s-ti">이동 방향</text>
+  <text x="175" y="213" class="s-sm" text-anchor="middle">기울기 <tspan font-weight="700">따라</tspan>(내리막)</text>
+  <text x="282" y="213" class="s-sm" text-anchor="middle">기울기 <tspan font-weight="700">거슬러</tspan>(오르막)</text>
+</svg>
+    <figcaption><b>도해 6</b> 두 방식의 차이는 딱 둘 — <b>ATP를 쓰는가</b>, <b>기울기를 거스르는가</b>. 촉진확산은 단백질을 쓰지만 <b>여전히 수동</b>이다(내리막이니까). <span class="tapz">탭하면 확대</span></figcaption>
+  </figure>
+
+  <div class="key">
+    <b>단순확산</b> — 지질층을 직접 통과. 수동.<br>
+    <b>촉진확산</b> — <b>통로</b>(구멍을 열어줌) 또는 <b>운반체</b>(모양을 바꿔 건네줌) 단백질의 도움. <b>여전히 수동</b> — ATP를 쓰지 않고 기울기를 따른다.<br>
+    <b>능동수송</b> — <b>펌프</b>가 ATP를 써서 <b>기울기를 거슬러</b> 퍼올린다.
+  </div>
+  <p>가장 유명한 펌프가 <span class="t">소듐-포타슘 펌프</span>다. 동물세포는 안쪽에 K⁺가 많고 Na⁺가 적은데,
+  이건 저절로 유지되지 않는다. 펌프가 계속 <em>거슬러</em> 퍼내야 한다.</p>
+
+  <figure><svg id="m-pump" viewBox="0 0 340 210" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="소듐-포타슘 펌프">
+  <defs><marker id="ma7" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+    <path d="M0,0 L10,5 L0,10 z" fill="var(--dk)"/></marker></defs>
+  <rect x="6" y="72" width="328" height="40" fill="var(--f-membg)"/>
+  <text x="10" y="64" class="s-lb">세포외액 · Na⁺ 높음 / K⁺ 낮음</text>
+  <text x="10" y="128" class="s-lb">세포질 · Na⁺ 낮음 / K⁺ 높음</text>
+  <!-- 펌프 -->
+  <path d="M148,62 q22,-4 22,20 l0,20 q0,24 -22,20 q-14,-4 -14,-20 l0,-20 q0,-16 14,-20 z" fill="var(--f-pump)" stroke="var(--dk)" stroke-width="1.3"/>
+  <text x="152" y="96" class="s-ti" text-anchor="middle" fill="#fff">펌프</text>
+  <!-- 3 Na+ 밖으로 -->
+  <g fill="var(--f-na)" stroke="var(--dk)" stroke-width=".5">
+    <circle cx="96" cy="132" r="7"/><circle cx="112" cy="142" r="7"/><circle cx="80" cy="142" r="7"/>
+  </g>
+  <text x="96" y="160" class="s-sm" text-anchor="middle" fill="var(--f-na)">3 Na⁺</text>
+  <path d="M120,130 Q140,110 138,66" fill="none" stroke="var(--f-na)" stroke-width="2.2" marker-end="url(#ma7)"/>
+  <g fill="var(--f-na)" stroke="var(--dk)" stroke-width=".5">
+    <circle cx="118" cy="44" r="7"/><circle cx="134" cy="36" r="7"/><circle cx="150" cy="44" r="7"/>
+  </g>
+  <text x="134" y="22" class="s-ti" text-anchor="middle" fill="var(--f-na)">3 Na⁺ 밖으로</text>
+  <!-- 2 K+ 안으로 -->
+  <g fill="var(--f-k)" stroke="var(--dk)" stroke-width=".5">
+    <rect x="204" y="34" width="13" height="13" rx="2"/><rect x="222" y="42" width="13" height="13" rx="2"/>
+  </g>
+  <text x="218" y="24" class="s-ti" text-anchor="middle" fill="var(--f-k)">2 K⁺ 안으로</text>
+  <path d="M200,52 Q176,72 178,110" fill="none" stroke="var(--f-k)" stroke-width="2.2" marker-end="url(#ma7)"/>
+  <g fill="var(--f-k)" stroke="var(--dk)" stroke-width=".5">
+    <rect x="188" y="126" width="13" height="13" rx="2"/><rect x="206" y="136" width="13" height="13" rx="2"/>
+  </g>
+  <text x="204" y="162" class="s-sm" text-anchor="middle" fill="var(--f-k)">2 K⁺</text>
+  <!-- ATP -->
+  <path d="M258,84 l7,11 l9,-4 l-5,13 l9,-2 l-12,15" fill="none" stroke="var(--f-atp2)" stroke-width="2.2"/>
+  <text x="292" y="96" class="s-ti" fill="var(--f-atp2)">ATP</text>
+  <text x="292" y="108" class="s-sm" fill="var(--sub)">인산화 →</text>
+  <text x="292" y="119" class="s-sm" fill="var(--sub)">모양 변화</text>
+  <path d="M256,92 L176,92" stroke="var(--f-atp2)" stroke-width="1.6" stroke-dasharray="3 2" marker-end="url(#ma7)"/>
+  <!-- 요약 -->
+  <rect x="6" y="170" width="328" height="36" rx="8" fill="var(--accent-soft)" stroke="var(--line)"/>
+  <text x="16" y="186" class="s-ti" fill="var(--ac)">한 번에 Na⁺ 3개 밖으로, K⁺ 2개 안으로 — 전하가 안 맞는다</text>
+  <text x="16" y="200" class="s-sm">양전하가 순수하게 <tspan font-weight="700">밖으로 1개씩</tspan> 나가므로 안쪽이 음전하를 띤다 → <tspan font-weight="700">막전위</tspan>(−50~−200 mV) 형성. 이게 뉴런의 배터리다.</text>
+</svg>
+    <figcaption><b>도해 7</b> Na⁺ 3개를 내보내고 K⁺ 2개를 들인다. <b>숫자가 안 맞는다</b> — 그래서 양전하가 순수하게 빠져나가 안쪽이 음전하를 띤다. <span class="tapz">탭하면 확대</span></figcaption>
+  </figure>
+
+  <div class="key">
+    <b>막전위</b> — 막을 사이에 둔 전압(−50~−200 mV, 안쪽이 음전하). 배터리처럼 작동한다.<br>
+    이온에는 두 힘이 함께 작용한다 — <b>농도기울기(화학적)</b> + <b>막전위(전기적)</b>. 이 둘을 합친 것이 <b>전기화학적 기울기</b>다.<br>
+    이 막전위가 <b>뉴런이 신호를 만드는 배터리</b>다.
+  </div>
+
+  <p>마지막으로, 단백질처럼 <em>큰</em> 분자는 통로로 지나갈 수 없다. 이런 것들은 <b>소낭에 담아 통째로</b> 옮긴다.</p>
+
+  <figure><svg id="m-bulk" viewBox="0 0 340 220" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="세포외배출작용과 세포내섭취작용">
+  <defs><marker id="ma8" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+    <path d="M0,0 L10,5 L0,10 z" fill="var(--dk)"/></marker></defs>
+  <!-- 세포외배출 -->
+  <rect x="6" y="6" width="158" height="126" rx="9" fill="var(--f-exo2)" stroke="var(--line)"/>
+  <text x="85" y="24" class="s-ti" text-anchor="middle">세포외배출작용</text>
+  <text x="85" y="36" class="s-sm" text-anchor="middle" fill="var(--sub)">exocytosis — 내보내기</text>
+  <rect x="16" y="46" width="138" height="14" fill="var(--f-membg)"/>
+  <text x="20" y="42" class="s-sm">바깥</text>
+  <circle cx="60" cy="96" r="16" fill="none" stroke="var(--dk)" stroke-width="1.6"/>
+  <g fill="var(--f-cargo)"><circle cx="56" cy="92" r="3"/><circle cx="65" cy="97" r="3"/><circle cx="58" cy="102" r="3"/></g>
+  <text x="60" y="124" class="s-sm" text-anchor="middle">소낭</text>
+  <path d="M74,84 L100,66" stroke="var(--dk)" stroke-width="1.8" marker-end="url(#ma8)"/>
+  <path d="M108,60 q10,-14 22,0" fill="none" stroke="var(--dk)" stroke-width="1.6"/>
+  <g fill="var(--f-cargo)"><circle cx="112" cy="36" r="3"/><circle cx="124" cy="30" r="3"/><circle cx="134" cy="38" r="3"/></g>
+  <text x="122" y="122" class="s-sm" text-anchor="middle">막과 융합 → 방출</text>
+  <text x="85" y="112" class="s-sm" text-anchor="middle" fill="var(--ac)">인슐린 · 신경전달물질</text>
+  <!-- 세포내섭취 -->
+  <rect x="176" y="6" width="158" height="126" rx="9" fill="var(--f-endo2)" stroke="var(--line)"/>
+  <text x="255" y="24" class="s-ti" text-anchor="middle">세포내섭취작용</text>
+  <text x="255" y="36" class="s-sm" text-anchor="middle" fill="var(--sub)">endocytosis — 받아들이기</text>
+  <rect x="186" y="46" width="138" height="14" fill="var(--f-membg)"/>
+  <text x="190" y="42" class="s-sm">바깥</text>
+  <g fill="var(--f-cargo)"><circle cx="214" cy="34" r="3"/><circle cx="226" cy="30" r="3"/><circle cx="236" cy="38" r="3"/></g>
+  <path d="M206,60 q16,26 34,0" fill="none" stroke="var(--dk)" stroke-width="1.6"/>
+  <path d="M250,74 L276,92" stroke="var(--dk)" stroke-width="1.8" marker-end="url(#ma8)"/>
+  <circle cx="292" cy="100" r="16" fill="none" stroke="var(--dk)" stroke-width="1.6"/>
+  <g fill="var(--f-cargo)"><circle cx="288" cy="96" r="3"/><circle cx="297" cy="101" r="3"/><circle cx="290" cy="106" r="3"/></g>
+  <text x="292" y="126" class="s-sm" text-anchor="middle">소낭 형성</text>
+  <text x="220" y="112" class="s-sm" text-anchor="middle">막이 함몰</text>
+  <!-- 3종 -->
+  <rect x="6" y="140" width="328" height="76" rx="9" fill="var(--card)" stroke="var(--line)"/>
+  <text x="16" y="157" class="s-ti" fill="var(--ac)">세포내섭취작용 3종</text>
+  <text x="16" y="173" class="s-sm"><tspan font-weight="700">식세포작용</tspan>(phagocytosis) — “세포의 먹기”. 큰 입자를 위족으로 감싼다. 백혈구가 세균을 잡아먹는 방식.</text>
+  <text x="16" y="189" class="s-sm"><tspan font-weight="700">음세포작용</tspan>(pinocytosis) — “세포의 마시기”. 세포외액을 방울째 비특이적으로 들이켠다.</text>
+  <text x="16" y="205" class="s-sm"><tspan font-weight="700">수용체 매개</tspan> — 특정 리간드만 골라 받는다. <tspan font-weight="700">LDL 수용체 결함이 고콜레스테롤혈증</tspan>의 원인.</text>
+</svg>
+    <figcaption><b>도해 8</b> 집단수송. 내보내는 게 <b>세포외배출</b>, 받아들이는 게 <b>세포내섭취</b>다. 둘은 서로의 정확한 반대다. <span class="tapz">탭하면 확대</span></figcaption>
+  </figure>
+
+  <div class="key">
+    성장하지 않는 세포에서도 두 작용이 끊임없이 일어나는데 <b>막의 총량은 거의 일정하다</b> —
+    한쪽이 늘리면 다른 쪽이 줄이기 때문이다. 소낭 수송은 물질을 나를 뿐 아니라 <b>막 자체를 보수·개조하는 기작</b>이기도 하다.
+  </div>
+
+  <p style="margin-top:26px;padding:14px 16px;background:var(--accent-soft);border-radius:14px;font-size:15px">
+    <b>앞선 편 →</b> 이 막들이 만드는 소기관의 전체 지도는
+    <a href="../cell-tour/" style="color:var(--ac);font-weight:700">세포 구조 노트</a>에,
+    막의 H⁺ 기울기로 ATP를 만드는 이야기는
+    <a href="../respiration/" style="color:var(--ac);font-weight:700">세포호흡</a>과
+    <a href="../photosynthesis/" style="color:var(--ac);font-weight:700">광합성</a> 노트에 있습니다.
+  </p>
+</section>
+
+<section id="map">
+  <div class="lead"><b>막은 막으면서 통과시킨다.</b> 그 방법이 6개 절 전부다.</div>
+
+  <div class="flow">
+    <div class="st"><h4>① 구조 — 유동 모자이크</h4>
+      <div class="io">인지질(<b>양친매성</b>) 이중층에 단백질이 <b>박혀</b> 있다(감싸는 게 아니라)<br>
+      <b>유동</b>: 인지질 좌우 이동 초당 10⁷회 · 상하 뒤집기는 한 달에 한 번꼴<br>
+      <b>당사슬은 바깥면에만</b> → 막에는 안팎 방향성이 있다</div></div>
+    <div class="arw">↓</div>
+    <div class="st p"><h4>② 유동성을 정하는 것</h4>
+      <div class="io"><b>불포화지방산</b> 많음 → 꼬리가 꺾여 유동성 ↑ (추운 곳 생물의 적응)<br>
+      <b>콜레스테롤</b> → 따뜻하면 낮추고 차가우면 굳는 걸 막는 <b>완충재</b><br>
+      굳으면 투과성 변화 + 막단백질 활성 상실</div></div>
+    <div class="arw">↓</div>
+    <div class="st o"><h4>③ 투과성 규칙</h4>
+      <div class="io">통과 ○ <b>비극성</b>(O₂·CO₂·지질) / △ 물(작지만 극성, 아쿠아포린)<br>
+      통과 ✕ <b>극성</b>(포도당)·<b>이온</b>(Na⁺·K⁺) → 수송 단백질 필요<br>
+      이온은 작아도 못 지난다 — <b>크기가 아니라 성질</b></div></div>
+    <div class="arw">↓</div>
+    <div class="st f"><h4>④ 삼투</h4>
+      <div class="io">물은 용질 <b>낮은 쪽 → 높은 쪽</b><br>
+      동물: 저장액 <b>터짐</b> / 등장액 <b>정상</b> / 고장액 <b>쪼그라듦</b><br>
+      식물: 저장액 <b>팽만(건강)</b> / 등장액 <b>축 처짐</b> / 고장액 <b>원형질분리</b></div></div>
+    <div class="arw">↓</div>
+    <div class="st"><h4>⑤ 수송 방식</h4>
+      <div class="io"><b>수동</b>: 단순확산 · 촉진확산(통로/운반체) — ATP ✕, 기울기 따라<br>
+      <b>능동</b>: 펌프 — ATP ○, 기울기 거슬러<br>
+      Na⁺/K⁺ 펌프: <b>Na⁺ 3 밖 / K⁺ 2 안</b> → <b>막전위</b> 형성<br>
+      <b>집단수송</b>: 세포외배출 ↔ 세포내섭취(식세포·음세포·수용체 매개)</div></div>
+  </div>
+
+  <h3 style="margin-top:26px">자주 틀리는 곳</h3>
+  <div class="key">
+    <ul>
+      <li><b>촉진확산은 수동</b>이다. 단백질을 쓴다고 능동이 아니다 — ATP를 안 쓰니까.</li>
+      <li>삼투에서 물은 <b>용질 농도가 높은 쪽으로</b> 간다(물 농도는 낮은 쪽).</li>
+      <li>식물세포는 <b>저장액</b>에서 건강하다. 동물세포와 반대다.</li>
+      <li>이온은 작은데도 못 지난다 — <b>전하</b> 때문이다.</li>
+      <li>당사슬은 <b>바깥면에만</b> 있다.</li>
+      <li>Na⁺/K⁺ 펌프는 <b>3:2</b>라 전하가 안 맞고, 그래서 막전위가 생긴다.</li>
+      <li>단백질은 이중층을 <b>감싸는</b> 게 아니라 <b>관통</b>한다.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="quiz">
+  <div class="lead">선택지를 누르면 바로 채점되고 해설이 열린다. <b>틀린 문제의 해설만 읽어도 이 단원의 함정은 거의 다 걸린다.</b></div>
+  <div id="qs"></div>
+  <div class="score" id="sc">0 / 12</div>
+</section>
+
+<section id="voca">
+  <div class="lead">카드를 <b>탭하면 뜻</b>이 열린다.</div>
+  <div class="deck" id="dk"></div>
+</section>
+</main>
+
+<div id="lb"><div id="lbi"></div></div>
+<button id="lbx">✕</button>
+<div id="lbh">두 손가락으로 확대 · 배경을 탭하면 닫힘</div>
+
+<footer>
+  막의 구조와 기능 · 학습 노트<br>
+  본문과 도해는 직접 작성·작도했습니다. 내용은 표준 생물학 교과 지식에 기반합니다.<br>
+  참고 문헌: Reece 외, <i>캠벨 생명과학</i> 9판 · Alberts 외, <i>Molecular Biology of the Cell</i><br>
+  <a href="../">목차</a> · <a href="../cell-tour/">세포 구조</a>
+</footer>
+
+<script>
+/* ---- 탭 ---- */
+const secs=[...document.querySelectorAll('section')];
+document.querySelectorAll('nav button').forEach(b=>{
+  b.onclick=()=>{
+    document.querySelectorAll('nav button').forEach(x=>x.classList.remove('on'));
+    b.classList.add('on');
+    secs.forEach(s=>s.classList.toggle('on', s.id===b.dataset.s));
+    window.scrollTo({top:0});
+  };
+});
+
+/* ---- 진행 바 ---- */
+addEventListener('scroll',()=>{
+  const h=document.documentElement;
+  const p=h.scrollTop/(h.scrollHeight-h.clientHeight||1);
+  document.getElementById('bar').style.width=(p*100)+'%';
+},{passive:true});
+
+/* ---- 라이트박스 (핀치 줌) ---- */
+const lb=document.getElementById('lb'), lbi=document.getElementById('lbi'),
+      lbx=document.getElementById('lbx'), lbh=document.getElementById('lbh');
+let sc=1,tx=0,ty=0,st=1,sx=0,sy=0,pd=0,moved=false;
+function apply(){lbi.style.transform=`translate(${tx}px,${ty}px) scale(${sc})`;}
+function reset(){sc=1;tx=0;ty=0;apply();}
+document.querySelectorAll('figure svg').forEach(s=>{
+  s.addEventListener('click',()=>{
+    lbi.innerHTML=''; lbi.appendChild(s.cloneNode(true));
+    lb.classList.add('on'); reset();
+    lbx.style.display='block'; lbh.style.display='block';
+    document.body.style.overflow='hidden';
+  });
+});
+function close(){lb.classList.remove('on');lbx.style.display='none';lbh.style.display='none';
+  document.body.style.overflow='';lbi.innerHTML='';}
+lbx.onclick=close;
+lb.addEventListener('click',e=>{ if(!moved && e.target===lb) close(); });
+function dist(t){const a=t[0],b=t[1];return Math.hypot(a.clientX-b.clientX,a.clientY-b.clientY);}
+lb.addEventListener('touchstart',e=>{
+  moved=false;
+  if(e.touches.length===2){pd=dist(e.touches);st=sc;}
+  else if(e.touches.length===1){sx=e.touches[0].clientX-tx;sy=e.touches[0].clientY-ty;}
+},{passive:true});
+lb.addEventListener('touchmove',e=>{
+  moved=true;
+  if(e.touches.length===2){
+    e.preventDefault();
+    sc=Math.min(6,Math.max(1,st*dist(e.touches)/pd)); apply();
+  }else if(e.touches.length===1&&sc>1){
+    e.preventDefault();
+    tx=e.touches[0].clientX-sx; ty=e.touches[0].clientY-sy; apply();
+  }
+},{passive:false});
+lb.addEventListener('dblclick',()=>{ sc=sc>1?1:2.6; tx=0;ty=0; apply(); });
+addEventListener('keydown',e=>{if(e.key==='Escape')close();});
+
+/* ---- 퀴즈 ---- */
+const QS=[
+ {q:"인지질이 물속에서 저절로 이중층을 이루는 이유는?",
+  o:["세포가 에너지를 써서 조립하기 때문","양친매성이라 소수성 꼬리가 물을 피해 안으로 숨는 배열이 가장 안정하기 때문","단백질이 붙잡아 주기 때문","전기적으로 끌어당기기 때문"],a:1,
+  e:"인지질은 <b>양친매성</b>이다 — 머리는 친수성, 꼬리는 소수성. 물에 넣으면 <b>아무도 조립하지 않아도</b> 꼬리끼리 안으로 숨고 머리가 물 쪽을 향하는 이중층이 저절로 생긴다. 생명의 첫 경계도 이렇게 생겼을 것이다."},
+ {q:"유동 모자이크 모형이 이전의 샌드위치 모형을 대체한 핵심 근거는?",
+  o:["막이 더 두꺼웠기 때문","단백질의 소수성 부위가 물에 노출되는 것이 부자연스럽기 때문","인지질이 없다는 게 밝혀져서","막에 단백질이 없기 때문"],a:1,
+  e:"샌드위치 모형은 단백질이 이중층을 <b>감싼다</b>고 봤다. 그런데 단백질은 친수성·소수성 부위를 함께 갖는데, <b>소수성 부위가 물에 노출된 채</b>로 있는 건 부자연스럽다. 유동 모자이크에서는 단백질이 이중층에 <b>박혀</b> 소수성 부위가 막 내부에 들어간다."},
+ {q:"막의 유동성에 대한 설명으로 옳은 것은?",
+  o:["인지질의 상하 뒤집기가 좌우 이동보다 훨씬 빈번하다","좌우 이동은 초당 약 10⁷회로 빈번하지만, 상하 뒤집기는 한 달에 한 번꼴로 드물다","인지질은 고정되어 움직이지 않는다","단백질이 지질보다 빠르게 움직인다"],a:1,
+  e:"인지질의 <b>좌우 이동</b>은 초당 약 10⁷회(1초에 2 μm)로 매우 빠르다. 반면 <b>상하 뒤집기</b>는 친수성 머리가 소수성 내부를 통과해야 해서 <b>한 달에 한 번꼴</b>로 드물다. 단백질은 훨씬 크고 느리게 움직인다."},
+ {q:"추운 곳에 사는 생물의 세포막이 갖는 특징은?",
+  o:["포화지방산 비율이 높다","불포화지방산 비율이 높다","콜레스테롤이 전혀 없다","단백질이 없다"],a:1,
+  e:"<b>불포화</b>지방산은 꼬리가 <b>꺾여</b> 있어 촘촘히 쌓이지 못하므로 막이 유동적이다. 추운 곳에서 막이 굳으면 투과성이 변하고 막단백질이 활성을 잃으므로, 불포화 비율을 높이는 것이 <b>진화적 적응</b>이다."},
+ {q:"세포막의 당사슬(탄수화물)이 있는 위치는?",
+  o:["막의 바깥면에만","막의 세포질 면에만","양쪽 면 모두","막 내부의 소수성 지역"],a:0,
+  e:"<b>바깥면에만</b> 있다. 우연이 아니다 — 소포체 내강에서 붙은 것이 소낭이 융합될 때 뒤집혀 바깥면이 되기 때문이다. 그래서 막에는 <b>안팎의 방향성</b>이 있고, <b>세포 인식</b>이 바깥에서 일어난다."},
+ {q:"막을 자유롭게 통과할 수 <u>없는</u> 것은?",
+  o:["O₂","CO₂","Na⁺","스테로이드 같은 지질"],a:2,
+  e:"규칙은 <b>비극성은 통과, 극성·이온은 막힘</b>이다. <b>Na⁺는 작은데도 못 지난다</b> — 전하 때문에 물 분자를 잔뜩 끌고 다녀 기름 같은 막 내부에 들어가는 게 불리하기 때문. <b>크기가 아니라 성질이 문제</b>다."},
+ {q:"삼투에서 물이 이동하는 방향은?",
+  o:["용질 농도가 높은 쪽 → 낮은 쪽","용질 농도가 낮은 쪽 → 높은 쪽","항상 세포 안쪽으로","항상 세포 바깥으로"],a:1,
+  e:"물은 <b>용질 농도가 낮은 쪽에서 높은 쪽</b>으로 간다. 헷갈리면 <b>\"물도 자기 농도가 높은 곳에서 낮은 곳으로 간다\"</b>고 뒤집어 생각하면 된다 — 용질이 적은 곳이 곧 물이 많은 곳이니 같은 말이다."},
+ {q:"저장액에 담갔을 때 동물세포와 식물세포의 운명은?",
+  o:["둘 다 터진다","동물세포는 터지고, 식물세포는 팽만해져 건강해진다","둘 다 쪼그라든다","동물세포는 정상, 식물세포는 원형질분리"],a:1,
+  e:"결정적 차이는 <b>세포벽</b>이다. 동물세포는 물이 들어와 <b>터진다(용혈)</b>. 식물세포도 물이 들어오지만 벽이 <b>팽압</b>으로 되밀어 <b>팽만(turgid)</b>해지며, 이게 <b>건강한 상태</b>다. 그래서 동물은 등장액에서, 식물은 <b>저장액</b>에서 건강하다."},
+ {q:"고장액에 놓인 식물세포에서 막이 세포벽에서 떨어지는 현상은?",
+  o:["용혈","팽압","원형질분리","삼투조절"],a:2,
+  e:"<b>원형질분리(plasmolysis)</b>다. 고장액에서는 벽의 장점이 사라져 물이 빠져나가고, 세포막이 벽에서 떨어진다. 식물을 시들게 하고 죽일 수 있다. 소금 뿌린 배추가 숨이 죽는 게 이것이다."},
+ {q:"촉진확산에 대한 설명으로 옳은 것은?",
+  o:["수송 단백질을 쓰므로 능동수송이다","ATP를 쓰지 않고 기울기를 따르므로 여전히 수동수송이다","기울기를 거슬러 물질을 옮긴다","막전위를 만든다"],a:1,
+  e:"가장 흔한 함정이다. <b>단백질을 쓴다고 능동이 아니다.</b> 촉진확산은 통로·운반체 단백질의 도움을 받지만 <b>ATP를 쓰지 않고 농도기울기를 따라</b> 내리막으로 이동하므로 <b>수동수송</b>이다. 능동/수동을 가르는 기준은 <b>ATP와 기울기 방향</b>이다."},
+ {q:"소듐-포타슘 펌프가 막전위를 만드는 이유는?",
+  o:["Na⁺와 K⁺를 같은 수로 교환하기 때문","Na⁺ 3개를 내보내고 K⁺ 2개를 들여 전하가 맞지 않기 때문","K⁺만 이동시키기 때문","ATP를 만들어내기 때문"],a:1,
+  e:"한 주기에 <b>Na⁺ 3개는 밖으로, K⁺ 2개는 안으로</b> 옮긴다. <b>3:2라 숫자가 안 맞아</b> 양전하가 순수하게 밖으로 1개씩 빠져나가고, 그래서 안쪽이 음전하를 띤다. 이 <b>막전위</b>(−50~−200 mV)가 뉴런이 신호를 만드는 배터리다."},
+ {q:"백혈구가 세균을 통째로 잡아먹는 과정은?",
+  o:["세포외배출작용","식세포작용","음세포작용","촉진확산"],a:1,
+  e:"<b>식세포작용(phagocytosis)</b> — \"세포의 먹기\"다. 위족으로 큰 입자를 감싸 소낭으로 만든다. <b>음세포작용</b>은 \"세포의 마시기\"로 세포외액을 비특이적으로 들이켜는 것이고, <b>수용체 매개</b>는 특정 리간드만 골라 받는 것이다(LDL이 그 예)."},
+];
+const V=[
+ ["양친매성","amphipathic","친수성 부위와 소수성 부위를 함께 가지는 성질. 인지질과 많은 막단백질이 그렇다."],
+ ["인지질 이중층","phospholipid bilayer","막의 골격. 물속에서 <b>저절로</b> 형성된다. 두께 약 8 nm."],
+ ["유동 모자이크 모형","fluid mosaic model","싱어·니콜슨(1972). 단백질이 지질 바다에 <b>박혀</b> 떠 있는 모자이크."],
+ ["내재성 단백질","integral protein","소수성 부위로 이중층을 <b>관통</b>. 통로·펌프가 여기 속한다."],
+ ["주변부 단백질","peripheral protein","막 표면에 붙어 있을 뿐 관통하지 않는다."],
+ ["콜레스테롤","cholesterol","따뜻하면 유동성을 낮추고 차가우면 굳는 걸 막는 <b>온도 완충재</b>."],
+ ["선택적 투과성","selective permeability","무엇을 들이고 막을지 골라내는 성질. 막의 본질."],
+ ["확산","diffusion","농도가 높은 곳 → 낮은 곳으로 저절로 퍼지는 것. <b>에너지가 들지 않는다</b>."],
+ ["삼투","osmosis","<b>물</b>의 확산. 용질 농도가 <b>낮은 쪽 → 높은 쪽</b>으로 물이 간다."],
+ ["저장액","hypotonic","바깥 용질이 낮음. 동물세포 <b>터짐</b> / 식물세포 <b>팽만(건강)</b>."],
+ ["등장액","isotonic","안팎이 같음. 동물세포 <b>정상</b> / 식물세포 <b>축 처짐</b>."],
+ ["고장액","hypertonic","바깥 용질이 높음. 동물세포 <b>쪼그라듦</b> / 식물세포 <b>원형질분리</b>."],
+ ["팽압","turgor pressure","물이 들어와 부푼 식물세포를 벽이 되미는 압력. 목질이 아닌 식물이 꼿꼿한 이유."],
+ ["원형질분리","plasmolysis","고장액에서 식물세포의 막이 세포벽에서 떨어지는 현상. 죽을 수 있다."],
+ ["삼투조절","osmoregulation","용질 농도와 물 균형을 조절하는 것. 짚신벌레의 <b>수축포</b>가 예."],
+ ["아쿠아포린","aquaporin","물 전용 통로 단백질. 물이 극성이라 지질층 통과가 느린 것을 보완한다."],
+ ["수동수송","passive transport","ATP를 쓰지 않고 <b>기울기를 따라</b> 이동. 단순확산 + 촉진확산."],
+ ["촉진확산","facilitated diffusion","통로·운반체 단백질의 도움을 받는 확산. <b>단백질을 쓰지만 여전히 수동</b>."],
+ ["통로 단백질 / 운반체 단백질","channel / carrier protein","통로는 구멍을 열어주고, 운반체는 모양을 바꿔 건네준다."],
+ ["능동수송","active transport","ATP를 써서 <b>기울기를 거슬러</b> 퍼올린다. 펌프가 담당."],
+ ["소듐-포타슘 펌프","sodium-potassium pump","<b>Na⁺ 3개 밖 / K⁺ 2개 안</b>. 전하가 안 맞아 <b>막전위</b>를 만든다."],
+ ["막전위","membrane potential","막을 사이에 둔 전압(−50~−200 mV, 안쪽이 음). 뉴런의 배터리."],
+ ["전기화학적 기울기","electrochemical gradient","이온에 작용하는 <b>농도기울기 + 막전위</b>를 합친 것."],
+ ["세포외배출작용","exocytosis","소낭이 막과 융합해 내용물을 <b>내보낸다</b>. 인슐린·신경전달물질 분비."],
+ ["세포내섭취작용","endocytosis","막이 함몰해 소낭으로 <b>받아들인다</b>. 식세포·음세포·수용체 매개 세 종류."],
+];
+
+const qs=document.getElementById('qs'); let done=0, right=0;
+QS.forEach((Q,i)=>{
+  const d=document.createElement('div'); d.className='q';
+  d.innerHTML=`<div class="qn">Q${i+1}</div><div class="qt">${Q.q}</div>`;
+  const ex=document.createElement('div'); ex.className='exp'; ex.innerHTML=Q.e;
+  Q.o.forEach((t,j)=>{
+    const b=document.createElement('button'); b.className='opt'; b.textContent=t;
+    b.onclick=()=>{
+      [...d.querySelectorAll('.opt')].forEach(x=>x.disabled=true);
+      d.querySelectorAll('.opt')[Q.a].classList.add('ok');
+      if(j!==Q.a) b.classList.add('no'); else right++;
+      ex.classList.add('show'); done++;
+      document.getElementById('sc').textContent=`${right} / ${QS.length}  (푼 문제 ${done})`;
+    };
+    d.appendChild(b);
+  });
+  d.appendChild(ex); qs.appendChild(d);
+});
+document.getElementById('sc').textContent=`0 / ${QS.length}`;
+const dk=document.getElementById('dk');
+V.forEach(([w,en,d],i)=>{
+  const c=document.createElement('div'); c.className='fc';
+  c.innerHTML=`<div class="w">${w}<span>${i+1}/${V.length}</span></div><div class="en">${en}</div><div class="d">${d}</div>`;
+  c.onclick=()=>c.classList.toggle('open');
+  dk.appendChild(c);
+});
+</script>
+</body>
+</html>

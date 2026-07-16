@@ -4,19 +4,21 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#e09000">
-<meta name="description" content="폰으로 읽는 생명과학 학습 노트 — 효소와 물질대사, 세포호흡과 발효">
+<meta name="description" content="폰으로 읽는 생명과학 학습 노트 — 세포 구조, 막, 효소, 세포호흡, 광합성">
 <title>생명과학 학습 노트</title>
 <style>
 :root{
   --bg:#faf9f7; --card:#ffffff; --ink:#1c1b19; --sub:#6b6862;
   --line:#e6e2db; --ac:#c47a00; --accent-soft:#fff6e2; --dk:#3a362e;
   --gly:#12897b; --pyr:#d95f2a; --oxp:#6b4fb8; --enz:#7b5ec7; --pho:#3f8f3f;
+  --cel:#c47a00; --mem:#d95f2a;
   --r:16px; --shadow:0 1px 3px rgba(0,0,0,.06),0 6px 18px rgba(0,0,0,.04);
 }
 @media (prefers-color-scheme:dark){
   :root{ --bg:#16150f; --card:#211f18; --ink:#f0ede5; --sub:#a29d92;
     --line:#332f26; --ac:#f5b024; --accent-soft:#2c2415; --dk:#e8e4da; --shadow:none;
-    --gly:#2ab5a3; --pyr:#f0783f; --oxp:#9a80e0; --enz:#9a80e0; --pho:#4caf50; }
+    --gly:#2ab5a3; --pyr:#f0783f; --oxp:#9a80e0; --enz:#9a80e0; --pho:#4caf50;
+    --cel:#f5b024; --mem:#f0783f; }
 }
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 html,body{margin:0;padding:0}
@@ -38,6 +40,9 @@ h1{font-size:27px;margin:0 0 10px;letter-spacing:-.035em;line-height:1.3}
 .card:hover{border-color:var(--ac)}
 .card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--bar)}
 .card.e{--bar:var(--enz)} .card.r{--bar:var(--gly)} .card.p{--bar:var(--pho)}
+.card.c{--bar:var(--cel)} .card.m{--bar:var(--mem)}
+.sec{font-size:12px;font-weight:800;color:var(--sub);letter-spacing:.06em;
+  margin:26px 0 12px;padding-left:2px}
 
 .ctop{display:flex;align-items:center;gap:10px;margin-bottom:9px}
 .badge{flex:none;width:34px;height:34px;border-radius:10px;display:grid;place-items:center;
@@ -72,17 +77,57 @@ footer a{color:var(--sub)}
   <div class="hero">
     <div class="eyebrow">폰으로 읽는 학습 노트</div>
     <h1>생명과학 학습 노트</h1>
-    <p>세포가 에너지를 다루는 방법을 세 편으로 나눠 정리했습니다.<br>
+    <p>세포라는 무대를 먼저 보고, 그 안에서 에너지가 어떻게 도는지 따라갑니다.<br>
     글은 화면 폭에 맞춰 흐르고, 도해는 탭하면 확대됩니다.</p>
   </div>
 
+  <div class="sec">세포라는 무대</div>
+  <div class="grid">
+
+    <a class="card c" href="cell-tour/">
+      <div class="ctop">
+        <div class="badge">세포</div>
+        <div class="ct">세포 구조</div>
+        <div class="num">1편</div>
+      </div>
+      <p class="cd"><b>세포는 왜 이렇게 작을까?</b> 그리고 왜 그 안은 이렇게 잘게 나뉘어 있을까.
+      이 두 질문에 답하면 소기관은 외울 게 아니라 <b>이해할 것</b>이 됩니다.</p>
+      <div class="tags">
+        <span class="tag">현미경 · 해상력</span><span class="tag">표면적/부피</span>
+        <span class="tag">원핵 vs 진핵</span><span class="tag">내막계</span>
+        <span class="tag">세포내공생설</span><span class="tag">세포골격</span>
+      </div>
+      <div class="go">읽기 →</div>
+    </a>
+
+    <div class="link"><span></span>그 모든 소기관을 만드는 것 ↓<span></span></div>
+
+    <a class="card m" href="membrane/">
+      <div class="ctop">
+        <div class="badge">막</div>
+        <div class="ct">막의 구조와 기능</div>
+        <div class="num">2편</div>
+      </div>
+      <p class="cd"><b>막이 완벽한 장벽이면 세포는 굶어 죽습니다.</b> 두께 8 nm짜리 막이
+      어떻게 <b>막으면서 동시에 통과시키는지</b> — 삼투와 능동수송까지.</p>
+      <div class="tags">
+        <span class="tag">유동 모자이크</span><span class="tag">선택적 투과성</span>
+        <span class="tag">삼투 · 팽압</span><span class="tag">촉진확산</span>
+        <span class="tag">Na⁺/K⁺ 펌프</span><span class="tag">집단수송</span>
+      </div>
+      <div class="go">읽기 →</div>
+    </a>
+
+  </div>
+
+  <div class="sec">에너지가 도는 법</div>
   <div class="grid">
 
     <a class="card e" href="enzymes/">
       <div class="ctop">
         <div class="badge">효소</div>
         <div class="ct">효소와 물질대사</div>
-        <div class="num">1편</div>
+        <div class="num">3편</div>
       </div>
       <p class="cd"><b>설탕물은 왜 썩지 않을까?</b> 자발적인 반응인데도 몇 년을 멀쩡한 이유,
       그리고 효소를 한 꼬집 넣으면 몇 초 만에 끝나는 이유를 쫓아갑니다.
@@ -101,7 +146,7 @@ footer a{color:var(--sub)}
       <div class="ctop">
         <div class="badge">호흡</div>
         <div class="ct">세포호흡과 발효</div>
-        <div class="num">2편</div>
+        <div class="num">4편</div>
       </div>
       <p class="cd"><b>포도당 하나로 ATP를 몇 개 만들까?</b> 해당과정부터 화학삼투까지 따라가며,
       왜 답이 딱 떨어지지 않고 <b>"약 30 또는 32"</b>인지까지 짚습니다.</p>
@@ -119,7 +164,7 @@ footer a{color:var(--sub)}
       <div class="ctop">
         <div class="badge">광합</div>
         <div class="ct">광합성</div>
-        <div class="num">3편</div>
+        <div class="num">5편</div>
       </div>
       <p class="cd"><b>당신 몸의 탄소는 전부 공기에서 왔다.</b> 빛이 어떻게 당이 되는지 따라갑니다.
       그리고 광합성이 내놓는 산소는, 알고 보면 <b>CO₂가 아니라 물에서 나옵니다.</b></p>
@@ -136,7 +181,7 @@ footer a{color:var(--sub)}
   <div class="how">
     <h2>각 편의 구성</h2>
     <ul>
-      <li><b>읽기</b> — 본문 6개 절 + 직접 작도한 도해 10개 (탭하면 전체화면 확대)</li>
+      <li><b>읽기</b> — 본문 6개 절 + 직접 작도한 도해 7~10개 (탭하면 전체화면 확대)</li>
       <li><b>한눈에</b> — 한 장 요약 + 자주 틀리는 곳</li>
       <li><b>퀴즈</b> — 12문항, 누르면 즉시 채점 + 해설</li>
       <li><b>용어</b> — 25개 플래시카드</li>

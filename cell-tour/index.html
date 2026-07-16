@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#e09000">
+<meta name="description" content="세포 구조 — 현미경에서 세포골격까지, 폰으로 읽는 생명과학 학습 노트">
+<title>세포 구조 · 학습 노트</title>
+<style>
+:root{
+  --bg:#faf9f7; --card:#ffffff; --ink:#1c1b19; --sub:#6b6862;
+  --line:#e6e2db; --accent:#e09000; --accent-soft:#fff6e2;
+  --gly:#1a9e8f; --pyr:#e8703a; --oxp:#7b5ec7; --fer:#3b7dd8;
+  --ok:#1f9254; --no:#d0453b;
+
+  --ac:#c47a00; --dk:#3a362e;
+  --ok-soft:#e6f4ea; --no-soft:#fdecea;
+  --f-green:#e8f4e4; --f-sun:#e8a200; --f-chl:#a9d18e; --f-mit:#fbd9a5;
+  --f-atp:#ffe14d; --f-heat:#d94a3d; --f-e:#ffd54a; --f-ox:#ffe0b3; --f-red:#cfe3fb;
+  --f-cyt:#fdf3e3; --f-co2:#6d6a63; --f-inv:#eaf3fb; --f-ret:#e4f3ee;
+  --f-ims:#fde3c8; --f-mem:#f5e6a8; --f-mat:#fdf0cf; --f-h:#c9302c;
+  --f-alc:#eaf1fb; --f-lac:#fbeaea; --f-pro:#e0d6f5; --f-car:#d9eeda; --f-fat:#fdf0bf;
+
+  --f-exo:#e6f4ea; --f-endo:#fdecea; --f-p:#ffe14d; --f-rib:#a9d18e; --f-ade:#f5b96b;
+  --f-adp:#ffd9a0; --f-enz:#c9b8ee; --f-enz2:#b3a3d8; --f-sub1:#f08a5d; --f-sub2:#7bc86c;
+  --f-prod:#5b9bd5; --f-inh:#e05a4f; --f-int:#dbeafe;
+  --f-norm:#f2f7f3; --f-comp:#fdf2e9; --f-noncomp:#fbeef2;
+
+  --f-leaf:#8fce7a; --f-epi:#e8eef0; --f-meso:#a9d18e; --f-chlo:#d7ecc8; --f-thy:#4f9e3f;
+  --f-panel:#f2f0eb; --f-fromco2:#b5179e; --f-fromh2o:#0a84c4; --f-co2b:#5a5750;
+  --f-sugar:#9fd67f; --f-calvin:#1f6fb2; --f-rubisco:#8250c4; --f-ps:#a0459c;
+  --f-pig:#5ac35a; --f-accept:#cfc3ee; --f-carrier:#c9b8ee; --f-e2:#c58a00;
+  --f-mitp:#fdf0e0; --f-chlp:#eaf6e2; --f-high:#f6d3a8; --f-low:#fbf3e2;
+  --f-c4:#eef6e6; --f-bundle:#f7e3a8; --f-cam:#eef2fb; --f-night:#dfe6f5; --f-day:#fdf3d0;
+
+  --f-cellband:#fdf3d0; --f-lm:#2f6fce; --f-cube:#f0c05a; --f-cubet:#f7d98e; --f-cubes:#d9a23f;
+  --f-panel:#f2f0eb; --f-panel2:#eef4f2; --f-pro:#f8d7b0; --f-eu:#fdf0d8; --f-nuc:#b9a6e6;
+  --f-nucl:#7b5ec7; --f-mito:#f2a06a; --f-matrix:#fbd9a5; --f-er:#8fb0e8; --f-ribo:#8a5a2b;
+  --f-golgi:#5fbfae; --f-lyso:#c0504d; --f-vac:#a8cfe8; --f-ves:#c9b8ee; --f-mem2:#f5e6a8;
+  --f-mt:#fdf5e2; --f-mf:#fdeee6; --f-if:#f0edfa; --f-tub:#f0c05a; --f-act:#f0954a; --f-ker:#9a80e0;
+  --f-cent:#7b5ec7; --f-wall:#d9c48a; --f-chl:#7bbf5a;
+  --r:14px; --shadow:0 1px 3px rgba(0,0,0,.06),0 6px 18px rgba(0,0,0,.04);
+}
+@media (prefers-color-scheme:dark){
+  :root{ --bg:#16150f; --card:#211f18; --ink:#f0ede5; --sub:#a29d92;
+    --line:#332f26; --accent:#f5b024; --accent-soft:#2c2415; --shadow:none;
+    --ac:#f5b024; --dk:#e8e4da;
+    --ok-soft:#17301f; --no-soft:#331916;
+    --f-green:#1b2a1c; --f-chl:#3f6b34; --f-mit:#4a3416; --f-cyt:#241d10;
+    --f-atp:#8a7415; --f-e:#8a7415; --f-ox:#3d2c12; --f-red:#16273d;
+    --f-inv:#151f2b; --f-ret:#12251f; --f-ims:#3d2611; --f-mem:#3a3213; --f-mat:#2b2411;
+    --f-alc:#151f2b; --f-lac:#2b1615; --f-pro:#251c3a; --f-car:#16281a; --f-fat:#2e2810;
+    --f-co2:#8a8880;
+    --f-exo:#16281c; --f-endo:#2b1615; --f-p:#8a7415; --f-rib:#3f6b34; --f-ade:#6b4a1e;
+    --f-adp:#5c4218; --f-enz:#4a3d70; --f-enz2:#3a3059; --f-sub1:#7a3f28; --f-sub2:#3a6b32;
+    --f-prod:#2c4d70; --f-inh:#7a2f28; --f-int:#1c2a3d;
+    --f-norm:#1a201b; --f-comp:#2b2015; --f-noncomp:#2b171d;
+    --f-leaf:#3f6b34; --f-epi:#2a2f31; --f-meso:#3f6b34; --f-chlo:#1e2f1a; --f-thy:#57a344;
+    --f-panel:#262319; --f-fromco2:#e05ac8; --f-fromh2o:#3aaee8; --f-co2b:#8a8880;
+    --f-sugar:#3f6b34; --f-calvin:#3f92d6; --f-rubisco:#9a72e0; --f-ps:#c060ba;
+    --f-pig:#3f8f3f; --f-accept:#4a3d70; --f-carrier:#4a3d70; --f-e2:#f0b429;
+    --f-mitp:#2b2114; --f-chlp:#1a2716; --f-high:#4a3416; --f-low:#2b2411;
+    --f-c4:#1a2716; --f-bundle:#4a3d16; --f-cam:#171d2b; --f-night:#1b2136; --f-day:#2e2810;
+    --f-cellband:#2e2810; --f-lm:#4d90f0; --f-cube:#6b5220; --f-cubet:#8a6a2b; --f-cubes:#4a3416;
+    --f-panel:#262319; --f-panel2:#1b2622; --f-pro:#4a3416; --f-eu:#2b2411; --f-nuc:#453a6b;
+    --f-nucl:#9a80e0; --f-mito:#6b3f20; --f-matrix:#4a3416; --f-er:#2c4670; --f-ribo:#c08a4a;
+    --f-golgi:#1f6b5f; --f-lyso:#7a2f28; --f-vac:#26445c; --f-ves:#4a3d70; --f-mem2:#3a3213;
+    --f-mt:#2b2411; --f-mf:#2b1d16; --f-if:#231d33; --f-tub:#8a6a2b; --f-act:#8a5228; --f-ker:#6b5aa0;
+    --f-cent:#6b5aa0; --f-wall:#5c4f2a; --f-chl:#3f6b34;
+
+
+ --f-sun:#f5b024; --f-heat:#e8564a; --f-h:#e8564a;
+  }
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0}
+body{
+  background:var(--bg); color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic","Noto Sans KR",sans-serif;
+  font-size:17px; line-height:1.75; letter-spacing:-.01em;
+  -webkit-text-size-adjust:100%;
+}
+
+/* ===== 헤더 ===== */
+header{
+  position:sticky; top:0; z-index:50; background:var(--card);
+  border-bottom:1px solid var(--line); padding:env(safe-area-inset-top) 0 0;
+}
+.hd{display:flex;align-items:center;gap:10px;padding:11px 16px 9px}
+.hd .ch{
+  background:var(--accent); color:#fff; font-weight:800; font-size:15px;
+  width:30px;height:30px;border-radius:9px;display:grid;place-items:center;flex:none;
+}
+.hd h1{font-size:16px;margin:0;font-weight:700;letter-spacing:-.02em}
+.hd .src{font-size:11px;color:var(--sub);margin-top:1px}
+.home{margin-left:auto;flex:none;display:grid;place-items:center;width:34px;height:34px;
+  border-radius:9px;border:1px solid var(--line);background:var(--bg);color:var(--sub);
+  text-decoration:none;font-size:15px}
+.home:active{background:var(--accent-soft)}
+
+nav{display:flex;overflow-x:auto;scrollbar-width:none;padding:0 8px 0;gap:2px}
+nav::-webkit-scrollbar{display:none}
+nav button{
+  flex:none;background:none;border:0;padding:9px 13px 11px;font:inherit;font-size:14px;
+  font-weight:600;color:var(--sub);border-bottom:2.5px solid transparent;cursor:pointer;
+}
+nav button.on{color:var(--accent);border-bottom-color:var(--accent)}
+
+/* 진행 바 */
+#bar{height:2px;background:var(--accent);width:0;transition:width .15s}
+
+main{padding:18px 16px 90px;max-width:760px;margin:0 auto}
+section{display:none}
+section.on{display:block;animation:fade .22s ease}
+@keyframes fade{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+
+/* ===== 읽기 ===== */
+.lead{
+  background:var(--accent-soft); border:1px solid var(--line); border-radius:var(--r);
+  padding:15px 16px; margin:0 0 22px; font-size:15.5px; line-height:1.7;
+}
+.lead b{color:var(--accent)}
+
+h2{
+  font-size:19px; margin:34px 0 4px; letter-spacing:-.03em; line-height:1.4;
+  scroll-margin-top:100px;
+}
+h2 .n{
+  display:inline-block; font-size:12px; font-weight:800; color:#fff;
+  background:var(--ink); border-radius:5px; padding:2px 7px; margin-right:7px;
+  vertical-align:2px; letter-spacing:0;
+}
+h2.gly .n{background:var(--gly)} h2.pyr .n{background:var(--pyr)}
+h2.oxp .n{background:var(--oxp)} h2.fer .n{background:var(--fer)}
+.sub{color:var(--sub);font-size:13.5px;margin:0 0 16px;font-weight:500}
+h3{font-size:16px;margin:24px 0 8px;letter-spacing:-.02em}
+p{margin:0 0 13px}
+.t{color:var(--accent);font-weight:700}
+em{font-style:normal;background:linear-gradient(transparent 58%,var(--accent-soft) 58%);font-weight:600}
+
+/* 그림 */
+figure{margin:18px 0;background:var(--card);border:1px solid var(--line);
+  border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow)}
+figure svg{width:100%;height:auto;display:block;cursor:zoom-in;background:var(--card);padding:8px 6px}
+.s-ti{font:700 9.5px -apple-system,"Malgun Gothic",sans-serif;fill:var(--dk)}
+.s-sm{font:500 8.5px -apple-system,"Malgun Gothic",sans-serif;fill:var(--dk)}
+.s-lb{font:600 9px -apple-system,"Malgun Gothic",sans-serif;fill:var(--sub)}
+.s-tot{font:800 12px -apple-system,"Malgun Gothic",sans-serif}
+figcaption{padding:9px 13px 11px;font-size:12.5px;color:var(--sub);line-height:1.55;
+  border-top:1px solid var(--line)}
+figcaption b{color:var(--ink);font-size:12.5px}
+.tapz{font-size:11px;color:var(--accent);font-weight:600}
+
+/* 요점 박스 */
+.key{
+  border-left:3px solid var(--accent); background:var(--card); border-radius:0 var(--r) var(--r) 0;
+  padding:13px 15px; margin:16px 0; font-size:15.5px; box-shadow:var(--shadow);
+}
+.key b{color:var(--accent)}
+.key ul{margin:6px 0 0;padding-left:18px}
+.key li{margin:4px 0}
+
+/* 표 */
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:16px 0;
+  border:1px solid var(--line);border-radius:var(--r);background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:14px;min-width:420px}
+th,td{padding:9px 11px;text-align:left;border-bottom:1px solid var(--line)}
+th{background:var(--accent-soft);font-weight:700;font-size:13px;white-space:nowrap}
+td:first-child{font-weight:600;white-space:nowrap}
+tr:last-child td{border-bottom:0}
+
+/* ===== 핵심정리 ===== */
+.flow{display:flex;flex-direction:column;gap:9px;margin:16px 0}
+.st{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--gly);
+  border-radius:10px;padding:12px 14px;box-shadow:var(--shadow)}
+.st.p{border-left-color:var(--pyr)} .st.o{border-left-color:var(--oxp)} .st.f{border-left-color:var(--fer)}
+.st h4{margin:0 0 3px;font-size:15px}
+.st .io{font-size:13px;color:var(--sub);line-height:1.6}
+.st .io b{color:var(--ink)}
+.arw{text-align:center;color:var(--sub);font-size:13px;margin:-4px 0}
+.tot{background:var(--accent);color:#fff;border-radius:12px;padding:14px;text-align:center;
+  font-weight:700;font-size:16px;margin-top:6px}
+.tot small{display:block;font-weight:500;font-size:12px;opacity:.9;margin-top:3px}
+
+/* ===== 퀴즈 ===== */
+.q{background:var(--card);border:1px solid var(--line);border-radius:var(--r);
+  padding:16px;margin:0 0 14px;box-shadow:var(--shadow)}
+.qn{font-size:11px;font-weight:800;color:var(--accent);letter-spacing:.06em;margin-bottom:5px}
+.qt{font-weight:600;margin-bottom:11px;line-height:1.65}
+.opt{display:block;width:100%;text-align:left;background:var(--bg);border:1.5px solid var(--line);
+  border-radius:9px;padding:11px 13px;margin:6px 0;font:inherit;font-size:15px;cursor:pointer;
+  color:var(--ink);transition:.12s;line-height:1.5}
+.opt:active{transform:scale(.99)}
+.opt.ok{border-color:var(--ok);background:color-mix(in srgb,var(--ok) 12%,transparent);font-weight:600}
+.opt.no{border-color:var(--no);background:color-mix(in srgb,var(--no) 10%,transparent)}
+.opt:disabled{cursor:default}
+.exp{display:none;margin-top:10px;padding:11px 13px;background:var(--accent-soft);
+  border-radius:9px;font-size:14px;line-height:1.65}
+.exp.show{display:block}
+.exp b{color:var(--accent)}
+.score{position:sticky;bottom:14px;background:var(--ink);color:var(--bg);border-radius:99px;
+  padding:11px 18px;text-align:center;font-weight:700;font-size:14px;box-shadow:0 6px 20px rgba(0,0,0,.25);
+  margin-top:18px}
+
+/* ===== 용어카드 ===== */
+.deck{display:grid;gap:10px}
+.fc{background:var(--card);border:1px solid var(--line);border-radius:var(--r);
+  padding:15px 16px;cursor:pointer;box-shadow:var(--shadow);transition:.12s}
+.fc:active{transform:scale(.995)}
+.fc .w{font-weight:700;font-size:16px;display:flex;justify-content:space-between;align-items:center;gap:8px}
+.fc .w span{font-size:11px;color:var(--sub);font-weight:600;flex:none}
+.fc .en{font-size:12px;color:var(--sub);margin-top:2px;font-weight:500}
+.fc .d{display:none;margin-top:9px;padding-top:9px;border-top:1px dashed var(--line);
+  font-size:14.5px;line-height:1.65;color:var(--ink)}
+.fc.open .d{display:block}
+.fc.open{border-color:var(--accent)}
+
+/* 라이트박스 */
+#lb{position:fixed;inset:0;background:var(--bg);z-index:200;display:none;
+  place-items:center;touch-action:none;padding:20px}
+#lb.on{display:grid}
+#lbi{width:100%;transform-origin:center center;will-change:transform}
+#lbi svg{width:100%;height:auto;max-height:88vh}
+#lbx{position:fixed;top:calc(env(safe-area-inset-top) + 10px);right:12px;z-index:201;
+  background:var(--card);color:var(--ink);border:1px solid var(--line);width:40px;height:40px;border-radius:50%;
+  font-size:22px;cursor:pointer;backdrop-filter:blur(6px)}
+#lbh{position:fixed;bottom:calc(env(safe-area-inset-bottom) + 16px);left:50%;transform:translateX(-50%);
+  color:var(--sub);font-size:12px;z-index:201;pointer-events:none;
+  padding:5px 12px;border-radius:99px}
+
+footer{text-align:center;font-size:11.5px;color:var(--sub);padding:26px 16px 30px;line-height:1.7}
+</style>
+</head>
+<body>
+<header>
+  <div class="hd">
+    <div class="ch">세포</div>
+    <div>
+      <h1>세포 구조</h1>
+      <div class="src">현미경에서 세포골격까지 · 폰으로 읽는 학습 노트</div>
+    </div>
+    <a class="home" href="../" aria-label="목차로" title="목차로">☰</a>
+  </div>
+  <nav>
+    <button class="on" data-s="read">읽기</button>
+    <button data-s="map">한눈에</button>
+    <button data-s="quiz">퀴즈</button>
+    <button data-s="voca">용어</button>
+  </nav>
+  <div id="bar"></div>
+</header>
+<main>
+
+<section id="read" class="on">
+  <div class="lead">
+    <b>세포는 왜 이렇게 작을까?</b> 그리고 왜 그 안은 이렇게 복잡하게 나뉘어 있을까?
+    이 두 질문에 답하면 세포 구조는 외울 게 아니라 <b>이해할 것</b>이 된다.
+    구조는 언제나 기능을 위해 있다.
+  </div>
+
+  <p>1665년 훅(Robert Hooke)이 참나무 껍질의 <em>죽은</em> 세포를 처음 보았고,
+  9년 뒤 레벤후크(Antoni van Leeuwenhoek)가 더 나은 현미경으로 <em>살아 있는</em> 세포를 보았다.
+  그 뒤로 세포를 이해하는 역사는 <b>더 작은 것을 보게 된 역사</b>였다.</p>
+
+  <h2><span class="n">1</span>세포를 본다는 것</h2>
+  <p class="sub">보이는 것이 곧 알 수 있는 것이었다</p>
+
+  <p>현미경에는 세 가지 한계가 있다. <span class="t">배율</span>(상과 실물의 비), <span class="t">해상력</span>(두 점을 두 점으로 구별하는 최소 거리),
+  <span class="t">대비</span>(부위 간 차이의 뚜렷함)다. 셋 중 결정적인 건 <em>해상력</em>이다.
+  배율만 올리면 상은 커지지만 흐려질 뿐이다.</p>
+
+  <figure><svg id="c-scale" viewBox="0 0 340 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="세포의 크기 범위">
+  <line x1="52" y1="14" x2="52" y2="266" stroke="var(--dk)" stroke-width="1.3"/>
+  <g class="s-sm" text-anchor="end">
+    <text x="46" y="22">10 m</text><text x="46" y="58">1 m</text><text x="46" y="94">1 cm</text>
+    <text x="46" y="130">1 mm</text><text x="46" y="166">100 μm</text><text x="46" y="202">10 μm</text>
+    <text x="46" y="238">1 μm</text><text x="46" y="266">1 nm</text>
+  </g>
+  <g stroke="var(--line)" stroke-width=".8">
+    <line x1="52" y1="18" x2="196" y2="18"/><line x1="52" y1="54" x2="196" y2="54"/>
+    <line x1="52" y1="90" x2="196" y2="90"/><line x1="52" y1="126" x2="196" y2="126"/>
+    <line x1="52" y1="162" x2="196" y2="162"/><line x1="52" y1="198" x2="196" y2="198"/>
+    <line x1="52" y1="234" x2="196" y2="234"/>
+  </g>
+  <!-- 세포 영역 강조 -->
+  <rect x="52" y="162" width="144" height="72" fill="var(--f-cellband)"/>
+  <g class="s-sm">
+    <text x="58" y="32">사람의 키</text>
+    <text x="58" y="68">신경세포 길이</text>
+    <text x="58" y="104">개구리 알</text>
+    <text x="58" y="140">사람의 난자</text>
+    <text x="58" y="176" font-weight="700">대부분의 동식물 세포</text>
+    <text x="58" y="212">핵 · 대부분의 세균</text>
+    <text x="58" y="248">바이러스 · 리보솜</text>
+    <text x="58" y="262">단백질 · 작은 분자</text>
+  </g>
+  <!-- 관찰 수단 막대 -->
+  <rect x="206" y="14" width="26" height="112" rx="6" fill="var(--gly)"/>
+  <text x="219" y="76" class="s-ti" fill="#fff" text-anchor="middle" transform="rotate(-90 219,76)">육안</text>
+  <rect x="238" y="86" width="26" height="152" rx="6" fill="var(--f-lm)"/>
+  <text x="251" y="162" class="s-ti" fill="#fff" text-anchor="middle" transform="rotate(-90 251,162)">광학현미경</text>
+  <rect x="270" y="126" width="26" height="140" rx="6" fill="var(--oxp)"/>
+  <text x="283" y="196" class="s-ti" fill="#fff" text-anchor="middle" transform="rotate(-90 283,196)">전자현미경</text>
+  <!-- 해상력 한계 -->
+  <line x1="204" y1="238" x2="300" y2="238" stroke="var(--no)" stroke-width="1.4" stroke-dasharray="4 3"/>
+  <text x="304" y="234" class="s-sm" fill="var(--no)" text-anchor="end">광학 한계</text>
+  <text x="304" y="245" class="s-sm" fill="var(--no)" text-anchor="end">0.2 μm</text>
+  <text x="170" y="284" class="s-sm" text-anchor="middle" fill="var(--ac)">대부분의 세포는 1~100 μm — 현미경으로만 보인다</text>
+  <text x="170" y="296" class="s-sm" text-anchor="middle">광학현미경 해상력 0.2 μm · 전자현미경 약 2 nm(100배 향상)</text>
+</svg>
+    <figcaption><b>도해 1</b> 대부분의 세포는 <b>1~100 μm</b>라 현미경으로만 보인다. 광학현미경은 <b>0.2 μm</b>가 한계라 소기관을 제대로 볼 수 없었고, <b>1950년대 전자현미경</b>이 등장하고서야 세포 내부가 열렸다. <span class="tapz">탭하면 확대</span></figcaption>
+  </figure>
+
+  <div class="key">
+    <b>광학현미경(LM)</b> — 빛이 시료와 렌즈를 통과. 해상력 <b>0.2 μm</b>. <b>살아 있는 세포</b>를 볼 수 있다.<br>
+    <b>전자현미경(EM)</b> — 전자빔을 쏜다. 전자의 파장이 훨씬 짧아 해상력 약 <b>2 nm</b>(100배 향상). 단 <b>시료가 죽는다</b>.<br>
+    　· <b>SEM</b>(주사) — 표면 3차원 구조 　· <b>TEM</b>(투과) — 내부 단면
+  </div>
+  <p>도구가 곧 지식의 한계였다. 소기관이라는 개념 자체가 전자현미경 없이는 성립할 수 없었다.</p>
+
+  <h2 class="gly"><span class="n">2</span>세포는 왜 작아야 하는가</h2>
+  <p class="sub">기하학이 생물학을 결정한다</p>
+
+  <p>세포막 1 μm²는 1초에 <em>정해진 양</em>의 물질만 통과시킬 수 있다. 그런데 세포가 커지면
+  필요한 물질의 양(부피에 비례)은 <b>세제곱</b>으로 늘고, 그걸 들여올 창구(표면적)는 <b>제곱</b>으로만 는다.</p>
+
+  <figure><svg id="c-savol" viewBox="0 0 340 230" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="표면적과 부피의 관계">
+  <text x="170" y="16" class="s-ti" text-anchor="middle">같은 부피를 잘게 나눌수록 표면적은 늘어난다</text>
+  <!-- 큰 정육면체 1개 -->
+  <g transform="translate(40,34)">
+    <path d="M0,20 L44,20 L44,64 L0,64 z" fill="var(--f-cube)" stroke="var(--dk)"/>
+    <path d="M0,20 L14,6 L58,6 L44,20 z" fill="var(--f-cubet)" stroke="var(--dk)"/>
+    <path d="M44,20 L58,6 L58,50 L44,64 z" fill="var(--f-cubes)" stroke="var(--dk)"/>
+  </g>
+  <text x="69" y="118" class="s-ti" text-anchor="middle">1개</text>
+  <!-- 화살표 -->
+  <path d="M114,66 L146,66" stroke="var(--dk)" stroke-width="2"/>
+  <path d="M146,66 l-6,-4 l0,8 z" fill="var(--dk)"/>
+  <!-- 작은 정육면체 여러 개 -->
+  <g transform="translate(160,34)" stroke="var(--dk)" stroke-width=".7">
+    <g fill="var(--f-cube)">
+      <rect x="0" y="20" width="14" height="14"/><rect x="15" y="20" width="14" height="14"/><rect x="30" y="20" width="14" height="14"/>
+      <rect x="0" y="35" width="14" height="14"/><rect x="15" y="35" width="14" height="14"/><rect x="30" y="35" width="14" height="14"/>
+      <rect x="0" y="50" width="14" height="14"/><rect x="15" y="50" width="14" height="14"/><rect x="30" y="50" width="14" height="14"/>
+    </g>
+    <path d="M0,20 L14,6 L58,6 L44,20 z" fill="var(--f-cubet)"/>
+    <path d="M44,20 L58,6 L58,50 L44,64 z" fill="var(--f-cubes)"/>
+  </g>
+  <text x="189" y="118" class="s-ti" text-anchor="middle">여러 개로 쪼갬</text>
+  <!-- 표 -->
+  <rect x="14" y="130" width="312" height="66" rx="8" fill="var(--card)" stroke="var(--line)"/>
+  <line x1="14" y1="152" x2="326" y2="152" stroke="var(--line)"/>
+  <line x1="14" y1="174" x2="326" y2="174" stroke="var(--line)"/>
+  <line x1="196" y1="130" x2="196" y2="196" stroke="var(--line)"/>
+  <line x1="262" y1="130" x2="262" y2="196" stroke="var(--line)"/>
+  <text x="22" y="145" class="s-ti">전체 표면적</text><text x="229" y="145" class="s-ti" text-anchor="middle">6</text><text x="294" y="145" class="s-ti" text-anchor="middle">54</text>
+  <text x="22" y="167" class="s-ti">전체 부피</text><text x="229" y="167" class="s-ti" text-anchor="middle">1</text><text x="294" y="167" class="s-ti" text-anchor="middle">1</text>
+  <text x="22" y="189" class="s-ti" fill="var(--ac)">표면적 ÷ 부피</text>
+  <text x="229" y="189" class="s-ti" text-anchor="middle" fill="var(--ac)">6</text>
+  <text x="294" y="189" class="s-ti" text-anchor="middle" fill="var(--ac)">54</text>
+  <text x="170" y="214" class="s-sm" text-anchor="middle" fill="var(--ac)">표면적은 반지름의 제곱, 부피는 세제곱에 비례 → 커질수록 비율이 나빠진다</text>
+  <text x="170" y="226" class="s-sm" text-anchor="middle">그래서 세포는 작아야 하고, 큰 생물은 세포가 큰 게 아니라 <tspan font-weight="700">많은</tspan> 것이다</text>
+</svg>
+    <figcaption><b>도해 2</b> 부피는 그대로인데 잘게 나누면 표면적이 폭증한다. <b>작을수록 표면적/부피 비가 커진다</b> — 그래서 세포는 커질 수 없다. <span class="tapz">탭하면 확대</span></figcaption>
+  </figure>
+
+  <div class="key">
+    <b>큰 생물은 세포가 큰 게 아니라 세포가 많은 것이다.</b><br>
+    표면적이 더 필요하면 해법은 둘 — <b>모양을 바꾸거나</b>(신경세포처럼 길쭉하게), <b>주름을 잡거나</b>(소장의 <b>미세융모</b>).
+    미토콘드리아의 <b>크리스타</b>도 같은 논리다.
+  </div>
+
+  <h2 class="pyr"><span class="n">3</span>두 종류의 세포</h2>
+  <p class="sub">구획이 있느냐 없느냐</p>
+
+  <figure><svg id="c-proeu" viewBox="0 0 340 210" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="원핵세포와 진핵세포">
+  <!-- 원핵 -->
+  <rect x="6" y="6" width="152" height="198" rx="9" fill="var(--f-panel)" stroke="var(--line)"/>
+  <text x="82" y="24" class="s-ti" text-anchor="middle">원핵세포</text>
+  <text x="82" y="37" class="s-sm" text-anchor="middle" fill="var(--sub)">세균 · 고세균 · 1~5 μm</text>
+  <ellipse cx="82" cy="104" rx="62" ry="42" fill="var(--f-pro)" stroke="var(--dk)" stroke-width="1.3"/>
+  <ellipse cx="82" cy="104" rx="56" ry="36" fill="none" stroke="var(--dk)" stroke-width=".8"/>
+  <path d="M60,96 q10,-8 20,0 q10,8 20,0 q6,-5 12,2" fill="none" stroke="var(--no)" stroke-width="1.6"/>
+  <text x="82" y="118" class="s-sm" text-anchor="middle" fill="var(--no)">핵양체(막 없음)</text>
+  <g fill="var(--dk)" opacity=".5">
+    <circle cx="54" cy="120" r="2"/><circle cx="70" cy="128" r="2"/><circle cx="94" cy="126" r="2"/><circle cx="110" cy="118" r="2"/>
+  </g>
+  <text x="82" y="160" class="s-sm" text-anchor="middle">세포벽 · 원형질막</text>
+  <text x="82" y="176" class="s-ti" text-anchor="middle" fill="var(--no)">막성 소기관 없음</text>
+  <text x="82" y="192" class="s-sm" text-anchor="middle">DNA가 세포질에 노출</text>
+  <!-- 진핵 -->
+  <rect x="176" y="6" width="158" height="198" rx="9" fill="var(--f-panel2)" stroke="var(--line)"/>
+  <text x="255" y="24" class="s-ti" text-anchor="middle">진핵세포</text>
+  <text x="255" y="37" class="s-sm" text-anchor="middle" fill="var(--sub)">동물 · 식물 · 균류 · 10~100 μm</text>
+  <ellipse cx="255" cy="104" rx="70" ry="46" fill="var(--f-eu)" stroke="var(--dk)" stroke-width="1.3"/>
+  <ellipse cx="248" cy="98" rx="24" ry="20" fill="var(--f-nuc)" stroke="var(--dk)" stroke-width="1.3"/>
+  <ellipse cx="248" cy="98" rx="20" ry="16" fill="none" stroke="var(--dk)" stroke-width=".7"/>
+  <circle cx="248" cy="98" r="6" fill="var(--f-nucl)" stroke="var(--dk)" stroke-width=".7"/>
+  <text x="248" y="76" class="s-sm" text-anchor="middle" fill="var(--ac)">핵(이중막)</text>
+  <ellipse cx="296" cy="120" rx="14" ry="8" fill="var(--f-mito)" stroke="var(--dk)" stroke-width=".8"/>
+  <path d="M286,120 q5,-5 9,0 q5,5 9,0" fill="none" stroke="var(--dk)" stroke-width=".7" opacity=".6"/>
+  <text x="300" y="140" class="s-sm" text-anchor="middle">미토콘드리아</text>
+  <path d="M212,116 q10,-6 18,2 q-8,8 -18,-2 z" fill="var(--f-er)" stroke="var(--dk)" stroke-width=".7"/>
+  <text x="210" y="136" class="s-sm" text-anchor="middle">소포체</text>
+  <text x="255" y="176" class="s-ti" text-anchor="middle" fill="var(--ok)">막성 소기관으로 구획됨</text>
+  <text x="255" y="192" class="s-sm" text-anchor="middle">→ 한 세포 안에서 양립 못할 반응이 동시에</text>
+</svg>
+    <figcaption><b>도해 3</b> 결정적 차이는 <b>막으로 둘러싸인 핵</b>과 <b>막성 소기관</b>의 유무다. 원핵세포의 DNA는 <b>핵양체</b>라는 구역에 있을 뿐 막에 싸여 있지 않다. <span class="tapz">탭하면 확대</span></figcaption>
+  </figure>
+
+  <div class="key">
+    <b>공통점</b> — 원형질막, 세포질, 리보솜, DNA를 모두 갖는다.<br>
+    <b>차이</b> — 진핵세포는 <b>핵</b>과 <b>막성 소기관</b>이 있고 <b>10~100 μm</b>로 크다. 원핵세포는 <b>1~5 μm</b>.
+  </div>
+  <p>구획이 왜 중요한가? <em>한 세포 안에서 양립할 수 없는 반응을 동시에 시킬 수 있기 때문</em>이다.
+  리소좀은 pH 5의 산성이고 세포질은 중성이다. 막이 없으면 둘은 공존할 수 없다.
+  게다가 막 자체가 <b>효소가 박히는 작업대</b>가 된다 — 미토콘드리아 내막이 그렇다.</p>
+
+  <h2 class="oxp"><span class="n">4</span>내막계: 공장에서 배송까지</h2>
+  <p class="sub">핵 → 소포체 → 골지체 → 목적지</p>
+
+  <p><span class="t">핵</span>은 <b>이중막</b>으로 싸여 있고 <span class="t">핵공</span>이 뚫려 있다. 안에는 DNA와 단백질이 뭉친 <span class="t">염색질</span>,
+  그리고 리보솜을 조립하는 <span class="t">인</span>이 있다. 핵막은 <em>소포체와 그대로 이어져 있다</em> — 이게 내막계의 출발점이다.</p>
+  <p><span class="t">리보솜</span>은 막이 없다. 세포질에 <b>떠다니는</b> 것은 세포질에서 쓸 단백질을,
+  소포체에 <b>붙어 있는</b> 것은 막에 박히거나 소기관으로 가거나 <b>분비될</b> 단백질을 만든다.
+  소화효소를 분비하는 이자 세포는 붙은 리보솜의 비율이 높다.</p>
+
+  <figure><svg id="c-endo" viewBox="0 0 340 280" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="내막계의 흐름">
+  <defs><marker id="ca4" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse">
+    <path d="M0,0 L10,5 L0,10 z" fill="var(--dk)"/></marker></defs>
+  <!-- 핵 -->
+  <ellipse cx="60" cy="46" rx="42" ry="30" fill="var(--f-nuc)" stroke="var(--dk)" stroke-width="1.3"/>
+  <ellipse cx="60" cy="46" rx="36" ry="24" fill="none" stroke="var(--dk)" stroke-width=".8"/>
+  <text x="60" y="50" class="s-ti" text-anchor="middle">핵</text>
+  <text x="60" y="86" class="s-sm" text-anchor="middle">핵막 = 이중막, 핵공</text>
+  <!-- 핵막이 ER로 연속 -->
+  <path d="M100,52 L124,58" stroke="var(--dk)" stroke-width="1.4"/>
+  <text x="112" y="44" class="s-sm" text-anchor="middle" fill="var(--ac)">연속</text>
+  <!-- 조면소포체 -->
+  <g transform="translate(126,40)">
+    <path d="M0,4 q40,-8 80,4 q-40,10 -80,-4 z" fill="var(--f-er)" stroke="var(--dk)" stroke-width=".9"/>
+    <path d="M0,20 q40,-8 80,4 q-40,10 -80,-4 z" fill="var(--f-er)" stroke="var(--dk)" stroke-width=".9"/>
+    <path d="M0,36 q40,-8 80,4 q-40,10 -80,-4 z" fill="var(--f-er)" stroke="var(--dk)" stroke-width=".9"/>
+    <g fill="var(--f-ribo)"><circle cx="14" cy="2" r="2.4"/><circle cx="34" cy="1" r="2.4"/><circle cx="54" cy="3" r="2.4"/>
+      <circle cx="14" cy="18" r="2.4"/><circle cx="34" cy="17" r="2.4"/><circle cx="54" cy="19" r="2.4"/>
+      <circle cx="14" cy="34" r="2.4"/><circle cx="34" cy="33" r="2.4"/><circle cx="54" cy="35" r="2.4"/></g>
+  </g>
+  <text x="168" y="26" class="s-ti" text-anchor="middle">조면소포체</text>
+  <text x="168" y="96" class="s-sm" text-anchor="middle">리보솜 有 → <tspan font-weight="700">단백질</tspan> 합성</text>
+  <!-- 활면소포체 -->
+  <g transform="translate(248,42)" fill="none" stroke="var(--dk)" stroke-width="1.4">
+    <path d="M0,0 q14,10 0,20 q-14,10 0,20"/>
+    <path d="M16,2 q14,10 0,20 q-14,10 0,20"/>
+    <path d="M32,0 q14,10 0,20 q-14,10 0,20"/>
+  </g>
+  <text x="290" y="26" class="s-ti" text-anchor="middle">활면소포체</text>
+  <text x="290" y="96" class="s-sm" text-anchor="middle">리보솜 無</text>
+  <text x="290" y="108" class="s-sm" text-anchor="middle">지질 합성 · 해독 · Ca²⁺ 저장</text>
+  <!-- 수송소낭 -->
+  <path d="M168,102 L168,124" stroke="var(--dk)" stroke-width="2" marker-end="url(#ca4)"/>
+  <circle cx="150" cy="114" r="7" fill="var(--f-ves)" stroke="var(--dk)"/>
+  <text x="122" y="118" class="s-sm" text-anchor="middle">수송소낭</text>
+  <!-- 골지체 -->
+  <g transform="translate(120,130)" stroke="var(--dk)" stroke-width=".9" fill="var(--f-golgi)">
+    <path d="M0,6 q48,-10 96,6 q-48,12 -96,-6 z"/>
+    <path d="M4,22 q44,-10 88,6 q-44,12 -88,-6 z"/>
+    <path d="M8,38 q40,-10 80,6 q-40,12 -80,-6 z"/>
+  </g>
+  <text x="52" y="146" class="s-ti" text-anchor="end">골지체</text>
+  <text x="60" y="158" class="s-sm" text-anchor="end" fill="var(--ac)">시스 면(받는 쪽)</text>
+  <text x="60" y="172" class="s-sm" text-anchor="end" fill="var(--ac)">↓ 시스테나 성숙</text>
+  <text x="60" y="186" class="s-sm" text-anchor="end" fill="var(--ac)">트랜스 면(내보내는 쪽)</text>
+  <text x="252" y="152" class="s-sm">가공 · 분류 · 배송</text>
+  <text x="252" y="164" class="s-sm">"우편번호"를 붙인다</text>
+  <!-- 세 갈래 -->
+  <path d="M140,178 L96,214" stroke="var(--dk)" stroke-width="1.8" marker-end="url(#ca4)"/>
+  <path d="M168,178 L168,214" stroke="var(--dk)" stroke-width="1.8" marker-end="url(#ca4)"/>
+  <path d="M196,178 L246,214" stroke="var(--dk)" stroke-width="1.8" marker-end="url(#ca4)"/>
+  <!-- 리소좀 -->
+  <circle cx="82" cy="234" r="20" fill="var(--f-lyso)" stroke="var(--dk)" stroke-width="1.2"/>
+  <text x="82" y="232" class="s-sm" text-anchor="middle" fill="#fff">리소좀</text>
+  <text x="82" y="243" class="s-sm" text-anchor="middle" fill="#fff">pH 5</text>
+  <text x="82" y="268" class="s-sm" text-anchor="middle">가수분해효소로 소화</text>
+  <text x="82" y="279" class="s-sm" text-anchor="middle" fill="var(--sub)">동물세포에만</text>
+  <!-- 액포 -->
+  <circle cx="168" cy="234" r="18" fill="var(--f-vac)" stroke="var(--dk)" stroke-width="1.2"/>
+  <text x="168" y="238" class="s-sm" text-anchor="middle">액포</text>
+  <text x="168" y="268" class="s-sm" text-anchor="middle">저장 · 팽압</text>
+  <!-- 분비 -->
+  <rect x="228" y="216" width="94" height="36" rx="8" fill="var(--f-mem2)" stroke="var(--dk)"/>
+  <text x="275" y="232" class="s-sm" text-anchor="middle">원형질막과 융합</text>
+  <text x="275" y="244" class="s-ti" text-anchor="middle" fill="var(--ac)">세포외배출 → 분비</text>
+  <text x="275" y="268" class="s-sm" text-anchor="middle">인슐린 · 신경전달물질</text>
+</svg>
+    <figcaption><b>도해 4</b> 내막계의 흐름. 조면소포체에서 만든 단백질이 <b>수송소낭</b>을 타고 골지체로 가서 가공·분류되고, 리소좀·액포·세포막으로 배송된다. <span class="tapz">탭하면 확대</span></figcaption>
+  </figure>
+
+  <div class="key">
+    <b>조면소포체</b> — 리보솜 有 → <b>단백질</b> 합성·가공(당 붙이기), 막 자체를 늘림<br>
+    <b>활면소포체</b> — 리보솜 無 → <b>지질 합성</b>, <b>해독</b>(간세포에 발달), <b>Ca²⁺ 저장</b>(근육세포)<br>
+    <b>골지체</b> — 시스 면(받는 쪽) → 트랜스 면(내보내는 쪽). 가공·분류·배송. 산물에 <b>"우편번호"</b>를 붙인다<br>
+    <b>리소좀</b> — pH 5의 가수분해효소 주머니. <b>동물세포에만</b><br>
+    <b>액포</b> — 저장·소화·팽압. 식물의 <b>중앙 액포</b>가 대표
+  </div>
+  <p>약을 오래 먹으면 내성이 생기는 이유가 여기 있다. <em>간세포의 활면소포체가 늘어나 해독효소가 많아지기 때문</em>이다.
+  그러면 같은 약도 더 빨리 분해된다.</p>
+
+  <h2 class="fer"><span class="n">5</span>에너지 소기관</h2>
+  <p class="sub">그리고 이들이 내막계가 아닌 이유</p>
+
+  <figure><svg id="c-mito" viewBox="0 0 340 190" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="미토콘드리아의 구조">
+  <ellipse cx="150" cy="94" rx="128" ry="66" fill="var(--f-mito)" stroke="var(--dk)" stroke-width="1.4"/>
+  <ellipse cx="150" cy="94" rx="118" ry="56" fill="var(--f-matrix)" stroke="var(--dk)" stroke-width="1.2"/>
+  <!-- 크리스타 -->
+  <g fill="none" stroke="var(--dk)" stroke-width="1.3">
+    <path d="M64,60 q28,14 0,28 q-24,12 4,24"/>
+    <path d="M112,52 q30,16 0,32 q-26,14 4,26"/>
+    <path d="M162,52 q30,16 0,32 q-26,14 4,26"/>
+    <path d="M212,58 q28,14 0,28 q-24,12 4,24"/>
+  </g>
+  <text x="150" y="20" class="s-ti" text-anchor="middle">미토콘드리아 — 세포호흡의 장소</text>
+  <!-- 라벨 -->
+  <path d="M40,64 L18,44" stroke="var(--dk)" stroke-width=".9"/>
+  <text x="16" y="40" class="s-sm" text-anchor="middle">외막</text>
+  <path d="M52,80 L26,72" stroke="var(--dk)" stroke-width=".9"/>
+  <text x="22" y="70" class="s-sm" text-anchor="end">내막</text>
+  <path d="M92,74 L92,44" stroke="var(--dk)" stroke-width=".9"/>
+  <text x="92" y="40" class="s-ti" text-anchor="middle" fill="var(--ac)">크리스타</text>
+  <text x="92" y="30" class="s-sm" text-anchor="middle">주름 → 표면적 ↑</text>
+  <path d="M186,110 L200,146" stroke="var(--dk)" stroke-width=".9"/>
+  <text x="204" y="158" class="s-ti">기질</text>
+  <text x="204" y="170" class="s-sm">효소 · 자체 DNA · 리보솜</text>
+  <path d="M60,104 L44,132" stroke="var(--dk)" stroke-width=".9"/>
+  <text x="40" y="144" class="s-sm" text-anchor="end">막사이공간</text>
+  <!-- DNA -->
+  <path d="M136,100 q6,-6 12,0 q6,6 12,0" fill="none" stroke="var(--no)" stroke-width="1.6"/>
+  <text x="148" y="118" class="s-sm" text-anchor="middle" fill="var(--no)">자체 DNA</text>
+  <text x="300" y="60" class="s-sm" text-anchor="end" fill="var(--ac)">세포내공생설</text>
+  <text x="330" y="72" class="s-sm" text-anchor="end">이중막 · 원형 DNA</text>
+  <text x="330" y="84" class="s-sm" text-anchor="end">· 자체 리보솜 · 스스로 분열</text>
+  <text x="330" y="96" class="s-sm" text-anchor="end">→ 원래 독립된 세균이었다</text>
+  <text x="150" y="184" class="s-sm" text-anchor="middle">움직이거나 수축하는 세포일수록 미토콘드리아가 많다 · 크리스타가 많을수록 ATP 생산성 ↑</text>
+</svg>
+    <figcaption><b>도해 5</b> 미토콘드리아. <b>크리스타</b>(내막의 주름)가 표면적을 늘려 ATP 생산성을 높인다 — <b>표면적/부피 논리가 여기서도 작동</b>한다. <span class="tapz">탭하면 확대</span></figcaption>
+  </figure>
+
+  <div class="key">
+    <b>미토콘드리아와 엽록체는 내막계가 아니다.</b> 근거가 확실하다.<br>
+    · <b>이중막</b>으로 싸여 있고 　· <b>자체 원형 DNA</b>와 <b>자체 리보솜</b>을 갖는다<br>
+    · 스스로 <b>자라고 분열</b>한다 　· 소낭으로 내막계와 물질을 주고받지 않는다<br>
+    → <b>세포내공생설</b>: 원래 독립된 세균이 조상 세포 안에 들어가 살게 된 것이다.
+  </div>
+  <p>미토콘드리아는 1~10 μm이고, 움직이거나 수축하는 세포일수록 많다. 죽은 세포의 정적인 사진과 달리
+  <em>살아 있는 세포에서는 돌아다니고 모양을 바꾸며 분열하는 관 모양의 연결망</em>이다.</p>
+  <p><span class="t">퍼옥시좀</span>도 헷갈리기 쉽다. 단일막이고 내막계가 아니며, 대사 부산물로 <b>과산화수소(H₂O₂)</b>를 만들었다가
+  스스로 물로 바꾼다.</p>
+
+  <h2><span class="n">6</span>뼈대와 경계</h2>
+  <p class="sub">세포는 물주머니가 아니다</p>
+
+  <p>세포에는 뼈대가 있다. <span class="t">세포골격</span>은 모양을 지탱하고, 소기관을 붙들고, 세포를 움직인다.
+  소포체에서 나온 소낭이 골지체로 가는 것도, 신경전달물질이 축삭을 따라 이동하는 것도 이 길을 따른다.</p>
+
+  <figure><svg id="c-cyto" viewBox="0 0 340 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="세포골격 세 가지">
+  <!-- 미세소관 -->
+  <rect x="6" y="6" width="328" height="78" rx="9" fill="var(--f-mt)" stroke="var(--line)"/>
+  <text x="16" y="24" class="s-ti">미세소관 <tspan class="s-sm" font-weight="500">— 가장 굵다 · 25 nm</tspan></text>
+  <g transform="translate(16,32)">
+    <rect x="0" y="6" width="96" height="18" rx="9" fill="none" stroke="var(--dk)" stroke-width="1.3"/>
+    <g fill="var(--f-tub)" stroke="var(--dk)" stroke-width=".5">
+      <circle cx="10" cy="10" r="4"/><circle cx="20" cy="10" r="4"/><circle cx="30" cy="10" r="4"/><circle cx="40" cy="10" r="4"/>
+      <circle cx="50" cy="10" r="4"/><circle cx="60" cy="10" r="4"/><circle cx="70" cy="10" r="4"/><circle cx="80" cy="10" r="4"/>
+      <circle cx="10" cy="20" r="4"/><circle cx="20" cy="20" r="4"/><circle cx="30" cy="20" r="4"/><circle cx="40" cy="20" r="4"/>
+      <circle cx="50" cy="20" r="4"/><circle cx="60" cy="20" r="4"/><circle cx="70" cy="20" r="4"/><circle cx="80" cy="20" r="4"/>
+    </g>
+  </g>
+  <text x="16" y="78" class="s-sm">단백질: <tspan font-weight="700">튜불린</tspan>(α·β 이합체) · 속이 빈 관</text>
+  <text x="180" y="46" class="s-sm">· 세포 모양 유지(압력에 저항)</text>
+  <text x="180" y="58" class="s-sm">· <tspan font-weight="700">섬모·편모</tspan>의 운동</text>
+  <text x="180" y="70" class="s-sm">· 세포분열 시 <tspan font-weight="700">염색체 이동</tspan> · 소기관 이동</text>
+  <!-- 미세섬유 -->
+  <rect x="6" y="90" width="328" height="78" rx="9" fill="var(--f-mf)" stroke="var(--line)"/>
+  <text x="16" y="108" class="s-ti">미세섬유(액틴섬유) <tspan class="s-sm" font-weight="500">— 가장 가늘다 · 7 nm</tspan></text>
+  <g transform="translate(16,116)" fill="var(--f-act)" stroke="var(--dk)" stroke-width=".5">
+    <circle cx="6" cy="14" r="5"/><circle cx="15" cy="9" r="5"/><circle cx="24" cy="14" r="5"/><circle cx="33" cy="9" r="5"/>
+    <circle cx="42" cy="14" r="5"/><circle cx="51" cy="9" r="5"/><circle cx="60" cy="14" r="5"/><circle cx="69" cy="9" r="5"/>
+    <circle cx="78" cy="14" r="5"/><circle cx="87" cy="9" r="5"/>
+  </g>
+  <text x="16" y="162" class="s-sm">단백질: <tspan font-weight="700">액틴</tspan> · 두 가닥이 꼬인 나선</text>
+  <text x="180" y="130" class="s-sm">· 세포 모양 유지(<tspan font-weight="700">장력</tspan>에 견딤)</text>
+  <text x="180" y="142" class="s-sm">· <tspan font-weight="700">근육 수축</tspan> · 세포질 유동</text>
+  <text x="180" y="154" class="s-sm">· 세포 이동(위족) · 분열 시 <tspan font-weight="700">분열구</tspan></text>
+  <!-- 중간섬유 -->
+  <rect x="6" y="174" width="328" height="78" rx="9" fill="var(--f-if)" stroke="var(--line)"/>
+  <text x="16" y="192" class="s-ti">중간섬유 <tspan class="s-sm" font-weight="500">— 중간 굵기 · 8~12 nm</tspan></text>
+  <g transform="translate(16,200)" fill="none" stroke="var(--f-ker)" stroke-width="3">
+    <path d="M0,10 q12,-6 24,0 q12,6 24,0 q12,-6 24,0 q12,6 24,0"/>
+    <path d="M0,18 q12,-6 24,0 q12,6 24,0 q12,-6 24,0 q12,6 24,0"/>
+  </g>
+  <text x="16" y="246" class="s-sm">단백질: <tspan font-weight="700">케라틴</tspan> 등 · 두꺼운 케이블로 꼬임</text>
+  <text x="180" y="214" class="s-sm">· 세포 모양 유지(장력에 견딤)</text>
+  <text x="180" y="226" class="s-sm">· 핵과 소기관 <tspan font-weight="700">고정</tspan></text>
+  <text x="180" y="238" class="s-sm">· 핵막층 형성 · <tspan font-weight="700">가장 영구적</tspan></text>
+</svg>
+    <figcaption><b>도해 6</b> 세포골격 3종. 굵기 순서(25 &gt; 8~12 &gt; 7 nm)와 <b>대표 기능</b>을 묶어 기억하자 — 미세소관은 <b>이동</b>, 미세섬유는 <b>수축</b>, 중간섬유는 <b>고정</b>. <span class="tapz">탭하면 확대</span></figcaption>
+  </figure>
+
+  <div class="key">
+    <b>미세소관</b>(튜불린, 25 nm) — 압력에 저항 · 섬모·편모 운동 · <b>세포분열 시 염색체 이동</b><br>
+    <b>미세섬유</b>(액틴, 7 nm) — 장력에 견딤 · <b>근육 수축</b> · 세포질 유동 · 위족 · 분열구<br>
+    <b>중간섬유</b>(케라틴 등, 8~12 nm) — 핵·소기관 고정 · 핵막층 · <b>가장 영구적</b>
+  </div>
+  <p>미세소관과 미세섬유는 <em>끊임없이 조립·해체된다.</em> 튜불린을 붙였다 떼며 늘었다 줄었다 하는데,
+  이 역동성이 세포분열과 세포 이동을 가능하게 한다. 반면 중간섬유는 한번 만들어지면 잘 안 바뀐다.</p>
+
+  <figure><svg id="c-animplant" viewBox="0 0 340 240" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="동물세포와 식물세포의 차이">
+  <!-- 동물 -->
+  <rect x="6" y="6" width="158" height="228" rx="9" fill="var(--f-panel)" stroke="var(--line)"/>
+  <text x="85" y="24" class="s-ti" text-anchor="middle">동물세포</text>
+  <path d="M22,84 q10,-46 62,-44 q52,2 62,44 q10,42 -30,60 q-32,14 -64,0 q-40,-18 -30,-60 z" fill="var(--f-eu)" stroke="var(--dk)" stroke-width="1.3"/>
+  <ellipse cx="78" cy="92" rx="22" ry="18" fill="var(--f-nuc)" stroke="var(--dk)"/>
+  <text x="78" y="96" class="s-sm" text-anchor="middle">핵</text>
+  <circle cx="118" cy="126" r="9" fill="var(--f-lyso)" stroke="var(--dk)"/>
+  <text x="118" y="129" class="s-sm" text-anchor="middle" fill="#fff">리소좀</text>
+  <rect x="44" y="122" width="16" height="10" rx="2" fill="var(--f-cent)" stroke="var(--dk)"/>
+  <text x="42" y="144" class="s-sm" text-anchor="middle">중심체</text>
+  <ellipse cx="96" cy="140" rx="12" ry="7" fill="var(--f-mito)" stroke="var(--dk)"/>
+  <text x="85" y="180" class="s-ti" text-anchor="middle" fill="var(--ac)">동물세포에만</text>
+  <text x="85" y="196" class="s-sm" text-anchor="middle">리소좀</text>
+  <text x="85" y="208" class="s-sm" text-anchor="middle">중심립이 있는 중심체</text>
+  <text x="85" y="220" class="s-sm" text-anchor="middle">편모(일부)</text>
+  <!-- 식물 -->
+  <rect x="176" y="6" width="158" height="228" rx="9" fill="var(--f-panel2)" stroke="var(--line)"/>
+  <text x="255" y="24" class="s-ti" text-anchor="middle">식물세포</text>
+  <rect x="192" y="40" width="126" height="106" rx="4" fill="var(--f-wall)" stroke="var(--dk)" stroke-width="1.6"/>
+  <rect x="199" y="47" width="112" height="92" rx="3" fill="var(--f-eu)" stroke="var(--dk)" stroke-width=".9"/>
+  <text x="196" y="36" class="s-sm" fill="var(--ac)">세포벽(셀룰로오스)</text>
+  <ellipse cx="228" cy="72" rx="18" ry="15" fill="var(--f-nuc)" stroke="var(--dk)"/>
+  <text x="228" y="76" class="s-sm" text-anchor="middle">핵</text>
+  <rect x="248" y="82" width="56" height="48" rx="6" fill="var(--f-vac)" stroke="var(--dk)"/>
+  <text x="276" y="104" class="s-sm" text-anchor="middle">중앙</text>
+  <text x="276" y="115" class="s-sm" text-anchor="middle">액포</text>
+  <ellipse cx="216" cy="112" rx="12" ry="8" fill="var(--f-chl)" stroke="var(--dk)"/>
+  <text x="214" y="132" class="s-sm" text-anchor="middle">엽록체</text>
+  <text x="255" y="180" class="s-ti" text-anchor="middle" fill="var(--ac)">식물세포에만</text>
+  <text x="255" y="196" class="s-sm" text-anchor="middle">세포벽 · 엽록체</text>
+  <text x="255" y="208" class="s-sm" text-anchor="middle">중앙 액포(팽압)</text>
+  <text x="255" y="220" class="s-sm" text-anchor="middle">원형질연락사</text>
+</svg>
+    <figcaption><b>도해 7</b> 시험에 그대로 나오는 대조. <b>동물에만</b> 리소좀·중심립이 있는 중심체·편모, <b>식물에만</b> 세포벽·엽록체·중앙 액포·원형질연락사. <span class="tapz">탭하면 확대</span></figcaption>
+  </figure>
+
+  <div class="key">
+    <b>식물의 세포벽</b> — 셀룰로오스. 모양을 잡고 과도한 물 흡수를 막는다. <b>원형질연락사</b>로 이웃 세포와 통한다.<br>
+    <b>동물의 세포외기질(ECM)</b> — 콜라겐 등. 세포를 지지하고 <b>막단백질을 통해 세포골격과 연결</b>되어 신호를 전달한다.<br>
+    <b>동물의 세포연접</b> — 밀착연접(새지 않게) · 데스모솜(리벳처럼) · 간극연접(통로)
+  </div>
+
+  <p style="margin-top:26px;padding:14px 16px;background:var(--accent-soft);border-radius:14px;font-size:15px">
+    <b>이어지는 편 →</b> 이 세포를 감싸고 모든 소기관을 만드는 <b>막</b>이 어떻게 작동하는지는
+    <a href="../membrane/" style="color:var(--ac);font-weight:700">막의 구조와 기능 노트</a>에 있습니다.
+  </p>
+</section>
+
+<section id="map">
+  <div class="lead"><b>구조는 기능을 위해 있다.</b> 이 한 문장이 6장 전체다.</div>
+
+  <div class="flow">
+    <div class="st"><h4>① 크기 — 왜 작은가</h4>
+      <div class="io">대부분 <b>1~100 μm</b> · 광학현미경 한계 0.2 μm · 전자현미경 2 nm<br>
+      <b>표면적/부피 비</b> — 부피는 세제곱, 표면적은 제곱으로 는다 → 커질 수 없다<br>
+      해법: 모양(신경세포) · 주름(미세융모, <b>크리스타</b>)</div></div>
+    <div class="arw">↓</div>
+    <div class="st p"><h4>② 원핵 vs 진핵</h4>
+      <div class="io">공통: 원형질막·세포질·리보솜·DNA<br>
+      진핵만: <b>핵</b> + <b>막성 소기관</b> · 10~100 μm<br>
+      구획의 의미: 양립 못할 반응을 동시에 + 막이 곧 <b>작업대</b></div></div>
+    <div class="arw">↓</div>
+    <div class="st o"><h4>③ 내막계</h4>
+      <div class="io"><b>핵막 → 소포체 → 골지체 → 리소좀/액포/세포막</b> (소낭으로 연결)<br>
+      조면 ER: 리보솜 有 → 단백질 · 활면 ER: 지질·<b>해독</b>·Ca²⁺<br>
+      골지: 시스 → 트랜스, 가공·분류·배송</div></div>
+    <div class="arw">↓</div>
+    <div class="st f"><h4>④ 에너지 소기관 — 내막계 아님</h4>
+      <div class="io">미토콘드리아·엽록체: <b>이중막 · 자체 DNA · 자체 리보솜 · 스스로 분열</b><br>
+      → <b>세포내공생설</b><br>
+      퍼옥시좀: 단일막, H₂O₂ 만들었다 물로</div></div>
+    <div class="arw">↓</div>
+    <div class="st"><h4>⑤ 세포골격</h4>
+      <div class="io"><b>미세소관</b> 25 nm 튜불린 — 염색체 이동·섬모·편모<br>
+      <b>미세섬유</b> 7 nm 액틴 — 근육 수축·위족·분열구<br>
+      <b>중간섬유</b> 8~12 nm 케라틴 — 고정·가장 영구적</div></div>
+  </div>
+
+  <h3 style="margin-top:26px">동물 vs 식물 — 시험 단골</h3>
+  <div class="tw">
+  <table>
+    <tr><th></th><th>동물세포</th><th>식물세포</th></tr>
+    <tr><td>세포벽</td><td>✕</td><td><b>○</b> (셀룰로오스)</td></tr>
+    <tr><td>엽록체</td><td>✕</td><td><b>○</b></td></tr>
+    <tr><td>중앙 액포</td><td>✕ (작은 액포는 있음)</td><td><b>○</b> (팽압)</td></tr>
+    <tr><td>리소좀</td><td><b>○</b></td><td>✕</td></tr>
+    <tr><td>중심립 있는 중심체</td><td><b>○</b></td><td>✕</td></tr>
+    <tr><td>세포 간 통로</td><td>간극연접</td><td>원형질연락사</td></tr>
+  </table>
+  </div>
+
+  <h3 style="margin-top:26px">자주 틀리는 곳</h3>
+  <div class="key">
+    <ul>
+      <li>배율이 아니라 <b>해상력</b>이 한계다. 배율만 올리면 흐려질 뿐.</li>
+      <li>큰 생물은 세포가 큰 게 아니라 <b>많다</b>.</li>
+      <li>원핵세포도 <b>리보솜과 DNA는 있다</b>. 없는 건 <b>막으로 싸인</b> 핵·소기관.</li>
+      <li>미토콘드리아·엽록체는 <b>내막계가 아니다</b>(이중막·자체 DNA·스스로 분열).</li>
+      <li>리보솜은 <b>막이 없다</b>. 그래서 소기관 목록에서 성격이 다르다.</li>
+      <li>리소좀은 <b>동물세포에만</b>, 엽록체·세포벽은 <b>식물세포에만</b>.</li>
+      <li>세포골격 굵기 순서: 미세소관(25) &gt; 중간섬유(8~12) &gt; 미세섬유(7) nm.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="quiz">
+  <div class="lead">선택지를 누르면 바로 채점되고 해설이 열린다. <b>틀린 문제의 해설만 읽어도 이 단원의 함정은 거의 다 걸린다.</b></div>
+  <div id="qs"></div>
+  <div class="score" id="sc">0 / 12</div>
+</section>
+
+<section id="voca">
+  <div class="lead">카드를 <b>탭하면 뜻</b>이 열린다.</div>
+  <div class="deck" id="dk"></div>
+</section>
+</main>
+
+<div id="lb"><div id="lbi"></div></div>
+<button id="lbx">✕</button>
+<div id="lbh">두 손가락으로 확대 · 배경을 탭하면 닫힘</div>
+
+<footer>
+  세포 구조 · 학습 노트<br>
+  본문과 도해는 직접 작성·작도했습니다. 내용은 표준 생물학 교과 지식에 기반합니다.<br>
+  참고 문헌: Reece 외, <i>캠벨 생명과학</i> 9판 · Alberts 외, <i>Molecular Biology of the Cell</i><br>
+  <a href="../">목차</a> · <a href="../membrane/">막의 구조와 기능</a>
+</footer>
+
+<script>
+/* ---- 탭 ---- */
+const secs=[...document.querySelectorAll('section')];
+document.querySelectorAll('nav button').forEach(b=>{
+  b.onclick=()=>{
+    document.querySelectorAll('nav button').forEach(x=>x.classList.remove('on'));
+    b.classList.add('on');
+    secs.forEach(s=>s.classList.toggle('on', s.id===b.dataset.s));
+    window.scrollTo({top:0});
+  };
+});
+
+/* ---- 진행 바 ---- */
+addEventListener('scroll',()=>{
+  const h=document.documentElement;
+  const p=h.scrollTop/(h.scrollHeight-h.clientHeight||1);
+  document.getElementById('bar').style.width=(p*100)+'%';
+},{passive:true});
+
+/* ---- 라이트박스 (핀치 줌) ---- */
+const lb=document.getElementById('lb'), lbi=document.getElementById('lbi'),
+      lbx=document.getElementById('lbx'), lbh=document.getElementById('lbh');
+let sc=1,tx=0,ty=0,st=1,sx=0,sy=0,pd=0,moved=false;
+function apply(){lbi.style.transform=`translate(${tx}px,${ty}px) scale(${sc})`;}
+function reset(){sc=1;tx=0;ty=0;apply();}
+document.querySelectorAll('figure svg').forEach(s=>{
+  s.addEventListener('click',()=>{
+    lbi.innerHTML=''; lbi.appendChild(s.cloneNode(true));
+    lb.classList.add('on'); reset();
+    lbx.style.display='block'; lbh.style.display='block';
+    document.body.style.overflow='hidden';
+  });
+});
+function close(){lb.classList.remove('on');lbx.style.display='none';lbh.style.display='none';
+  document.body.style.overflow='';lbi.innerHTML='';}
+lbx.onclick=close;
+lb.addEventListener('click',e=>{ if(!moved && e.target===lb) close(); });
+function dist(t){const a=t[0],b=t[1];return Math.hypot(a.clientX-b.clientX,a.clientY-b.clientY);}
+lb.addEventListener('touchstart',e=>{
+  moved=false;
+  if(e.touches.length===2){pd=dist(e.touches);st=sc;}
+  else if(e.touches.length===1){sx=e.touches[0].clientX-tx;sy=e.touches[0].clientY-ty;}
+},{passive:true});
+lb.addEventListener('touchmove',e=>{
+  moved=true;
+  if(e.touches.length===2){
+    e.preventDefault();
+    sc=Math.min(6,Math.max(1,st*dist(e.touches)/pd)); apply();
+  }else if(e.touches.length===1&&sc>1){
+    e.preventDefault();
+    tx=e.touches[0].clientX-sx; ty=e.touches[0].clientY-sy; apply();
+  }
+},{passive:false});
+lb.addEventListener('dblclick',()=>{ sc=sc>1?1:2.6; tx=0;ty=0; apply(); });
+addEventListener('keydown',e=>{if(e.key==='Escape')close();});
+
+/* ---- 퀴즈 ---- */
+const QS=[
+ {q:"현미경에서 '더 작은 것을 보게 해주는' 결정적 요소는?",
+  o:["배율","해상력","대비","시야의 밝기"],a:1,
+  e:"<b>해상력</b>이다. 배율은 상과 실물의 비일 뿐이라, 배율만 올리면 상은 커지지만 <b>흐려질 뿐</b>이다. 해상력은 가까운 두 점을 두 점으로 구별하는 최소 거리다. 광학현미경은 0.2 μm가 한계이고, 전자현미경은 약 2 nm로 100배 향상됐다."},
+ {q:"세포가 커질 수 없는 근본적인 이유는?",
+  o:["DNA가 부족해서","부피는 세제곱으로 늘지만 표면적은 제곱으로만 늘어서","세포막이 찢어져서","미토콘드리아가 부족해서"],a:1,
+  e:"세포막 1 μm²는 1초에 정해진 양만 통과시킨다. 세포가 커지면 <b>필요량(부피, 세제곱)</b>은 폭증하는데 <b>창구(표면적, 제곱)</b>는 그만큼 못 는다. 그래서 <b>큰 생물은 세포가 큰 게 아니라 많은 것</b>이다."},
+ {q:"표면적을 늘리기 위한 구조가 <u>아닌</u> 것은?",
+  o:["소장세포의 미세융모","미토콘드리아의 크리스타","길쭉한 신경세포의 모양","리소좀의 산성 내부"],a:3,
+  e:"<b>리소좀의 pH 5</b>는 표면적이 아니라 <b>구획화</b>의 예다 — 가수분해효소가 잘 작동하는 환경을 세포질(중성)과 분리해 유지하는 것. 나머지 셋은 전부 표면적/부피 비를 개선하는 해법이다."},
+ {q:"원핵세포에 <u>없는</u> 것은?",
+  o:["리보솜","DNA","막으로 둘러싸인 핵","원형질막"],a:2,
+  e:"원핵세포도 <b>리보솜·DNA·원형질막·세포질을 다 갖는다</b>. 없는 것은 <b>막으로 둘러싸인</b> 핵과 막성 소기관이다. 원핵세포의 DNA는 <b>핵양체</b>라는 구역에 있지만 막에 싸여 있지 않다."},
+ {q:"세포가 막으로 구획되어 있는 것의 이점으로 가장 적절한 것은?",
+  o:["세포를 더 크게 만들 수 있다","양립할 수 없는 반응을 한 세포 안에서 동시에 진행할 수 있다","DNA를 더 많이 저장할 수 있다","에너지를 쓰지 않아도 된다"],a:1,
+  e:"리소좀은 pH 5, 세포질은 중성이다. 막이 없으면 둘은 <b>공존할 수 없다</b>. 구획 덕분에 서로 다른 환경이 동시에 유지된다. 덤으로 막 자체가 <b>효소가 박히는 작업대</b>가 된다(미토콘드리아 내막처럼)."},
+ {q:"조면소포체와 활면소포체의 차이로 옳은 것은?",
+  o:["조면소포체는 리보솜이 붙어 단백질을, 활면소포체는 지질 합성·해독·Ca²⁺ 저장을 담당한다","활면소포체가 단백질을 만든다","조면소포체만 핵막과 이어져 있다","활면소포체는 내막계가 아니다"],a:0,
+  e:"<b>조면</b>(rough)이 거칠어 보이는 건 <b>리보솜</b>이 붙어 있기 때문이고, 그래서 <b>단백질</b>을 만든다. <b>활면</b>은 리보솜이 없고 <b>지질 합성·해독·Ca²⁺ 저장</b>을 한다. 약을 오래 먹으면 간세포의 활면소포체가 늘어 내성이 생긴다."},
+ {q:"골지체의 역할을 가장 잘 표현한 것은?",
+  o:["단백질을 처음 합성한다","소포체에서 온 산물을 가공·분류해 목적지로 배송한다","ATP를 만든다","DNA를 복제한다"],a:1,
+  e:"골지체는 <b>가공·분류·배송</b> 센터다. <b>시스 면</b>(받는 쪽)으로 수송소낭을 받아 <b>트랜스 면</b>(내보내는 쪽)으로 내보내며, 산물에 인산기 같은 <b>\"우편번호\"</b>를 붙여 목적지를 지정한다."},
+ {q:"미토콘드리아와 엽록체가 <u>내막계에 속하지 않는</u> 근거로 적절하지 <u>않은</u> 것은?",
+  o:["이중막으로 둘러싸여 있다","자체 원형 DNA와 자체 리보솜을 갖는다","스스로 자라고 분열한다","단백질을 합성한다"],a:3,
+  e:"<b>단백질 합성은 근거가 못 된다</b> — 리보솜이 있는 곳이면 어디서든 일어난다. 진짜 근거는 <b>이중막 · 자체 원형 DNA · 자체 리보솜 · 스스로 분열</b>이며, 이것들이 <b>세포내공생설</b>(원래 독립된 세균이었다)의 증거다."},
+ {q:"미토콘드리아의 크리스타가 많을수록 유리한 이유는?",
+  o:["DNA를 더 많이 담을 수 있어서","내막의 표면적이 넓어져 호흡 효소가 작용할 자리가 늘어서","외막이 두꺼워져서","기질의 부피가 줄어서"],a:1,
+  e:"<b>크리스타는 내막이 안쪽으로 접힌 주름</b>이다. 호흡 효소들이 내막에 박혀 있으므로, 주름이 많을수록 <b>작업 표면적이 넓어져 ATP 생산성이 높아진다</b>. 앞서 본 표면적/부피 논리가 소기관 수준에서도 그대로 작동한다."},
+ {q:"세포골격 세 가지를 굵은 것부터 나열하면?",
+  o:["미세소관 > 중간섬유 > 미세섬유","미세섬유 > 중간섬유 > 미세소관","중간섬유 > 미세소관 > 미세섬유","미세소관 > 미세섬유 > 중간섬유"],a:0,
+  e:"<b>미세소관 25 nm</b>(튜불린) > <b>중간섬유 8~12 nm</b>(케라틴 등) > <b>미세섬유 7 nm</b>(액틴). 이름의 '미세'와 실제 굵기가 반대라 헷갈린다 — <b>미세소관이 가장 굵고 미세섬유가 가장 가늘다</b>."},
+ {q:"근육 수축과 세포분열 시 염색체 이동을 담당하는 세포골격을 짝지으면?",
+  o:["근육 수축 = 미세소관 / 염색체 이동 = 미세섬유","근육 수축 = 미세섬유 / 염색체 이동 = 미세소관","둘 다 중간섬유","둘 다 미세소관"],a:1,
+  e:"<b>근육 수축 = 미세섬유(액틴)</b>, <b>염색체 이동 = 미세소관(튜불린)</b>이다. 미세소관은 <b>이동</b>(섬모·편모·염색체·소기관), 미세섬유는 <b>수축</b>(근육·위족·분열구), 중간섬유는 <b>고정</b>으로 묶어 외우면 편하다."},
+ {q:"식물세포에는 있고 동물세포에는 <u>없는</u> 것으로만 묶인 것은?",
+  o:["세포벽 · 엽록체 · 중앙 액포","리소좀 · 중심립이 있는 중심체","미토콘드리아 · 리보솜","핵 · 소포체 · 골지체"],a:0,
+  e:"<b>식물에만</b>: 세포벽(셀룰로오스)·엽록체·중앙 액포·원형질연락사. <b>동물에만</b>: 리소좀·중심립이 있는 중심체·편모(일부). 미토콘드리아·리보솜·핵·소포체·골지체는 <b>둘 다</b> 갖는다."},
+];
+const V=[
+ ["배율","magnification","상과 실물 크기의 비. 올리기만 하면 흐려진다."],
+ ["해상력","resolution","가까운 두 점을 두 점으로 구별하는 최소 거리. 광학 0.2 μm, 전자 약 2 nm. <b>현미경의 진짜 한계</b>."],
+ ["광학현미경 / 전자현미경","LM / EM","LM은 빛을 쓰고 <b>살아 있는 세포</b>를 본다. EM은 전자빔을 써서 100배 선명하지만 <b>시료가 죽는다</b>. SEM=표면, TEM=내부 단면."],
+ ["표면적/부피 비","surface-to-volume ratio","작을수록 커진다. 세포가 커질 수 없는 이유이자, 미세융모·크리스타가 존재하는 이유."],
+ ["원핵세포","prokaryotic cell","막으로 싸인 핵과 소기관이 없다. DNA는 <b>핵양체</b>에. 1~5 μm. 세균·고세균."],
+ ["진핵세포","eukaryotic cell","핵과 막성 소기관으로 구획됨. 10~100 μm. 동물·식물·균류·원생생물."],
+ ["핵","nucleus","<b>이중막</b>+핵공. 염색질(DNA+단백질)과 인을 담는다. 핵막은 소포체와 <b>이어져 있다</b>."],
+ ["인","nucleolus","막이 없는 핵 속 구조. <b>리보솜을 조립</b>한다."],
+ ["리보솜","ribosome","<b>막이 없는</b> 단백질 공장. 떠다니는 것=세포질용, 붙은 것=분비·막·소기관용."],
+ ["내막계","endomembrane system","핵막·소포체·골지체·리소좀·액포·세포막. 직접 또는 <b>소낭</b>으로 연결된다."],
+ ["조면소포체","rough ER","리보솜 有 → <b>단백질</b> 합성·당 붙이기, 막 자체를 늘린다."],
+ ["활면소포체","smooth ER","리보솜 無 → <b>지질 합성 · 해독 · Ca²⁺ 저장</b>. 간세포·근육세포에 발달."],
+ ["골지체","Golgi apparatus","시스 면(받음) → 트랜스 면(내보냄). <b>가공·분류·배송</b>. 산물에 '우편번호'를 붙인다."],
+ ["리소좀","lysosome","pH 5의 가수분해효소 주머니. 소화 담당. <b>동물세포에만</b>."],
+ ["액포","vacuole","저장·소화·팽압. 식물의 <b>중앙 액포</b>가 대표."],
+ ["세포내공생설","endosymbiont theory","미토콘드리아·엽록체가 원래 독립된 세균이었다는 설. 근거: 이중막·자체 원형 DNA·자체 리보솜·스스로 분열."],
+ ["크리스타","cristae","미토콘드리아 <b>내막의 주름</b>. 표면적을 늘려 ATP 생산성을 높인다."],
+ ["기질(미토콘드리아)","mitochondrial matrix","내막 안쪽 공간. 효소·자체 DNA·리보솜이 있다."],
+ ["퍼옥시좀","peroxisome","단일막. <b>내막계가 아니다</b>. 대사 부산물로 H₂O₂를 만들었다가 물로 바꾼다."],
+ ["세포골격","cytoskeleton","모양 유지·소기관 고정·세포 운동·소낭 수송의 길."],
+ ["미세소관","microtubule","<b>25 nm</b>, 튜불린(α·β 이합체), 속 빈 관. 압력 저항·섬모/편모·<b>염색체 이동</b>."],
+ ["미세섬유(액틴섬유)","microfilament","<b>7 nm</b>, 액틴 두 가닥 나선. 장력 저항·<b>근육 수축</b>·세포질 유동·위족·분열구."],
+ ["중간섬유","intermediate filament","<b>8~12 nm</b>, 케라틴 등. 핵·소기관 <b>고정</b>·핵막층. <b>가장 영구적</b>."],
+ ["세포벽","cell wall","식물의 셀룰로오스 벽. 모양 유지·과도한 물 흡수 방지. <b>원형질연락사</b>로 이웃과 통한다."],
+ ["세포외기질(ECM)","extracellular matrix","동물세포 바깥의 콜라겐 등. 막단백질을 통해 <b>세포골격과 연결</b>되어 신호를 전달한다."],
+];
+
+const qs=document.getElementById('qs'); let done=0, right=0;
+QS.forEach((Q,i)=>{
+  const d=document.createElement('div'); d.className='q';
+  d.innerHTML=`<div class="qn">Q${i+1}</div><div class="qt">${Q.q}</div>`;
+  const ex=document.createElement('div'); ex.className='exp'; ex.innerHTML=Q.e;
+  Q.o.forEach((t,j)=>{
+    const b=document.createElement('button'); b.className='opt'; b.textContent=t;
+    b.onclick=()=>{
+      [...d.querySelectorAll('.opt')].forEach(x=>x.disabled=true);
+      d.querySelectorAll('.opt')[Q.a].classList.add('ok');
+      if(j!==Q.a) b.classList.add('no'); else right++;
+      ex.classList.add('show'); done++;
+      document.getElementById('sc').textContent=`${right} / ${QS.length}  (푼 문제 ${done})`;
+    };
+    d.appendChild(b);
+  });
+  d.appendChild(ex); qs.appendChild(d);
+});
+document.getElementById('sc').textContent=`0 / ${QS.length}`;
+const dk=document.getElementById('dk');
+V.forEach(([w,en,d],i)=>{
+  const c=document.createElement('div'); c.className='fc';
+  c.innerHTML=`<div class="w">${w}<span>${i+1}/${V.length}</span></div><div class="en">${en}</div><div class="d">${d}</div>`;
+  c.onclick=()=>c.classList.toggle('open');
+  dk.appendChild(c);
+});
+</script>
+</body>
+</html>
